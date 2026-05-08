@@ -30,7 +30,14 @@ export async function getImagesConfig(): Promise<ImagesConfig> {
       return DEFAULT_CONFIG
     }
 
-    return (data?.config_data as ImagesConfig) || DEFAULT_CONFIG
+    const dbConfig = data?.config_data || {}
+    
+    return {
+      hero_banner: dbConfig.hero_banner || DEFAULT_CONFIG.hero_banner,
+      productos_portada: dbConfig.productos_portada || DEFAULT_CONFIG.productos_portada,
+      productos_hero: dbConfig.productos_hero || DEFAULT_CONFIG.productos_hero,
+      paginas_bg: dbConfig.paginas_bg || DEFAULT_CONFIG.paginas_bg
+    }
   } catch (err) {
     console.error("Catch Error reading from Supabase:", err)
     return DEFAULT_CONFIG
