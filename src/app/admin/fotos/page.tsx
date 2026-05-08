@@ -13,7 +13,7 @@ const CATEGORIAS = ['Enrollables', 'Sheer Elegance', 'Verticales', 'Motorizació
 
 type Foto = { name: string; url: string; categoria: string; created_at: string }
 
-export default async function AdminFotosPage() {
+export default function AdminFotosPage() {
   const router   = useRouter()
   const supabase = createClient(supabaseUrl, supabaseKey)
 

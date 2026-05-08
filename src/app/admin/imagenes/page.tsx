@@ -395,7 +395,7 @@ function SectionHeader({ title, subtitle }: { title: string; subtitle: string })
 // ---------------------------------------------------------------------------
 // Main page
 // ---------------------------------------------------------------------------
-export default async function AdminImagenesPage() {
+export default function AdminImagenesPage() {
   const router = useRouter()
   const [config, setConfig]   = useState<ImagesConfig | null>(null)
   const [loading, setLoading] = useState(true)

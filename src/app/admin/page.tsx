@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Lock, Eye, EyeOff } from 'lucide-react'
 
-export default async function AdminLoginPage() {
+export default function AdminLoginPage() {
   const router = useRouter()
   const [password, setPassword] = useState('')
   const [show, setShow]         = useState(false)
