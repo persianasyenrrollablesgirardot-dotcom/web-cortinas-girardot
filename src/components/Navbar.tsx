@@ -117,13 +117,13 @@ export default function Navbar() {
       <div className="container-site" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '84px' }}>
 
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '4px' }}>
-          <span className="text-gold-gradient" style={{ fontSize: '26px', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '2px' }}>
+          <span className="text-gold-gradient logo-text" style={{ fontWeight: 800, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
             Fábrica de Cortinas
           </span>
-          <span style={{
-            fontSize: '11px', letterSpacing: '0.5em', textTransform: 'uppercase', fontWeight: 400,
-            color: showSolid ? 'var(--text-3)' : 'rgba(255,255,255,0.55)',
+          <span className="logo-sub" style={{
+            textTransform: 'uppercase', fontWeight: 400,
+            color: showSolid ? 'var(--text-3)' : 'rgba(255,255,255,0.7)',
           }}>
             Girardot · Colombia
           </span>
@@ -240,11 +240,13 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           className="show-mobile"
           style={{
-            background: 'none', border: 'none', cursor: 'pointer', padding: '8px',
-            color: showSolid ? 'var(--text-2)' : 'rgba(255,255,255,0.85)',
+            background: 'rgba(184,145,42,0.1)', border: '1px solid rgba(184,145,42,0.2)', 
+            cursor: 'pointer', padding: '10px', borderRadius: '12px',
+            color: showSolid ? 'var(--text)' : '#FFFFFF',
+            display: 'flex', alignItems: 'center', justifyContent: 'center'
           }}
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={26} strokeWidth={2.5} /> : <Menu size={26} strokeWidth={2.5} />}
         </button>
       </div>
 
@@ -341,10 +343,18 @@ export default function Navbar() {
         @media (min-width: 1024px) {
           .hidden-mobile { display: flex !important; }
           .show-mobile   { display: none !important; }
+          .logo-text { fontSize: 26px; }
+          .logo-sub { fontSize: 11px; letterSpacing: 0.5em; }
         }
         @media (max-width: 1023px) {
           .hidden-mobile { display: none !important; }
-          .show-mobile   { display: block !important; }
+          .show-mobile   { display: flex !important; }
+          .logo-text { fontSize: 20px; }
+          .logo-sub { fontSize: 9px; letterSpacing: 0.2em; }
+        }
+        @media (max-width: 400px) {
+          .logo-text { fontSize: 17px; }
+          .logo-sub { display: none; }
         }
         .nav-link:hover { color: var(--text) !important; }
         .mega-item:hover { background: rgba(0,0,0,0.04) !important; }
