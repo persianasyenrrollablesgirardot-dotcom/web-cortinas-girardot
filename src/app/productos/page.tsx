@@ -280,12 +280,8 @@ export default async function ProductosPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {grupo.productos.map((cat, i) => (
                   <Link key={cat.href} href={cat.href} style={{ textDecoration: 'none' }}>
-                    <div className="card-glass" style={{
+                    <div className="card-glass grid-cols-products" style={{
                       padding: '28px 32px',
-                      display: 'grid',
-                      gridTemplateColumns: '44px 1fr 1fr auto',
-                      gap: '28px',
-                      alignItems: 'center',
                       borderColor: cat.featured ? 'rgba(201,169,110,0.3)' : undefined,
                       cursor: 'pointer',
                       borderRadius: i === 0 ? '16px 16px 6px 6px' : i === grupo.productos.length - 1 ? '6px 6px 16px 16px' : '6px',
@@ -321,8 +317,7 @@ export default async function ProductosPage() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div style={{ marginTop: '48px', background: 'linear-gradient(135deg, rgba(184,145,42,0.08) 0%, rgba(184,145,42,0.03) 100%)', border: '1px solid rgba(184,145,42,0.22)', borderRadius: '16px', padding: '28px 36px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px', flexWrap: 'wrap' }}>
+        <div className="grid-cols-cta" style={{ marginTop: '48px', background: 'linear-gradient(135deg, rgba(184,145,42,0.08) 0%, rgba(184,145,42,0.03) 100%)', border: '1px solid rgba(184,145,42,0.22)', borderRadius: '16px', padding: '28px 36px' }}>
           <div>
             <p style={{ fontSize: '15px', fontWeight: 500, color: 'var(--text)', marginBottom: '4px' }}>¿No sabes qué sistema necesitas?</p>
             <p style={{ fontSize: '15px', color: 'var(--text-3)' }}>Visitamos tu espacio sin costo y te asesoramos personalmente.</p>

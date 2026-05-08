@@ -156,6 +156,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
 
             <motion.h1
               variants={fadeUp}
+              className="hero-h1"
               style={{ fontSize: 'clamp(40px, 6.5vw, 80px)', fontWeight: 300, lineHeight: 1.06, letterSpacing: '-0.025em', marginBottom: '20px', maxWidth: '820px', color: '#FFFFFF', textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
             >
               Tu espacio,{' '}
@@ -170,7 +171,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
               Persianas y cortinas premium con motorización inteligente para Girardot, Melgar y toda la zona. Garantía de hasta 7 años.
             </motion.p>
 
-            <motion.div variants={fadeUp} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '56px' }}>
+            <motion.div variants={fadeUp} className="hero-btns" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '56px' }}>
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                 <Link href="/cotizar" className="btn-primary">
                   Cotizar ahora <ArrowRight size={15} />
@@ -183,9 +184,9 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
               </motion.div>
             </motion.div>
 
-            <motion.div variants={fadeUp} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
+            <motion.div variants={fadeUp} className="grid-cols-4" style={{ borderTop: '1px solid rgba(255,255,255,0.2)' }}>
               {stats.map(({ prefix, to, suffix, label }, i) => (
-                <div key={label} style={{ padding: '24px 0 0', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.15)' : 'none', paddingRight: i < 3 ? '24px' : '0', paddingLeft: i > 0 ? '24px' : '0' }}>
+                <div key={label} className="stat-block" style={{ padding: '24px 0 0', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.15)' : 'none', paddingRight: i < 3 ? '24px' : '0', paddingLeft: i > 0 ? '24px' : '0' }}>
                   <div className="text-gold-gradient" style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', lineHeight: 1, marginBottom: '6px', display: 'block', fontWeight: 700 }}>
                     <Counter to={to} prefix={prefix} suffix={suffix} />
                   </div>
@@ -211,8 +212,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
       {/* ══════════ PILARES ══════════ */}
       <section style={{ borderTop: '1px solid var(--border)', background: 'var(--surface)', padding: '0' }}>
         <motion.div
-          className="container-site"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}
+          className="container-site grid-cols-4"
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
@@ -223,6 +223,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
               key={t}
               variants={fadeUp}
               whileHover={{ backgroundColor: 'rgba(184,145,42,0.04)', transition: { duration: 0.2 } }}
+              className="pilar-block"
               style={{ padding: '32px 28px', borderRight: i < 3 ? '1px solid var(--border)' : 'none', display: 'flex', flexDirection: 'column', gap: '10px', cursor: 'default' }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -254,7 +255,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
           </Reveal>
 
           <motion.div
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}
+            className="grid-cols-2"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
@@ -312,7 +313,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
             <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-3)', marginBottom: '12px' }}>
               También en el catálogo 2026
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '8px' }}>
+            <div className="grid-cols-5">
               {otrosProductos.map((p) => (
                 <Link key={p.href} href={p.href} style={{ textDecoration: 'none' }}>
                   <motion.div
@@ -352,7 +353,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
         />
 
         <div className="container-site" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}>
+          <div className="grid-cols-2-lg">
 
             <Reveal variant={fadeLeft}>
               <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '14px' }}>Tecnología smart</p>
@@ -375,7 +376,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
             </Reveal>
 
             <motion.div
-              style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}
+              className="grid-cols-4-gap"
               variants={staggerContainer}
               initial="hidden"
               whileInView="show"
@@ -409,7 +410,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
       {/* ══════════ CERTIFICACIONES ══════════ */}
       <section className="section-sm" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="container-site">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'center' }}>
+          <div className="grid-cols-2-lg">
 
             <Reveal variant={fadeLeft}>
               <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '12px' }}>Calidad garantizada</p>
@@ -422,7 +423,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
             </Reveal>
 
             <motion.div
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))', gap: '10px' }}
+              className="grid-cols-auto"
               variants={staggerContainer}
               initial="hidden"
               whileInView="show"
@@ -510,7 +511,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
           </Reveal>
 
           <Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '14px' }}>
+            <div className="grid-cols-auto" style={{ gap: '14px' }}>
               {[
                 {
                   nombre: 'Carolina Mendoza',
@@ -572,7 +573,8 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
             <motion.div
               whileHover={{ boxShadow: '0 24px 80px rgba(184,145,42,0.15)' }}
               transition={{ duration: 0.3 }}
-              style={{ background: 'linear-gradient(135deg, rgba(184,145,42,0.08) 0%, rgba(184,145,42,0.02) 100%)', border: '1px solid rgba(184,145,42,0.22)', borderRadius: '20px', padding: 'clamp(36px, 5vw, 64px)', display: 'grid', gridTemplateColumns: '1fr auto', gap: '40px', alignItems: 'center' }}
+              className="grid-cols-cta"
+              style={{ background: 'linear-gradient(135deg, rgba(184,145,42,0.08) 0%, rgba(184,145,42,0.02) 100%)', border: '1px solid rgba(184,145,42,0.22)', borderRadius: '20px', padding: 'clamp(36px, 5vw, 64px)' }}
             >
               <div>
                 <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Cotización gratuita</span>
