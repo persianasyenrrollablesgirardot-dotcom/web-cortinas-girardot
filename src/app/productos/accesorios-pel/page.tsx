@@ -333,7 +333,7 @@ const TOTAL = 259
 const LINEAS = 11
 const fichaCount = grupos.reduce((acc, g) => acc + g.productos.filter(p => 'ficha' in p && p.ficha).length, 0)
 
-export default function AccesoriosPelPage() {
+export default async function AccesoriosPelPage() {
   return (
     <div className="page-top">
       <div className="container-site">

@@ -55,7 +55,7 @@ const grupos = [
 
 const totalItems = grupos.reduce((acc, g) => acc + g.items.length, 0)
 
-export default function AccesoriosPergolasPage() {
+export default async function AccesoriosPergolasPage() {
   return (
     <div className="page-top">
       <div className="container-site">

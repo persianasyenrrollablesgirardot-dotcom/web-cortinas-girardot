@@ -8,8 +8,8 @@ const info = [
   { Icon: Clock,         label: 'Horario de atención', value: 'Lun – Sáb: 8 am – 6 pm', href: '#', action: null },
 ]
 
-export default function ContactoPage() {
-  const cfg = getImagesConfig()
+export default async function ContactoPage() {
+  const cfg = await getImagesConfig()
   const bgImg = cfg.paginas_bg?.contacto || ''
   return (
     <div className="page-top">

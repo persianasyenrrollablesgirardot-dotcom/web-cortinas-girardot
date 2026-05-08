@@ -31,8 +31,8 @@ const diferencial = [
   },
 ]
 
-export default function VintagePage() {
-  const cfg = getImagesConfig()
+export default async function VintagePage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['vintage'] || '/safra/vintage/vintage-inspiracion.png'
   return (
     <div className="page-top">

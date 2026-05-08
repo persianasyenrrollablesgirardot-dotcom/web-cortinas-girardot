@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-import fs from 'fs'
-import path from 'path'
+import { supabase } from '@/lib/supabase'
 
 export async function POST(req: Request) {
   const store = await cookies()
@@ -18,13 +17,32 @@ export async function POST(req: Request) {
 
     const ext = file.name.split('.').pop()?.toLowerCase() || 'jpg'
     const filename = `img_${Date.now()}.${ext}`
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads')
-    fs.mkdirSync(uploadDir, { recursive: true })
+    
     const buffer = Buffer.from(await file.arrayBuffer())
-    fs.writeFileSync(path.join(uploadDir, filename), buffer)
 
-    return NextResponse.json({ url: `/uploads/${filename}` })
-  } catch {
+    // Subir a Supabase Storage
+    const { data, error } = await supabase
+      .storage
+      .from('web_uploads')
+      .upload(filename, buffer, {
+        contentType: file.type || 'image/jpeg',
+        upsert: false
+      })
+
+    if (error) {
+      console.error("Supabase Upload Error:", error)
+      return NextResponse.json({ error: 'Error en Supabase' }, { status: 500 })
+    }
+
+    // Obtener la URL pública
+    const { data: publicUrlData } = supabase
+      .storage
+      .from('web_uploads')
+      .getPublicUrl(filename)
+
+    return NextResponse.json({ url: publicUrlData.publicUrl })
+  } catch (err) {
+    console.error(err)
     return NextResponse.json({ error: 'Error al subir el archivo' }, { status: 500 })
   }
 }

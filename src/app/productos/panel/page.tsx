@@ -73,8 +73,8 @@ const usos = [
   { titulo: 'Divisores de espacio', desc: 'Para separar zonas en oficinas o plantas abiertas sin construir muros.' },
 ]
 
-export default function PanelPage() {
-  const cfg = getImagesConfig()
+export default async function PanelPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['panel'] || ''
   const fotos = (() => {
     try {

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { User, ArrowLeft } from 'lucide-react'
 
-export default function PortalClientePage() {
+export default async function PortalClientePage() {
   return (
     <div className="min-h-screen pt-28 pb-20 flex items-center justify-center">
       <div className="max-w-xl mx-auto px-6 text-center">

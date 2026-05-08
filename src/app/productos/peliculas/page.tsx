@@ -33,8 +33,8 @@ const rollos = [
   { ancho: '1.82 m', area: '55 m²', desc: 'Rollo ancho. Para ventanales grandes sin empalmes visibles.', destacado: true },
 ]
 
-export default function PeliculasPage() {
-  const cfg = getImagesConfig()
+export default async function PeliculasPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['peliculas'] || ''
   return (
     <div className="page-top">

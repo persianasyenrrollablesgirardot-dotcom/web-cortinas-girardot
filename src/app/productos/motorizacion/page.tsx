@@ -95,8 +95,8 @@ const productos_compatibles = [
   { nombre: 'Romana Premium',       href: '/productos/romana' },
 ]
 
-export default function MotorizacionPage() {
-  const cfg = getImagesConfig()
+export default async function MotorizacionPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['motorizacion'] || ''
   return (
     <div className="page-top">

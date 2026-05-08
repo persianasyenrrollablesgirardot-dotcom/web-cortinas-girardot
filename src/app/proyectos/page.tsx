@@ -11,8 +11,8 @@ const stats = [
   { num: '100%', label: 'Instalación profesional' },
 ]
 
-export default function ProyectosPage() {
-  const cfg = getImagesConfig()
+export default async function ProyectosPage() {
+  const cfg = await getImagesConfig()
   const bgImg = cfg.paginas_bg?.proyectos || ''
   return (
     <div className="page-top">

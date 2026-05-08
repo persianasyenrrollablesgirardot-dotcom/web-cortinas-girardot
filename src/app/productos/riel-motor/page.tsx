@@ -85,8 +85,8 @@ const ventajas = [
   },
 ]
 
-export default function RielMotorPage() {
-  const cfg = getImagesConfig()
+export default async function RielMotorPage() {
+  const cfg = await getImagesConfig()
   return (
     <div className="page-top">
       <div className="container-site">

@@ -75,8 +75,8 @@ function readGaleria(sub: string) {
   } catch { return [] }
 }
 
-export default function EnrollablesPage() {
-  const cfg = getImagesConfig()
+export default async function EnrollablesPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['enrollables'] || ''
   const fotosBlackout = readGaleria('blackout')
   const fotosScreen   = readGaleria('screen')

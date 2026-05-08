@@ -85,8 +85,8 @@ const cuidados = [
   'Tolerancia de ±1 cm — hay telas que ceden o se encogen tras la confección',
 ]
 
-export default function CortinaPage() {
-  const cfg = getImagesConfig()
+export default async function CortinaPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['cortina'] || '/safra/hero-coleccion.jpg'
   return (
     <div className="page-top">

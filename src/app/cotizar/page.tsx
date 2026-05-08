@@ -36,8 +36,8 @@ const beneficios = [
   { Icon: Phone,       t: 'Sin compromiso',   d: 'Recibes la cotización detallada. Tú decides sin presiones.' },
 ]
 
-export default function CotizarPage() {
-  const cfg = getImagesConfig()
+export default async function CotizarPage() {
+  const cfg = await getImagesConfig()
   const bgImg = cfg.paginas_bg?.cotizar || ''
   return (
     <div className="page-top">

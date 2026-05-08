@@ -94,8 +94,8 @@ const telasBase = [
   { nombre: 'Traslúcida',  desc: 'Luz difusa · ambientes cálidos' },
 ]
 
-export default function EstampadosPage() {
-  const cfg = getImagesConfig()
+export default async function EstampadosPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['estampados'] || ''
   return (
     <div className="page-top">

@@ -41,8 +41,8 @@ const ventajas = [
   { titulo: 'Gran formato', desc: 'Hasta 6.0 m de ancho y 3.00 m de alto. Ideal para grandes ventanales y espacios abiertos.' },
 ]
 
-export default function HanasPage() {
-  const cfg = getImagesConfig()
+export default async function HanasPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['hanas'] || '/safra/hanas/hanas-royal.png'
   return (
     <div className="page-top">

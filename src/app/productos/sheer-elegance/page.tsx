@@ -50,8 +50,8 @@ const modelos = [
   },
 ]
 
-export default function SheerElegancePage() {
-  const cfg = getImagesConfig()
+export default async function SheerElegancePage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['sheer-elegance'] || ''
   const fotos = (() => {
     try {

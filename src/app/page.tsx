@@ -1,7 +1,7 @@
 import { getImagesConfig } from '@/lib/getImagesConfig'
 import HomeClient from './HomeClient'
 
-export default function Page() {
-  const cfg = getImagesConfig()
+export default async function Page() {
+  const cfg = await getImagesConfig()
   return <HomeClient cfg={cfg} />
 }

@@ -35,8 +35,8 @@ const ventajas = [
   { titulo: '4 formatos combinables', desc: 'Los cuatro tamaños están diseñados para combinarse entre sí en composiciones de galería.' },
 ]
 
-export default function LienzoPage() {
-  const cfg = getImagesConfig()
+export default async function LienzoPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['lienzo'] || ''
   return (
     <div className="page-top">

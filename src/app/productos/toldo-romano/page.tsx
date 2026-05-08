@@ -85,8 +85,8 @@ const fichaTecnica = [
   { label: 'Fabricación',            value: 'Nacional — medidas a la orden' },
 ]
 
-export default function ToldoRomanoPage() {
-  const cfg = getImagesConfig()
+export default async function ToldoRomanoPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['toldo-romano'] || ''
   return (
     <div className="page-top">

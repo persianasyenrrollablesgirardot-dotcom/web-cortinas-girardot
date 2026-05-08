@@ -236,7 +236,7 @@ const grupos = [
   },
 ]
 
-export default function ProductosPage() {
+export default async function ProductosPage() {
   return (
     <div className="page-top">
       <div className="container-site">

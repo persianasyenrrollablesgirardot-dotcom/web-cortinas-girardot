@@ -55,8 +55,8 @@ const posts = [
 
 const categorias = ['Todos', 'Guías', 'Tecnología', 'Consejos', 'Productos', 'Calidad']
 
-export default function BlogPage() {
-  const cfg = getImagesConfig()
+export default async function BlogPage() {
+  const cfg = await getImagesConfig()
   const bgImg = cfg.paginas_bg?.blog || ''
   const [principal, ...resto] = posts
 

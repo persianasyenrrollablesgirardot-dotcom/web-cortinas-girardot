@@ -91,8 +91,8 @@ const ambientes = [
   { titulo: 'Pasillos y áreas de tránsito',  desc: 'Diseños que transforman zonas de circulación en espacios con identidad propia.' },
 ]
 
-export default function PapelPage() {
-  const cfg = getImagesConfig()
+export default async function PapelPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['papel'] || ''
   return (
     <div className="page-top">

@@ -88,8 +88,8 @@ const usos = [
   },
 ]
 
-export default function RielCortinePage() {
-  const cfg = getImagesConfig()
+export default async function RielCortinePage() {
+  const cfg = await getImagesConfig()
   return (
     <div className="page-top">
       <div className="container-site">

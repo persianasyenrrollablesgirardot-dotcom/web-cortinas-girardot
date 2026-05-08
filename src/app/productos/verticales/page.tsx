@@ -26,8 +26,8 @@ const caracteristicas = [
   { titulo: 'Combinadas disponibles', desc: 'Vertical irregular combinada con aumento del 30%. Mínimo irregular: 0.40 m.' },
 ]
 
-export default function VerticalesPage() {
-  const cfg = getImagesConfig()
+export default async function VerticalesPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['verticales'] || ''
   const fotos = (() => {
     try {

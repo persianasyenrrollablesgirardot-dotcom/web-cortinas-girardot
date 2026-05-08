@@ -84,8 +84,8 @@ const usos = [
   },
 ]
 
-export default function RielPanelPage() {
-  const cfg = getImagesConfig()
+export default async function RielPanelPage() {
+  const cfg = await getImagesConfig()
   return (
     <div className="page-top">
       <div className="container-site">

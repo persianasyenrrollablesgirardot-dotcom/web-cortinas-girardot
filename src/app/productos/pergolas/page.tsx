@@ -152,8 +152,8 @@ const coloresLisos = [
 
 const gruposLisos = ['Neutros', 'Grises', 'Tierra', 'Vivos', 'Verdes', 'Azules']
 
-export default function PergolasPage() {
-  const cfg = getImagesConfig()
+export default async function PergolasPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['pergolas'] || '/safra/pergolas/pergola-palomino.jpg'
   return (
     <div className="page-top">

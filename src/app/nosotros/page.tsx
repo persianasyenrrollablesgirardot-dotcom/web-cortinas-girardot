@@ -26,8 +26,8 @@ const certs = [
   { name: 'Anti-bacterias',        logo: '/certs/antibacterial.svg',bg: '#0066CC' },
 ]
 
-export default function NosotrosPage() {
-  const cfg = getImagesConfig()
+export default async function NosotrosPage() {
+  const cfg = await getImagesConfig()
   const bgImg = cfg.paginas_bg?.nosotros || ''
   return (
     <div className="page-top">

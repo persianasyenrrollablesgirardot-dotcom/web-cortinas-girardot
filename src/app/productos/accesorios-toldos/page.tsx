@@ -118,7 +118,7 @@ const grupos = [
 
 const totalItems = grupos.reduce((acc, g) => acc + g.items.length, 0)
 
-export default function AccesoriosToldosPage() {
+export default async function AccesoriosToldosPage() {
   return (
     <div className="page-top">
       <div className="container-site">

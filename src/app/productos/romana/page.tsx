@@ -37,8 +37,8 @@ const ventajas = [
   { titulo: 'Compatible con telas diversas', desc: 'Admite telas blackout, traslúcidas y decorativas. Mismo sistema de telas certificadas OEKO-TEX que los enrollables.' },
 ]
 
-export default function RomanaPage() {
-  const cfg = getImagesConfig()
+export default async function RomanaPage() {
+  const cfg = await getImagesConfig()
   const heroImg = cfg.productos_hero?.['romana'] || '/safra/romana/romana-vittoria.jpg'
   return (
     <div className="page-top">
