@@ -78,6 +78,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen]         = useState(false)
   const [subOpen, setSubOpen]   = useState(false)
+  const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null)
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30)
@@ -96,6 +97,12 @@ export default function Navbar() {
     if (active(href)) return 'var(--gold)'
     return showSolid ? 'var(--text-2)' : 'rgba(255,255,255,0.88)'
   }
+
+  // Cerrar menús al cambiar de ruta
+  useEffect(() => {
+    setOpen(false)
+    setMobileSubOpen(null)
+  }, [pathname])
 
   return (
     <header style={{
@@ -244,57 +251,98 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div style={{
         overflow: 'hidden',
-        maxHeight: open ? '900px' : '0',
-        transition: 'max-height 0.35s ease',
-        background: 'rgba(247,245,241,0.99)',
+        maxHeight: open ? '100vh' : '0',
+        transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        background: 'var(--surface)',
         borderTop: open ? '1px solid rgba(0,0,0,0.07)' : 'none',
+        position: 'absolute', top: '84px', left: 0, right: 0,
+        boxShadow: open ? '0 20px 40px rgba(0,0,0,0.1)' : 'none',
+        overflowY: 'auto',
       }}>
-        <div className="container-site" style={{ padding: '16px 24px 28px' }}>
+        <div className="container-site" style={{ padding: '8px 24px 40px' }}>
           {links.map((link) => (
-            <div key={link.href}>
-              <Link href={link.href} onClick={() => setOpen(false)} style={{
-                display: 'block', padding: '13px 0', fontSize: '16px',
-                color: active(link.href) ? 'var(--gold-dark)' : 'var(--text)',
-                textDecoration: 'none', borderBottom: '1px solid rgba(0,0,0,0.06)',
-                fontWeight: active(link.href) ? 600 : 400,
-              }}>
-                {link.label}
-              </Link>
+            <div key={link.href} style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Link 
+                  href={link.hasSub ? '#' : link.href} 
+                  onClick={(e) => {
+                    if (link.hasSub) {
+                      e.preventDefault();
+                      setMobileSubOpen(mobileSubOpen === link.label ? null : link.label);
+                    } else {
+                      setOpen(false);
+                    }
+                  }} 
+                  style={{
+                    display: 'block', padding: '16px 0', fontSize: '17px', flex: 1,
+                    color: active(link.href) ? 'var(--gold-dark)' : 'var(--text)',
+                    textDecoration: 'none',
+                    fontWeight: active(link.href) || (link.hasSub && mobileSubOpen === link.label) ? 600 : 400,
+                  }}
+                >
+                  {link.label}
+                </Link>
+                {link.hasSub && (
+                  <button 
+                    onClick={() => setMobileSubOpen(mobileSubOpen === link.label ? null : link.label)}
+                    style={{ background: 'none', border: 'none', padding: '16px', color: 'var(--text-3)' }}
+                  >
+                    <ChevronDown size={18} style={{ transform: mobileSubOpen === link.label ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }} />
+                  </button>
+                )}
+              </div>
+              
               {link.hasSub && (
-                <div style={{ paddingLeft: '16px', paddingBottom: '4px' }}>
+                <div style={{ 
+                  maxHeight: mobileSubOpen === link.label ? '2000px' : '0', 
+                  overflow: 'hidden', 
+                  transition: 'max-height 0.5s ease-in-out',
+                  background: 'rgba(0,0,0,0.02)',
+                  margin: '0 -24px',
+                  padding: mobileSubOpen === link.label ? '8px 24px 16px' : '0 24px'
+                }}>
                   {submenuGrupos.map((grupo) => (
-                    <div key={grupo.titulo}>
-                      <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.12em', padding: '8px 0 4px' }}>
+                    <div key={grupo.titulo} style={{ marginBottom: '16px' }}>
+                      <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '8px' }}>
                         {grupo.titulo}
                       </p>
-                      {grupo.items.map((item) => (
-                        <Link key={item.href} href={item.href} onClick={() => setOpen(false)} style={{
-                          display: 'block', padding: '8px 0', fontSize: '14px',
-                          color: pathname === item.href ? 'var(--gold-dark)' : 'var(--text-2)',
-                          textDecoration: 'none',
-                        }}>
-                          — {item.label}
-                        </Link>
-                      ))}
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4px' }}>
+                        {grupo.items.map((item) => (
+                          <Link key={item.href} href={item.href} onClick={() => setOpen(false)} style={{
+                            display: 'block', padding: '10px 12px', fontSize: '14px', borderRadius: '8px',
+                            color: pathname === item.href ? 'var(--gold-dark)' : 'var(--text-2)',
+                            background: pathname === item.href ? 'rgba(184,145,42,0.06)' : 'transparent',
+                            textDecoration: 'none',
+                          }}>
+                            <span style={{ fontWeight: 600, display: 'block' }}>{item.label}</span>
+                            <span style={{ fontSize: '11px', color: 'var(--text-3)' }}>{item.sub}</span>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   ))}
+                  <Link href="/productos" onClick={() => setOpen(false)} style={{ display: 'block', textAlign: 'center', padding: '12px', color: 'var(--gold)', fontWeight: 600, fontSize: '14px', textDecoration: 'none', borderTop: '1px solid rgba(0,0,0,0.05)', marginTop: '8px' }}>
+                    Ver catálogo completo →
+                  </Link>
                 </div>
               )}
             </div>
           ))}
-          <Link href="/cotizar" onClick={() => setOpen(false)} className="btn-primary"
-            style={{ marginTop: '20px', width: '100%', justifyContent: 'center', fontSize: '15px' }}>
-            Cotizar ahora
-          </Link>
+          <div style={{ marginTop: '32px' }}>
+            <Link href="/cotizar" onClick={() => setOpen(false)} className="btn-primary"
+              style={{ width: '100%', justifyContent: 'center', fontSize: '16px', padding: '16px' }}>
+              Cotizar ahora
+            </Link>
+          </div>
         </div>
       </div>
 
       <style>{`
-        @media (min-width: 900px) {
+        @media (min-width: 1024px) {
           .hidden-mobile { display: flex !important; }
           .show-mobile   { display: none !important; }
         }
-        @media (max-width: 899px) {
+        @media (max-width: 1023px) {
           .hidden-mobile { display: none !important; }
           .show-mobile   { display: block !important; }
         }
