@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
     formats: ['image/webp'],
     qualities: [75, 95],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 días de cache
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
