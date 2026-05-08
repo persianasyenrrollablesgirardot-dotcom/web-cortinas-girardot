@@ -511,7 +511,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
           </Reveal>
 
           <Reveal>
-            <div className="grid-cols-auto" style={{ gap: '14px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px' }}>
               {[
                 {
                   nombre: 'Carolina Mendoza',
