@@ -1,0 +1,50 @@
+{
+  "hero_banner": "/hero_banner.png",
+  "productos_portada": {
+    "enrollables": "/uploads/img_1776034658983.png",
+    "sheer-elegance": "/uploads/img_1776033243661.png",
+    "verticales": "/uploads/img_1776034670194.png",
+    "motorizacion": "/uploads/img_1776449593861.png",
+    "romana": "/uploads/img_1776649701426.png",
+    "hanas": "/uploads/img_1776650733428.png",
+    "vintage": "/uploads/img_1776650894275.png",
+    "panel": "/uploads/img_1776034685474.png",
+    "cortina": "/uploads/img_1776651130421.png",
+    "peliculas": "/uploads/img_1776652125425.png",
+    "papel": "/uploads/img_1776650367846.png",
+    "lienzo": "/uploads/img_1776651320496.png",
+    "pergolas": "/uploads/img_1776651634238.png",
+    "estampados": "/uploads/img_1776651314967.png",
+    "toldo-romano": "/galeria/toldo-romano/toldo-romano-01.jpeg",
+    "accesorios-pel": "",
+    "accesorios-pergolas": "",
+    "accesorios-toldos": ""
+  },
+  "productos_hero": {
+    "enrollables": "/uploads/img_1776034726160.png",
+    "sheer-elegance": "/uploads/img_1776033401580.png",
+    "verticales": "/uploads/img_1776034732366.png",
+    "motorizacion": "/uploads/img_1776649997553.png",
+    "romana": "/uploads/img_1776649990741.png",
+    "hanas": "/uploads/img_1776650740219.png",
+    "vintage": "/uploads/img_1776650907664.png",
+    "panel": "/uploads/img_1776034741561.png",
+    "cortina": "/uploads/img_1776651141606.png",
+    "peliculas": "/uploads/img_1776652131936.png",
+    "papel": "/uploads/img_1776650377979.png",
+    "lienzo": "/uploads/img_1776651332786.png",
+    "pergolas": "/uploads/img_1776651642625.png",
+    "estampados": "/uploads/img_1776651294707.png",
+    "toldo-romano": "/galeria/toldo-romano/toldo-romano-01.jpeg",
+    "accesorios-pel": "",
+    "accesorios-pergolas": "",
+    "accesorios-toldos": ""
+  },
+  "paginas_bg": {
+    "proyectos": "/uploads/img_1776652868690.png",
+    "nosotros": "/uploads/img_1776653470058.png",
+    "blog": "/uploads/img_1776653926965.png",
+    "cotizar": "",
+    "contacto": ""
+  }
+}

@@ -1,0 +1,10 @@
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="12" fill="#0066CC"/>
+  <!-- Shield with cross -->
+  <path d="M60 18 L82 28 L82 58 C82 72 72 83 60 88 C48 83 38 72 38 58 L38 28 Z" fill="#1A88EE" stroke="#66BBFF" stroke-width="1.5"/>
+  <!-- Medical cross -->
+  <rect x="53" y="38" width="14" height="40" rx="3" fill="white"/>
+  <rect x="40" y="51" width="40" height="14" rx="3" fill="white"/>
+  <text x="60" y="104" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">ANTI-BACT.</text>
+  <text x="60" y="116" text-anchor="middle" font-family="Arial,sans-serif" font-size="7.5" fill="#AAD4FF" letter-spacing="0.5">CERTIFICADO</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="12" fill="#1A7A4A"/>
+  <!-- Shield shape -->
+  <path d="M60 18 L82 28 L82 58 C82 72 72 83 60 88 C48 83 38 72 38 58 L38 28 Z" fill="#2EA867" stroke="#4DC98A" stroke-width="1.5"/>
+  <!-- Checkmark -->
+  <path d="M48 56 L56 65 L73 46" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="60" y="104" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" letter-spacing="1">LEAD FREE</text>
+  <text x="60" y="116" text-anchor="middle" font-family="Arial,sans-serif" font-size="7.5" fill="#A0DDBB" letter-spacing="0.5">SIN PLOMO</text>
+</svg>

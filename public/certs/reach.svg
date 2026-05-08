@@ -1,0 +1,24 @@
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="12" fill="#003399"/>
+  <!-- EU stars circle -->
+  <g transform="translate(60,52)">
+    <g id="star">
+      <polygon points="0,-8 1.8,-2.5 7.6,-2.5 3.1,1 4.7,6.5 0,3.5 -4.7,6.5 -3.1,1 -7.6,-2.5 -1.8,-2.5" fill="#FFCC00" transform="scale(0.55)"/>
+    </g>
+    <!-- 12 stars positioned around a circle of radius 18 -->
+    <use href="#star" transform="translate(0,-18)"/>
+    <use href="#star" transform="rotate(30) translate(0,-18)"/>
+    <use href="#star" transform="rotate(60) translate(0,-18)"/>
+    <use href="#star" transform="rotate(90) translate(0,-18)"/>
+    <use href="#star" transform="rotate(120) translate(0,-18)"/>
+    <use href="#star" transform="rotate(150) translate(0,-18)"/>
+    <use href="#star" transform="rotate(180) translate(0,-18)"/>
+    <use href="#star" transform="rotate(210) translate(0,-18)"/>
+    <use href="#star" transform="rotate(240) translate(0,-18)"/>
+    <use href="#star" transform="rotate(270) translate(0,-18)"/>
+    <use href="#star" transform="rotate(300) translate(0,-18)"/>
+    <use href="#star" transform="rotate(330) translate(0,-18)"/>
+  </g>
+  <text x="60" y="88" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" letter-spacing="2">REACH</text>
+  <text x="60" y="102" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#FFCC00" letter-spacing="1">EU REGULATION</text>
+</svg>
