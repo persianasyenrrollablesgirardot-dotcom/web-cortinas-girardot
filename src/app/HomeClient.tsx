@@ -128,7 +128,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
       <section className="hero-section" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
 
         {/* Imagen hero */}
-        <Image src={heroSrc} alt="" fill priority quality={95} sizes="100vw"
+        <Image src={heroSrc} alt="" fill priority quality={80} sizes="100vw"
           style={{ objectFit: 'cover', objectPosition: 'center', zIndex: 0 }} />
 
         {/* Overlay izquierda */}

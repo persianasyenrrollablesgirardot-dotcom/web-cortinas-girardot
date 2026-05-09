@@ -275,6 +275,12 @@ textarea.input { resize: vertical; }
   .stat-block:last-child { border-bottom: none; }
   .pilar-block { border-right: none !important; border-bottom: 1px solid var(--border); }
   .pilar-block:last-child { border-bottom: none; }
+  
+  /* Optimización de rendimiento móvil */
+  .card-glass {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
 }
 
 /* ─── HERO — sección con imagen, mantiene look oscuro ────── */
