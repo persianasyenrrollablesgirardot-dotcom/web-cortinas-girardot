@@ -117,8 +117,8 @@ export default function Navbar() {
       <div className="container-site" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '84px' }}>
 
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '2px' }}>
-          <span className="text-gold-gradient logo-text" style={{ fontWeight: 800, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '2px', flexShrink: 1, minWidth: 0 }}>
+          <span className="text-gold-gradient logo-text" style={{ fontWeight: 800, letterSpacing: '0.02em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
             Fábrica de Cortinas
           </span>
           <span className="logo-sub" style={{
@@ -240,13 +240,16 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           className="show-mobile"
           style={{
-            background: 'rgba(184,145,42,0.1)', border: '1px solid rgba(184,145,42,0.2)', 
+            background: 'var(--gold)', 
+            border: 'none',
+            boxShadow: '0 4px 12px rgba(184,145,42,0.4)',
             cursor: 'pointer', padding: '10px', borderRadius: '12px',
-            color: showSolid ? 'var(--text)' : '#FFFFFF',
-            display: 'flex', alignItems: 'center', justifyContent: 'center'
+            color: '#FFFFFF',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            flexShrink: 0
           }}
         >
-          {open ? <X size={26} strokeWidth={2.5} /> : <Menu size={26} strokeWidth={2.5} />}
+          {open ? <X size={24} strokeWidth={3} /> : <Menu size={24} strokeWidth={3} />}
         </button>
       </div>
 
@@ -349,11 +352,10 @@ export default function Navbar() {
         @media (max-width: 1023px) {
           .hidden-mobile { display: none !important; }
           .show-mobile   { display: flex !important; }
-          .logo-text { fontSize: 20px; }
-          .logo-sub { fontSize: 9px; letterSpacing: 0.2em; }
+          .logo-text { fontSize: clamp(14px, 4.5vw, 20px); }
+          .logo-sub { fontSize: 9px; letterSpacing: 0.15em; }
         }
-        @media (max-width: 400px) {
-          .logo-text { fontSize: 17px; }
+        @media (max-width: 360px) {
           .logo-sub { display: none; }
         }
         .nav-link:hover { color: var(--text) !important; }
