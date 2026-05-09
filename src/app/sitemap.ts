@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE = 'https://fabricadecortinasgirardot.com'
+const BASE = 'https://persianasgirardot.info'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const productos = [

@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin', '/portal-cliente', '/api/'],
       },
     ],
-    sitemap: 'https://fabricadecortinasgirardot.com/sitemap.xml',
+    sitemap: 'https://persianasgirardot.info/sitemap.xml',
   }
 }

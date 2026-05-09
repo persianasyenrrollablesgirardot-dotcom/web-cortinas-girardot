@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 
-const SITE_URL = 'https://fabricadecortinasgirardot.com'
+const SITE_URL = 'https://persianasgirardot.info'
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
