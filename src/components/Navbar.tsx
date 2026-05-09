@@ -116,19 +116,6 @@ export default function Navbar() {
     }}>
       <div className="container-site" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '84px' }}>
 
-        {/* Logo */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '2px', flexShrink: 1, minWidth: 0 }}>
-          <span className="text-gold-gradient logo-text" style={{ fontWeight: 800, letterSpacing: '0.02em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
-            Fábrica de Cortinas
-          </span>
-          <span className="logo-sub" style={{
-            textTransform: 'uppercase', fontWeight: 400,
-            color: showSolid ? 'var(--text-3)' : 'rgba(255,255,255,0.7)',
-          }}>
-            Girardot · Colombia
-          </span>
-        </Link>
-
         {/* Nav desktop */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '2px' }} className="hidden-mobile">
           {links.map((link) =>
@@ -235,7 +222,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle - MOVED TO LEFT IN ROW */}
         <button
           onClick={() => setOpen(!open)}
           className="show-mobile"
@@ -246,11 +233,25 @@ export default function Navbar() {
             cursor: 'pointer', padding: '10px', borderRadius: '12px',
             color: '#FFFFFF',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            flexShrink: 0
+            flexShrink: 0, order: 0
           }}
         >
           {open ? <X size={24} strokeWidth={3} /> : <Menu size={24} strokeWidth={3} />}
         </button>
+
+        {/* Logo - MOVED TO RIGHT IN ROW (via order) */}
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '2px', flexShrink: 1, minWidth: 0, order: 1 }}>
+          <span className="text-gold-gradient logo-text" style={{ fontWeight: 800, letterSpacing: '0.02em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+            Fábrica de Cortinas
+          </span>
+          <span className="logo-sub" style={{
+            textTransform: 'uppercase', fontWeight: 400,
+            color: showSolid ? 'var(--text-3)' : 'rgba(255,255,255,0.7)',
+            textAlign: 'right'
+          }}>
+            Girardot · Colombia
+          </span>
+        </Link>
       </div>
 
       {/* Mobile menu */}
