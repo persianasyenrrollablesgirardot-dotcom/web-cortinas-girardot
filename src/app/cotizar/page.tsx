@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CheckCircle, Clock, MapPin, Phone } from 'lucide-react'
 import { getImagesConfig } from '@/lib/getImagesConfig'
+import CotizarForm from './CotizarForm'
 
 const sistemasGrupos = [
   {
@@ -79,59 +80,7 @@ export default async function CotizarPage() {
 
           {/* Formulario */}
           <div className="card-glass" style={{ padding: '36px' }}>
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>Nombre completo *</label>
-                  <input type="text" required placeholder="Tu nombre" className="input" />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>WhatsApp *</label>
-                  <input type="tel" required placeholder="300 000 0000" className="input" />
-                </div>
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>Ciudad / Municipio *</label>
-                <input type="text" required placeholder="Girardot, Melgar, Ricaurte..." className="input" />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>Tipo de sistema</label>
-                <select className="input" style={{ appearance: 'none', background: 'var(--surface)' }}>
-                  <option value="">Seleccionar...</option>
-                  {sistemasGrupos.map((g) => (
-                    <optgroup key={g.grupo} label={g.grupo}>
-                      {g.items.map((s) => <option key={s}>{s}</option>)}
-                    </optgroup>
-                  ))}
-                </select>
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>¿Cuántas ventanas?</label>
-                  <input type="number" min={1} placeholder="Ej: 3" className="input" />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>¿Con motorización?</label>
-                  <select className="input" style={{ appearance: 'none', background: 'var(--surface)' }}>
-                    <option value="">No sé aún</option>
-                    <option>Sí, con motorización</option>
-                    <option>No por ahora</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>Notas adicionales</label>
-                <textarea rows={3} placeholder="Medidas aproximadas, tipo de espacio, preferencias de color..." className="input" style={{ resize: 'vertical' }} />
-              </div>
-
-              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '15px', fontSize: '16px' }}>
-                Enviar solicitud de cotización
-              </button>
-            </form>
+            <CotizarForm sistemasGrupos={sistemasGrupos} />
           </div>
 
         </div>
