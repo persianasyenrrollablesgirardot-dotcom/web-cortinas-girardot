@@ -125,7 +125,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
   return (
     <>
       {/* ══════════ HERO FUTURISTA (SMART HOME APP LAYOUT) ══════════ */}
-      <section className="hero-section" style={{ position: 'relative', overflow: 'visible', minHeight: '100vh', display: 'flex', alignItems: 'center', background: 'var(--bg)', color: 'var(--text)', borderBottom: '1px solid var(--border)' }}>
+      <section className="hero-section-bright" style={{ position: 'relative', overflow: 'visible', minHeight: '100vh', display: 'flex', alignItems: 'center', background: '#FFFFFF', color: 'var(--text)', borderBottom: '1px solid var(--border)' }}>
         
         {/* Decorative Grid Background */}
         <div className="grid-bg" style={{ position: 'absolute', inset: 0, opacity: 0.6, pointerEvents: 'none', zIndex: 0 }} />
@@ -165,7 +165,7 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
                 <Link href="/cotizar" className="btn-primary" style={{ padding: '16px 32px', fontSize: '16px', borderRadius: '16px', boxShadow: '0 10px 25px rgba(184,145,42,0.3)' }}>
                   Configurar tu espacio <ArrowRight size={16} />
                 </Link>
-                <Link href="/productos" className="btn-secondary" style={{ padding: '16px 32px', fontSize: '16px', borderRadius: '16px', background: '#FFFFFF', borderColor: 'var(--border)' }}>
+                <Link href="/productos" className="btn-secondary" style={{ padding: '16px 32px', fontSize: '16px', borderRadius: '16px', background: '#FFFFFF', borderColor: 'var(--border)', color: 'var(--text)' }}>
                   Explorar tecnología
                 </Link>
               </motion.div>

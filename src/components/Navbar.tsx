@@ -95,7 +95,7 @@ export default function Navbar() {
 
   const linkColor = (href: string) => {
     if (active(href)) return 'var(--gold)'
-    return showSolid ? 'var(--text-2)' : 'rgba(255,255,255,0.88)'
+    return 'var(--text-2)'
   }
 
   // Cerrar menús al cambiar de ruta
@@ -246,7 +246,7 @@ export default function Navbar() {
           </span>
           <span className="logo-sub" style={{
             textTransform: 'uppercase', fontWeight: 400,
-            color: showSolid ? 'var(--text-3)' : 'rgba(255,255,255,0.7)',
+            color: 'var(--text-3)',
             textAlign: 'right'
           }}>
             Girardot · Colombia
