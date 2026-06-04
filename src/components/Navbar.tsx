@@ -141,10 +141,10 @@ export default function Navbar() {
 
                 {/* Mega-menu — sin gap: paddingTop crea el espacio visual sin romper hover */}
                 <div style={{
-                  position: 'absolute', top: '100%', left: '50%',
-                  transform: subOpen ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(6px)',
-                  paddingTop: '8px',           /* zona invisible que evita perder el hover */
-                  width: '1080px',
+                  position: 'absolute', top: '100%', left: '-100px', /* Centrado manual respecto al link */
+                  transform: subOpen ? 'translateY(0)' : 'translateY(6px)',
+                  paddingTop: '12px', /* zona invisible que evita perder el hover */
+                  width: '880px', /* Reducido de 1080px */
                   opacity: subOpen ? 1 : 0,
                   visibility: subOpen ? 'visible' : 'hidden',
                   transition: 'opacity 0.18s ease, transform 0.18s ease, visibility 0.18s',
@@ -157,10 +157,10 @@ export default function Navbar() {
                     borderRadius: '16px',
                     backdropFilter: 'blur(20px)',
                     boxShadow: '0 16px 48px rgba(0,0,0,0.13)',
-                    padding: '20px',
+                    padding: '24px',
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(7, 1fr)',
-                    gap: '6px',
+                    gridTemplateColumns: 'repeat(4, 1fr)', /* 4 columnas en lugar de 7 */
+                    gap: '20px 16px', /* Mayor gap vertical entre filas */
                   }}>
                     {submenuGrupos.map((grupo) => (
                       <div key={grupo.titulo}>
