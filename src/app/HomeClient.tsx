@@ -131,82 +131,79 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
         <Image src={heroSrc} alt="" fill priority quality={80} sizes="100vw"
           style={{ objectFit: 'cover', objectPosition: 'center', zIndex: 0 }} />
 
-        {/* Overlay izquierda */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 38%, rgba(0,0,0,0.0) 65%)', zIndex: 1 }} />
-
-        {/* Orb animado */}
-        <motion.div
-          animate={{ scale: [1, 1.15, 1], opacity: [0.18, 0.28, 0.18] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ position: 'absolute', top: '20%', left: '5%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,145,42,0.25) 0%, transparent 70%)', zIndex: 1, pointerEvents: 'none' }}
-        />
-
-        {/* Degradado inferior */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '160px', background: 'linear-gradient(to bottom, transparent, var(--bg))', zIndex: 1 }} />
+        {/* Overlay muy sutil para asegurar un mínimo de contraste sin perder luminosidad */}
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.15)', zIndex: 1 }} />
 
         <div className="container-site" style={{ position: 'relative', zIndex: 2, paddingTop: '124px', paddingBottom: '56px' }}>
 
-          <motion.div variants={staggerContainer} initial="hidden" animate="show">
+          <motion.div variants={staggerContainer} initial="hidden" animate="show" style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
 
-            <motion.div variants={fadeUp}>
-              <span className="badge animate-pulse-soft" style={{ marginBottom: '24px', display: 'inline-flex' }}>
+            {/* Glassmorphism Panel Principal */}
+            <motion.div variants={fadeUp} style={{ 
+              background: 'rgba(255, 255, 255, 0.65)', 
+              backdropFilter: 'blur(24px)', 
+              WebkitBackdropFilter: 'blur(24px)',
+              border: '1px solid rgba(255, 255, 255, 0.8)',
+              borderRadius: '32px',
+              padding: 'clamp(32px, 5vw, 64px)',
+              maxWidth: '860px',
+              boxShadow: '0 30px 60px rgba(0,0,0,0.08)'
+            }}>
+              <span className="badge" style={{ marginBottom: '24px', display: 'inline-flex', background: 'rgba(184,145,42,0.12)', color: '#b8912a', border: '1px solid rgba(184,145,42,0.2)', fontWeight: 600 }}>
                 Sistemas de control solar premium
               </span>
+
+              <h1
+                className="hero-h1"
+                style={{ fontSize: 'clamp(42px, 6.5vw, 84px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '24px', color: '#111827' }}
+              >
+                Tu espacio,<br/>
+                <span style={{ color: '#b8912a' }}>perfectamente</span> controlado
+              </h1>
+
+              <p
+                style={{ fontSize: 'clamp(17px, 1.5vw, 19px)', lineHeight: 1.65, color: '#4b5563', maxWidth: '580px', marginBottom: '40px', fontWeight: 500 }}
+              >
+                Persianas y cortinas premium con motorización inteligente para Girardot, Melgar y toda la zona. Garantía de hasta 7 años.
+              </p>
+
+              <div className="hero-btns" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+                  <Link href="/cotizar" className="btn-primary" style={{ boxShadow: '0 12px 30px rgba(184,145,42,0.3)', padding: '14px 28px', fontSize: '16px' }}>
+                    Cotizar ahora <ArrowRight size={16} />
+                  </Link>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+                  <Link href="/productos" className="btn-secondary" style={{ background: 'rgba(255,255,255,0.9)', color: '#111827', borderColor: 'rgba(0,0,0,0.1)', padding: '14px 28px', fontSize: '16px' }}>
+                    Ver productos <ChevronRight size={16} />
+                  </Link>
+                </motion.div>
+              </div>
             </motion.div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="hero-h1"
-              style={{ fontSize: 'clamp(40px, 6.5vw, 80px)', fontWeight: 300, lineHeight: 1.06, letterSpacing: '-0.025em', marginBottom: '20px', maxWidth: '820px', color: '#FFFFFF', textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
-            >
-              Tu espacio,{' '}
-              <span className="text-gold-gradient">perfectamente</span>
-              <br />controlado
-            </motion.h1>
-
-            <motion.p
-              variants={fadeUp}
-              style={{ fontSize: 'clamp(17px, 1.5vw, 19px)', lineHeight: 1.65, color: 'rgba(255,255,255,0.88)', maxWidth: '500px', marginBottom: '36px', textShadow: '0 1px 10px rgba(0,0,0,0.4)' }}
-            >
-              Persianas y cortinas premium con motorización inteligente para Girardot, Melgar y toda la zona. Garantía de hasta 7 años.
-            </motion.p>
-
-            <motion.div variants={fadeUp} className="hero-btns" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '56px' }}>
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                <Link href="/cotizar" className="btn-primary">
-                  Cotizar ahora <ArrowRight size={15} />
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                <Link href="/productos" className="btn-secondary">
-                  Ver productos <ChevronRight size={15} />
-                </Link>
-              </motion.div>
-            </motion.div>
-
-            <motion.div variants={fadeUp} className="grid-cols-4" style={{ borderTop: '1px solid rgba(255,255,255,0.2)' }}>
+            {/* Glassmorphism Stats */}
+            <motion.div variants={fadeUp} style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               {stats.map(({ prefix, to, suffix, label }, i) => (
-                <div key={label} className="stat-block" style={{ padding: '24px 0 0', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.15)' : 'none', paddingRight: i < 3 ? '24px' : '0', paddingLeft: i > 0 ? '24px' : '0' }}>
-                  <div className="text-gold-gradient" style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', lineHeight: 1, marginBottom: '6px', display: 'block', fontWeight: 700 }}>
+                <div key={label} style={{ 
+                  flex: '1 1 200px',
+                  background: 'rgba(255, 255, 255, 0.65)', 
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  border: '1px solid rgba(255, 255, 255, 0.8)',
+                  borderRadius: '24px',
+                  padding: '24px',
+                  boxShadow: '0 15px 35px rgba(0,0,0,0.06)'
+                }}>
+                  <div style={{ color: '#b8912a', fontSize: 'clamp(28px, 2.5vw, 36px)', lineHeight: 1, marginBottom: '8px', fontWeight: 800 }}>
                     <Counter to={to} prefix={prefix} suffix={suffix} />
                   </div>
-                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.4 }}>{label}</div>
+                  <div style={{ fontSize: '15px', color: '#4b5563', lineHeight: 1.4, fontWeight: 600 }}>{label}</div>
                 </div>
               ))}
             </motion.div>
 
           </motion.div>
         </div>
-
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px', opacity: 0.5 }}
-        >
-          <div style={{ width: '1px', height: '40px', background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.6))' }} />
-          <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'white' }} />
-        </motion.div>
-
       </section>
 
       {/* ══════════ PILARES ══════════ */}
