@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView, useMotionValue, useSpring, useTransform, AnimatePresence, type Variants } from 'framer-motion'
-import { ArrowRight, ChevronRight, Shield, Zap, Award, MapPin, Smartphone, Sun, Clock, Mic } from 'lucide-react'
+import { ArrowRight, ChevronRight, Shield, Zap, Award, MapPin, Smartphone, Sun, Clock, Mic, Wifi } from 'lucide-react'
 import type { ImagesConfig } from '@/lib/getImagesConfig'
 
 /* ─── HELPERS DE ANIMACIÓN ──────────────────────── */
@@ -124,85 +124,139 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
 
   return (
     <>
-      {/* ══════════ HERO ══════════ */}
-      <section className="hero-section" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      {/* ══════════ HERO FUTURISTA (SMART HOME APP LAYOUT) ══════════ */}
+      <section className="hero-section" style={{ position: 'relative', overflow: 'visible', minHeight: '100vh', display: 'flex', alignItems: 'center', background: 'var(--bg)', color: 'var(--text)', borderBottom: '1px solid var(--border)' }}>
+        
+        {/* Decorative Grid Background */}
+        <div className="grid-bg" style={{ position: 'absolute', inset: 0, opacity: 0.6, pointerEvents: 'none', zIndex: 0 }} />
 
-        {/* Imagen hero */}
-        <Image src={heroSrc} alt="" fill priority quality={80} sizes="100vw"
-          style={{ objectFit: 'cover', objectPosition: 'center', zIndex: 0 }} />
+        <div className="container-site" style={{ position: 'relative', zIndex: 2, paddingTop: '140px', paddingBottom: '80px' }}>
+          
+          <div className="grid-cols-2-lg" style={{ alignItems: 'center' }}>
 
-        {/* Overlay muy sutil para asegurar un mínimo de contraste sin perder luminosidad */}
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.15)', zIndex: 1 }} />
-
-        <div className="container-site" style={{ position: 'relative', zIndex: 2, paddingTop: '124px', paddingBottom: '56px' }}>
-
-          <motion.div variants={staggerContainer} initial="hidden" animate="show" style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-
-            {/* Glassmorphism Panel Principal */}
-            <motion.div variants={fadeUp} style={{ 
-              background: 'rgba(255, 255, 255, 0.65)', 
-              backdropFilter: 'blur(24px)', 
-              WebkitBackdropFilter: 'blur(24px)',
-              border: '1px solid rgba(255, 255, 255, 0.8)',
-              borderRadius: '32px',
-              padding: 'clamp(32px, 5vw, 64px)',
-              maxWidth: '860px',
-              boxShadow: '0 30px 60px rgba(0,0,0,0.08)'
-            }}>
-              <span className="badge" style={{ marginBottom: '24px', display: 'inline-flex', background: 'rgba(184,145,42,0.12)', color: '#b8912a', border: '1px solid rgba(184,145,42,0.2)', fontWeight: 600 }}>
-                Sistemas de control solar premium
-              </span>
-
-              <h1
-                className="hero-h1"
-                style={{ fontSize: 'clamp(42px, 6.5vw, 84px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '24px', color: '#111827' }}
-              >
-                Tu espacio,<br/>
-                <span style={{ color: '#b8912a' }}>perfectamente</span> controlado
-              </h1>
-
-              <p
-                style={{ fontSize: 'clamp(17px, 1.5vw, 19px)', lineHeight: 1.65, color: '#4b5563', maxWidth: '580px', marginBottom: '40px', fontWeight: 500 }}
-              >
-                Persianas y cortinas premium con motorización inteligente para Girardot, Melgar y toda la zona. Garantía de hasta 7 años.
-              </p>
-
-              <div className="hero-btns" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                  <Link href="/cotizar" className="btn-primary" style={{ boxShadow: '0 12px 30px rgba(184,145,42,0.3)', padding: '14px 28px', fontSize: '16px' }}>
-                    Cotizar ahora <ArrowRight size={16} />
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                  <Link href="/productos" className="btn-secondary" style={{ background: 'rgba(255,255,255,0.9)', color: '#111827', borderColor: 'rgba(0,0,0,0.1)', padding: '14px 28px', fontSize: '16px' }}>
-                    Ver productos <ChevronRight size={16} />
-                  </Link>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Glassmorphism Stats */}
-            <motion.div variants={fadeUp} style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              {stats.map(({ prefix, to, suffix, label }, i) => (
-                <div key={label} style={{ 
-                  flex: '1 1 200px',
-                  background: 'rgba(255, 255, 255, 0.65)', 
-                  backdropFilter: 'blur(24px)',
-                  WebkitBackdropFilter: 'blur(24px)',
-                  border: '1px solid rgba(255, 255, 255, 0.8)',
-                  borderRadius: '24px',
-                  padding: '24px',
-                  boxShadow: '0 15px 35px rgba(0,0,0,0.06)'
-                }}>
-                  <div style={{ color: '#b8912a', fontSize: 'clamp(28px, 2.5vw, 36px)', lineHeight: 1, marginBottom: '8px', fontWeight: 800 }}>
-                    <Counter to={to} prefix={prefix} suffix={suffix} />
-                  </div>
-                  <div style={{ fontSize: '15px', color: '#4b5563', lineHeight: 1.4, fontWeight: 600 }}>{label}</div>
+            {/* LADO IZQUIERDO: Textos y Controles */}
+            <motion.div variants={staggerContainer} initial="hidden" animate="show" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+              
+              <motion.div variants={fadeUp}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '8px 16px', background: '#FFFFFF', borderRadius: '100px', border: '1px solid var(--border)', boxShadow: '0 4px 14px rgba(0,0,0,0.03)' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 10px #22c55e' }} className="animate-pulse-soft" />
+                  <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-2)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                    Sistema Inteligente Activo
+                  </span>
                 </div>
-              ))}
+              </motion.div>
+
+              <motion.h1
+                variants={fadeUp}
+                style={{ fontSize: 'clamp(42px, 5.5vw, 76px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', color: '#111827' }}
+              >
+                Control total <br />
+                <span className="text-gold-gradient">desde tu celular</span>
+              </motion.h1>
+
+              <motion.p
+                variants={fadeUp}
+                style={{ fontSize: 'clamp(17px, 1.5vw, 19px)', lineHeight: 1.65, color: 'var(--text-2)', maxWidth: '520px', fontWeight: 400 }}
+              >
+                La próxima generación en persianas y cortinas motorizadas para Girardot y la región. Domótica integrada, estética premium y la mayor garantía del mercado.
+              </motion.p>
+
+              <motion.div variants={fadeUp} style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+                <Link href="/cotizar" className="btn-primary" style={{ padding: '16px 32px', fontSize: '16px', borderRadius: '16px', boxShadow: '0 10px 25px rgba(184,145,42,0.3)' }}>
+                  Configurar tu espacio <ArrowRight size={16} />
+                </Link>
+                <Link href="/productos" className="btn-secondary" style={{ padding: '16px 32px', fontSize: '16px', borderRadius: '16px', background: '#FFFFFF', borderColor: 'var(--border)' }}>
+                  Explorar tecnología
+                </Link>
+              </motion.div>
+
+              {/* Stats as tech indicators */}
+              <motion.div variants={fadeUp} style={{ display: 'flex', gap: 'clamp(20px, 3vw, 40px)', marginTop: '20px', paddingTop: '32px', borderTop: '1px solid var(--border)' }}>
+                {stats.slice(0, 3).map(({ prefix, to, suffix, label }, i) => (
+                  <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <div style={{ color: 'var(--text)', fontSize: '28px', lineHeight: 1, fontWeight: 800, display: 'flex', alignItems: 'baseline' }}>
+                      <Counter to={to} prefix={prefix} />
+                      <span style={{ fontSize: '16px', color: 'var(--gold)', marginLeft: '4px' }}>{suffix}</span>
+                    </div>
+                    <div style={{ fontSize: '13px', color: 'var(--text-3)', fontWeight: 500 }}>{label}</div>
+                  </div>
+                ))}
+              </motion.div>
+
             </motion.div>
 
-          </motion.div>
+            {/* LADO DERECHO: Contenedor UI Arquitectónico */}
+            <motion.div
+              initial={{ opacity: 0, x: 40, scale: 0.96 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.8, ease: easeOut, delay: 0.2 }}
+              style={{ position: 'relative', width: '100%', aspectRatio: '4/5', maxHeight: '720px', margin: '0 auto', display: 'block' }}
+            >
+              {/* Contenedor principal de la imagen simulando un dispositivo tecnológico */}
+              <div style={{ position: 'absolute', inset: 0, borderRadius: '40px', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.1)', border: '8px solid #FFFFFF', background: '#e5e5e5' }}>
+                <Image src={heroSrc} alt="Motorized Blinds" fill priority sizes="(max-width: 1024px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+                {/* Degradado inferior sutil */}
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)' }} />
+              </div>
+
+              {/* Widget Flotante 1: Motorización (oculto en móviles muy pequeños para no romper layout) */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                style={{ position: 'absolute', top: '10%', left: '-5%', background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', padding: '16px 20px', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.12)', border: '1px solid rgba(255,255,255,1)' }}
+                className="hide-sm"
+              >
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'var(--gold)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Wifi size={20} color="#FFFFFF" />
+                </div>
+                <div>
+                  <div style={{ fontSize: '11px', color: 'var(--text-3)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Conectividad</div>
+                  <div style={{ fontSize: '15px', color: 'var(--text)', fontWeight: 800 }}>En línea & Sincronizado</div>
+                </div>
+              </motion.div>
+
+              {/* Widget Flotante 2: Sensor Solar */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 1 }}
+                style={{ position: 'absolute', bottom: '25%', right: '-5%', background: 'rgba(20,20,20,0.9)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', padding: '16px 20px', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)' }}
+                className="hide-sm"
+              >
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Sun size={20} color="#FFFFFF" />
+                </div>
+                <div>
+                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.6)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Sensor de luz</div>
+                  <div style={{ fontSize: '15px', color: '#FFFFFF', fontWeight: 800 }}>Ajuste automático</div>
+                </div>
+              </motion.div>
+
+              {/* Slider UI inferior */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                style={{ position: 'absolute', bottom: '-20px', left: '10%', right: '10%', background: '#FFFFFF', padding: '24px', borderRadius: '24px', boxShadow: '0 30px 60px rgba(0,0,0,0.1)', border: '1px solid var(--border)' }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text)' }}>Nivel de apertura</span>
+                  <span style={{ fontSize: '14px', fontWeight: 800, color: 'var(--gold)' }}>65%</span>
+                </div>
+                <div style={{ height: '6px', background: 'var(--surface2)', borderRadius: '3px', position: 'relative', overflow: 'hidden' }}>
+                  <motion.div
+                    initial={{ width: '0%' }}
+                    animate={{ width: '65%' }}
+                    transition={{ duration: 1.5, delay: 1.5, ease: "easeOut" }}
+                    style={{ position: 'absolute', left: 0, top: 0, bottom: 0, background: 'var(--gold)', borderRadius: '3px' }}
+                  />
+                </div>
+              </motion.div>
+
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
