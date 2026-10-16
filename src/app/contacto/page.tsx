@@ -1,5 +1,6 @@
 import { MessageCircle, MapPin, Clock, Phone } from 'lucide-react'
 import { getImagesConfig } from '@/lib/getImagesConfig'
+import ContactoForm from './ContactoForm'
 
 const info = [
   { Icon: MessageCircle, label: 'WhatsApp principal', value: '320 238 1865', href: 'https://wa.me/573202381865', action: 'Abrir chat' },
@@ -62,35 +63,12 @@ export default async function ContactoPage() {
           {/* Columna derecha: formulario */}
           <div className="card-glass" style={{ padding: '36px' }}>
             <p style={{ fontSize: '16px', fontWeight: 500, color: 'var(--text)', marginBottom: '24px' }}>Envíanos un mensaje</p>
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>Nombre</label>
-                  <input type="text" placeholder="Tu nombre" className="input" />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>WhatsApp</label>
-                  <input type="tel" placeholder="300 000 0000" className="input" />
-                </div>
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>Ciudad</label>
-                <input type="text" placeholder="Girardot, Melgar..." className="input" />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>Mensaje</label>
-                <textarea rows={4} placeholder="¿En qué podemos ayudarte?" className="input" style={{ resize: 'vertical' }} />
-              </div>
-              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '14px' }}>
-                Enviar mensaje
-              </button>
-              <p style={{ fontSize: '16px', color: 'var(--text-3)', textAlign: 'center' }}>
-                O escríbenos directamente al{' '}
-                <a href="https://wa.me/573202381865" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)', textDecoration: 'none' }}>
-                  320 238 1865
-                </a>
-              </p>
-            </form>
+            {/*
+              El formulario vive en su propio archivo porque esta página es de servidor y
+              él necesita estado y envío. Antes era un `<form>` sin destino acá mismo: el
+              cliente lo llenaba, tocaba enviar y no llegaba a ninguna parte.
+            */}
+            <ContactoForm />
           </div>
 
         </div>

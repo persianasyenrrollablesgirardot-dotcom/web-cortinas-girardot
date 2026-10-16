@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { abrirWhatsApp, enviarSolicitud } from '@/lib/enviarSolicitud'
 
 interface CotizarFormProps {
   sistemasGrupos: { grupo: string; items: string[] }[]
@@ -14,18 +15,57 @@ export default function CotizarForm({ sistemasGrupos }: CotizarFormProps) {
     sistema: '',
     ventanas: '',
     motorizacion: '',
-    notas: ''
+    notas: '',
+    // Trampa de robots. Una persona nunca ve este campo; un robot lo llena siempre.
+    empresa: ''
   })
+  const [enviando, setEnviando] = useState(false)
+  const [aviso, setAviso] = useState<string | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  /**
+   * PRIMERO SE GUARDA, DESPUÉS SE ABRE WHATSAPP.
+   *
+   * Antes esto solo abría WhatsApp: si el cliente no le daba enviar allá, o cerró la
+   * pestaña, o no tenía WhatsApp en ese aparato, la solicitud no existía en ninguna parte
+   * y nadie se enteraba de que alguien había pedido una cotización.
+   *
+   * Si guardar falla NO se bloquea: se abre WhatsApp igual. Perder una venta porque la
+   * base estaba caída sería peor que lo que había antes.
+   */
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (enviando) return
+    setEnviando(true)
+    setAviso(null)
+
+    const detalles = [
+      formData.sistema ? `Sistema: ${formData.sistema}` : '',
+      formData.ventanas ? `Ventanas: ${formData.ventanas}` : '',
+      formData.motorizacion ? `Motorización: ${formData.motorizacion}` : '',
+      formData.notas ? `Notas: ${formData.notas}` : ''
+    ].filter(Boolean).join(' · ')
+
+    const r = await enviarSolicitud({
+      nombre: formData.nombre,
+      telefono: formData.whatsapp,
+      gestion: 'cotizacion',
+      municipio: formData.ciudad,
+      // Lo que el cliente eligió va en el mensaje de la solicitud: la bandeja guarda lo
+      // que dijo, y el detalle técnico se vuelve a confirmar cuando se le responde.
+      observaciones: detalles || 'Sin detalles',
+      empresa: formData.empresa
+    })
+
+    setAviso(r.guardada
+      ? 'Listo: ya nos llegó tu solicitud. Te abrimos WhatsApp por si quieres añadir algo.'
+      : 'No pudimos guardarla, pero te abrimos WhatsApp para que nos escribas directo.')
 
     const mensaje = `Hola Fábrica de Cortinas, quiero solicitar una cotización.
-    
+
 *Datos del cliente:*
 - *Nombre:* ${formData.nombre}
 - *WhatsApp:* ${formData.whatsapp}
@@ -39,8 +79,8 @@ export default function CotizarForm({ sistemasGrupos }: CotizarFormProps) {
 
 Quedo atento a su respuesta.`
 
-    const url = `https://wa.me/573202381865?text=${encodeURIComponent(mensaje)}`
-    window.open(url, '_blank')
+    abrirWhatsApp(mensaje)
+    setEnviando(false)
   }
 
   return (
@@ -93,9 +133,31 @@ Quedo atento a su respuesta.`
         <textarea name="notas" rows={3} value={formData.notas} onChange={handleChange} placeholder="Medidas aproximadas, tipo de espacio, preferencias de color..." className="input" style={{ resize: 'vertical' }} />
       </div>
 
-      <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '15px', fontSize: '16px' }}>
-        Enviar solicitud por WhatsApp
+      {/*
+        La trampa de robots: fuera de la vista y fuera del recorrido del teclado. Si viene
+        llena, la puerta responde que todo bien y no guarda nada — un robot no insiste con
+        algo que parece haber funcionado.
+      */}
+      <input
+        type="text"
+        name="empresa"
+        value={formData.empresa}
+        onChange={handleChange}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+      />
+
+      <button type="submit" disabled={enviando} className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '15px', fontSize: '16px', opacity: enviando ? 0.6 : 1 }}>
+        {enviando ? 'Enviando...' : 'Enviar solicitud'}
       </button>
+
+      {aviso && (
+        <p style={{ fontSize: '15px', textAlign: 'center', color: 'var(--text-3)', margin: 0 }}>
+          {aviso}
+        </p>
+      )}
     </form>
   )
 }
