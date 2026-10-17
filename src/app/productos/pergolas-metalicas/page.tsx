@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, ArrowDown, Flag } from 'lucide-react'
-import { sistemas, PENDIENTE } from './sistemas'
+import fs from 'node:fs'
+import path from 'node:path'
+import { ArrowLeft, ArrowRight, ArrowDown, Flag, ImageIcon } from 'lucide-react'
+import { sistemas, familias, PENDIENTE } from './sistemas'
 
 export const metadata: Metadata = {
-  title: 'Pérgolas Metálicas para Control Solar en Girardot | Fábrica de Cortinas Girardot',
+  title: 'Pérgolas y estructuras metálicas para clima cálido en Girardot | Fábrica de Cortinas Girardot',
   description:
-    'Sistemas de pérgola metálica a medida: adosada, autoportante, lamas fijas, cubierta de parqueadero y bioclimática. Acero estructural, policarbonato o teja. Girardot, Melgar y la región.',
+    'Doce sistemas de sombra, techo y fachada para el clima de Girardot: pérgolas adosadas y autoportantes, lamas, bioclimática, marquesinas, corredores, gazebos, carports, quiebrasoles, celosías y deck. Acero estructural, policarbonato o teja.',
 }
 
 const proceso = [
@@ -38,7 +40,23 @@ function Kicker({ children }: { children: React.ReactNode }) {
   return <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '16px' }}>{children}</p>
 }
 
+function tieneImagen(img: string) {
+  return fs.existsSync(path.join(process.cwd(), 'public', img))
+}
+
+function Imagen({ src, alt, eager, pos }: { src: string; alt: string; eager?: boolean; pos?: string }) {
+  if (!tieneImagen(src)) {
+    return (
+      <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+        <ImageIcon size={22} /> render en proceso
+      </div>
+    )
+  }
+  return <img className="img-zoom" src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} style={{ objectPosition: pos ?? 'center' }} />
+}
+
 export default function PergolasMetalicasPage() {
+  const numero = new Map(sistemas.map((s, i) => [s.slug, i + 1]))
   return (
     <div className="page-top">
       <div className="container-site">
@@ -49,57 +67,87 @@ export default function PergolasMetalicasPage() {
           <span style={{ fontSize: '13px', color: 'var(--text-2)' }}>Imágenes: renders provisionales generados por IA, a reemplazar por fotos de obra. Datos con ⚑ (garantía, plazo, precio) pendientes de confirmar.</span>
         </div>
 
-        <Link href="/productos" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '15px', color: 'var(--text-3)', textDecoration: 'none', marginBottom: '32px' }}>
-          <ArrowLeft size={14} /> Volver a productos
-        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '28px', fontSize: '13px', color: 'var(--text-3)', flexWrap: 'wrap' }}>
+          <Link href="/exteriores" style={{ color: 'var(--text-3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><ArrowLeft size={13} /> Exteriores · Clima cálido</Link>
+          <span>/</span>
+          <span style={{ color: 'var(--text-2)' }}>Pérgolas y estructuras metálicas</span>
+        </div>
 
         {/* Encabezado */}
-        <div style={{ maxWidth: '720px', marginBottom: '36px' }}>
-          <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Nueva línea · Fabricación propia</span>
+        <div style={{ maxWidth: '760px', marginBottom: '36px' }}>
+          <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Exteriores · Clima cálido · Fabricación propia</span>
           <h1 style={{ fontSize: 'clamp(32px, 4.5vw, 52px)', fontWeight: 300, lineHeight: 1.08, marginBottom: '14px' }}>
-            Pérgolas metálicas <span className="text-gold-gradient">para el sol de Girardot</span>
+            Sombra y techo <span className="text-gold-gradient">para el sol de Girardot</span>
           </h1>
           <p style={{ fontSize: '16px', color: 'var(--text-2)', lineHeight: 1.7 }}>
-            Cinco sistemas, una misma forma de hacerlos: acero estructural, anclaje elegido según tu piso y prueba de agua antes de entregar. Elige el sistema por cómo vas a usar el espacio; abajo está la ficha técnica de cada uno.
+            Doce sistemas ordenados por el problema que resuelven: la terraza a las dos de la tarde, el aguacero de las cuatro, el carro al sol, la fachada al poniente, el piso que quema. Misma forma de hacerlos: acero estructural, anclaje elegido según tu piso y prueba de agua antes de entregar.
           </p>
         </div>
 
-        {/* ═══ GALERÍA DE SISTEMAS ═══ */}
-        <div className="pg-sistemas" style={{ marginBottom: '72px' }}>
-          {sistemas.map((s, i) => (
-            <a key={s.slug} href={`#${s.slug}`} className={`card-glass pg-sis-card${i === 0 ? ' pg-sis-card--wide' : ''}`} style={{ textDecoration: 'none', overflow: 'hidden', display: 'flex', flexDirection: 'column', borderColor: s.destacado ? 'rgba(201,169,110,0.35)' : undefined }}>
-              <div className="img-zoom-wrap" style={{ position: 'relative', aspectRatio: i === 0 ? '16/7' : '4/3', background: 'linear-gradient(135deg,#0D1525,#1A2A4A)' }}>
-                <img className="img-zoom" src={s.img} alt={s.imgAlt} loading={i < 2 ? 'eager' : 'lazy'} style={{ objectPosition: 'center 40%' }} />
-                <span className="tag" style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(255,255,255,0.92)', color: 'var(--gold-dark)', fontWeight: 600, fontSize: '12px' }}>{s.tag}</span>
-                <span style={{ position: 'absolute', bottom: '12px', right: '12px', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', background: 'rgba(0,0,0,0.35)', padding: '3px 8px', borderRadius: '6px' }}>Render provisional</span>
-              </div>
-              <div style={{ padding: '18px 22px 20px', display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
-                <p style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '0.06em' }}>{s.sub}</p>
-                <h2 style={{ fontSize: i === 0 ? '22px' : '18px', fontWeight: 600, color: 'var(--text)', lineHeight: 1.2 }}>{s.nombre}</h2>
-                <p style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6 }}>{s.resumen}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '4px' }}>
-                  {s.usos.map((u) => <span key={u} className="tag" style={{ fontSize: '12px', padding: '4px 10px' }}>{u}</span>)}
-                </div>
-                <span style={{ marginTop: 'auto', paddingTop: '10px', fontSize: '13px', color: 'var(--gold)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                  Ver ficha técnica <ArrowDown size={12} />
-                </span>
-              </div>
+        {/* Índice por problema */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '44px' }}>
+          {familias.map((f) => (
+            <a key={f.slug} href={`#f-${f.slug}`} className="tag" style={{ textDecoration: 'none', fontSize: '13px', padding: '7px 14px', color: 'var(--text-2)', background: 'var(--surface)' }}>
+              {f.problema} <span style={{ color: 'var(--text-3)' }}>· {sistemas.filter((s) => s.familia === f.slug).length}</span>
             </a>
           ))}
         </div>
 
+        {/* ═══ GALERÍA POR PROBLEMA ═══ */}
+        {familias.map((f, fi) => {
+          const lista = sistemas.filter((s) => s.familia === f.slug)
+          return (
+            <section key={f.slug} id={`f-${f.slug}`} style={{ marginBottom: '56px', scrollMarginTop: '110px' }}>
+              <div style={{ marginBottom: '16px', paddingBottom: '12px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'baseline', gap: '14px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-3)', letterSpacing: '0.1em' }}>{String(fi + 1).padStart(2, '0')}</span>
+                <div>
+                  <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '3px' }}>{f.problema}</p>
+                  <h2 style={{ fontSize: 'clamp(20px, 2.4vw, 26px)', fontWeight: 600, color: 'var(--text)', lineHeight: 1.15, marginBottom: '4px' }}>{f.titulo}</h2>
+                  <p style={{ fontSize: '14px', color: 'var(--text-3)' }}>{f.desc}</p>
+                </div>
+              </div>
+              <div className="pg-sistemas">
+                {lista.map((s) => {
+                  const wide = !!s.destacado
+                  return (
+                    <a key={s.slug} href={`#${s.slug}`} className={`card-glass pg-sis-card${wide ? ' pg-sis-card--wide' : ''}`} style={{ textDecoration: 'none', overflow: 'hidden', display: 'flex', flexDirection: 'column', borderColor: s.destacado ? 'rgba(201,169,110,0.35)' : undefined }}>
+                      <div className="img-zoom-wrap" style={{ position: 'relative', aspectRatio: wide ? '16/7' : '4/3', background: 'linear-gradient(135deg,#0D1525,#1A2A4A)' }}>
+                        <Imagen src={s.img} alt={s.imgAlt} eager={fi === 0} pos="center 40%" />
+                        <span className="tag" style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(255,255,255,0.92)', color: 'var(--gold-dark)', fontWeight: 600, fontSize: '12px' }}>{s.tag}</span>
+                        <span style={{ position: 'absolute', bottom: '12px', right: '12px', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', background: 'rgba(0,0,0,0.35)', padding: '3px 8px', borderRadius: '6px' }}>Render provisional</span>
+                      </div>
+                      <div style={{ padding: '18px 22px 20px', display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
+                        <p style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '0.06em' }}>{s.sub}</p>
+                        <h3 style={{ fontSize: wide ? '22px' : '18px', fontWeight: 600, color: 'var(--text)', lineHeight: 1.2 }}>{s.nombre}</h3>
+                        <p style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6 }}>{s.resumen}</p>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '4px' }}>
+                          {s.usos.map((u) => <span key={u} className="tag" style={{ fontSize: '12px', padding: '4px 10px' }}>{u}</span>)}
+                        </div>
+                        <span style={{ marginTop: 'auto', paddingTop: '10px', fontSize: '13px', color: 'var(--gold)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          Ver ficha técnica <ArrowDown size={12} />
+                        </span>
+                      </div>
+                    </a>
+                  )
+                })}
+              </div>
+            </section>
+          )
+        })}
+
         {/* ═══ FICHAS TÉCNICAS ═══ */}
         <Kicker>Fichas técnicas por sistema</Kicker>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', marginBottom: '72px' }}>
-          {sistemas.map((s, i) => (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', marginBottom: '56px' }}>
+          {sistemas.map((s) => (
             <section key={s.slug} id={s.slug} className="card-glass pg-ficha" style={{ scrollMarginTop: '110px', overflow: 'hidden' }}>
               <div className="pg-ficha-img img-zoom-wrap" style={{ background: 'linear-gradient(135deg,#0D1525,#1A2A4A)' }}>
-                <img className="img-zoom" src={s.img} alt={s.imgAlt} loading="lazy" />
+                <Imagen src={s.img} alt={s.imgAlt} />
               </div>
               <div style={{ padding: '28px 32px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '6px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-3)', letterSpacing: '0.1em' }}>SISTEMA {String(i + 1).padStart(2, '0')}</span>
+                  <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-3)', letterSpacing: '0.1em' }}>SISTEMA {String(numero.get(s.slug)).padStart(2, '0')}</span>
                   <span className="tag" style={{ fontSize: '12px' }}>{s.tag}</span>
+                  <span style={{ fontSize: '12px', color: 'var(--text-3)' }}>· {familias.find((f) => f.slug === s.familia)?.problema}</span>
                   {s.pendienteDecision && <Pendiente>{s.pendienteDecision}</Pendiente>}
                 </div>
                 <h3 style={{ fontSize: 'clamp(20px, 2.4vw, 26px)', fontWeight: 600, color: 'var(--text)', lineHeight: 1.15, marginBottom: '4px' }}>{s.nombre}</h3>
@@ -122,7 +170,7 @@ export default function PergolasMetalicasPage() {
                 ))}
 
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center', marginTop: '18px' }}>
-                  <Link href="/cotizar" className="btn-primary" style={{ fontSize: '14px', padding: '10px 20px' }}>
+                  <Link href={`/cotizar?sistema=${encodeURIComponent(s.nombre)}`} className="btn-primary" style={{ fontSize: '14px', padding: '10px 20px' }}>
                     Cotizar este sistema <ArrowRight size={14} />
                   </Link>
                   <span style={{ fontSize: '13px', color: 'var(--text-3)' }}>Desde <Pendiente>{PENDIENTE}</Pendiente></span>
@@ -137,9 +185,9 @@ export default function PergolasMetalicasPage() {
         <Link href="/productos/pergolas-metalicas/accesorios" style={{ textDecoration: 'none' }}>
           <div className="card-glass pg-acc-banner" style={{ marginBottom: '56px', padding: '26px 32px', borderColor: 'rgba(201,169,110,0.3)', background: 'linear-gradient(135deg, rgba(184,145,42,0.07) 0%, rgba(184,145,42,0.02) 100%)' }}>
             <div>
-              <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '6px' }}>Catálogo técnico</p>
+              <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '6px' }}>Catálogo técnico ilustrado</p>
               <h3 style={{ fontSize: '20px', fontWeight: 600, color: 'var(--text)', marginBottom: '6px' }}>Accesorios y ferretería: anclajes, pernos, perfilería, canal, sellos, eléctrico</h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6 }}>Más de 90 referencias con uso, especificación, cantidades para 3 × 4 m y las nueve reglas de fijación que hacen que la pérgola dure.</p>
+              <p style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6 }}>90 referencias con imagen, uso, especificación, cantidades para 3 × 4 m y las nueve reglas de fijación que hacen que la pérgola dure.</p>
             </div>
             <span className="btn-primary" style={{ fontSize: '14px', padding: '10px 20px', whiteSpace: 'nowrap' }}>Ver accesorios <ArrowRight size={14} /></span>
           </div>
@@ -184,7 +232,7 @@ export default function PergolasMetalicasPage() {
           </div>
         </div>
 
-        {/* Relacionados */}
+        {/* Relacionados Safra */}
         <div style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
           <Link href="/productos/pergolas" style={{ textDecoration: 'none' }}>
             <div className="card-glass" style={{ padding: '20px 24px', borderRadius: '12px', cursor: 'pointer' }}>
@@ -213,7 +261,6 @@ export default function PergolasMetalicasPage() {
         .pg-ficha-img { min-height: 320px; }
         .pg-ficha-row { display: grid; grid-template-columns: 150px 1fr; gap: 14px; padding: 11px 16px; align-items: start; }
         .pg-acc-banner { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
-        @media (max-width: 700px) { .pg-acc-banner { grid-template-columns: 1fr; } }
         @media (max-width: 900px) {
           .pg-sistemas { grid-template-columns: 1fr; }
           .pg-grid-3 { grid-template-columns: 1fr; }
@@ -221,6 +268,7 @@ export default function PergolasMetalicasPage() {
           .pg-ficha-img { min-height: 220px; aspect-ratio: 16/9; }
           .pg-ficha-row { grid-template-columns: 1fr; gap: 2px; }
         }
+        @media (max-width: 700px) { .pg-acc-banner { grid-template-columns: 1fr; } }
       `}</style>
     </div>
   )

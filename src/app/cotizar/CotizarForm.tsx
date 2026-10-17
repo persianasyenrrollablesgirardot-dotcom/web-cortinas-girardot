@@ -5,14 +5,15 @@ import { abrirWhatsApp, enviarSolicitud } from '@/lib/enviarSolicitud'
 
 interface CotizarFormProps {
   sistemasGrupos: { grupo: string; items: string[] }[]
+  sistemaInicial?: string
 }
 
-export default function CotizarForm({ sistemasGrupos }: CotizarFormProps) {
+export default function CotizarForm({ sistemasGrupos, sistemaInicial = '' }: CotizarFormProps) {
   const [formData, setFormData] = useState({
     nombre: '',
     whatsapp: '',
     ciudad: '',
-    sistema: '',
+    sistema: sistemaInicial,
     ventanas: '',
     motorizacion: '',
     notas: '',

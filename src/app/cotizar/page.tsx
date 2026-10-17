@@ -5,6 +5,24 @@ import CotizarForm from './CotizarForm'
 
 const sistemasGrupos = [
   {
+    grupo: 'Exteriores · clima cálido (estructura metálica)',
+    items: [
+      'Pérgola adosada con policarbonato',
+      'Pérgola abierta de lamas fijas',
+      'Pérgola bioclimática',
+      'Marquesina de entrada y ventanas',
+      'Corredor y pasillo cubierto',
+      'Pérgola autoportante con policarbonato',
+      'Gazebo y pabellón de jardín',
+      'Carport de diseño',
+      'Cubierta de parqueadero',
+      'Quiebrasol vertical de fachada',
+      'Celosía y cerramiento',
+      'Deck sobre estructura metálica',
+      'Proyecto exterior a medida',
+    ],
+  },
+  {
     grupo: 'Sistemas enrollables',
     items: ['Persiana Enrollable Blackout', 'Persiana Enrollable Screen', 'Persiana Enrollable Traslúcida', 'Persiana Enrollable Premium (cabezal metálico)', 'Panel Japonés'],
   },
@@ -37,9 +55,12 @@ const beneficios = [
   { Icon: Phone,       t: 'Sin compromiso',   d: 'Recibes la cotización detallada. Tú decides sin presiones.' },
 ]
 
-export default async function CotizarPage() {
+export default async function CotizarPage({ searchParams }: { searchParams: Promise<{ sistema?: string }> }) {
   const cfg = await getImagesConfig()
   const bgImg = cfg.paginas_bg?.cotizar || ''
+  const { sistema } = await searchParams
+  const todos = sistemasGrupos.flatMap((g) => g.items)
+  const sistemaInicial = sistema && todos.includes(sistema) ? sistema : ''
   return (
     <div className="page-top">
       <div className="container-site">
@@ -80,7 +101,7 @@ export default async function CotizarPage() {
 
           {/* Formulario */}
           <div className="card-glass" style={{ padding: '36px' }}>
-            <CotizarForm sistemasGrupos={sistemasGrupos} />
+            <CotizarForm sistemasGrupos={sistemasGrupos} sistemaInicial={sistemaInicial} />
           </div>
 
         </div>
