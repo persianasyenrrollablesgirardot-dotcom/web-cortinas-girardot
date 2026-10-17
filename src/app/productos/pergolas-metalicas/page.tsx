@@ -133,6 +133,18 @@ export default function PergolasMetalicasPage() {
           ))}
         </div>
 
+        {/* Accesorios */}
+        <Link href="/productos/pergolas-metalicas/accesorios" style={{ textDecoration: 'none' }}>
+          <div className="card-glass pg-acc-banner" style={{ marginBottom: '56px', padding: '26px 32px', borderColor: 'rgba(201,169,110,0.3)', background: 'linear-gradient(135deg, rgba(184,145,42,0.07) 0%, rgba(184,145,42,0.02) 100%)' }}>
+            <div>
+              <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '6px' }}>Catálogo técnico</p>
+              <h3 style={{ fontSize: '20px', fontWeight: 600, color: 'var(--text)', marginBottom: '6px' }}>Accesorios y ferretería: anclajes, pernos, perfilería, canal, sellos, eléctrico</h3>
+              <p style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6 }}>Más de 90 referencias con uso, especificación, cantidades para 3 × 4 m y las nueve reglas de fijación que hacen que la pérgola dure.</p>
+            </div>
+            <span className="btn-primary" style={{ fontSize: '14px', padding: '10px 20px', whiteSpace: 'nowrap' }}>Ver accesorios <ArrowRight size={14} /></span>
+          </div>
+        </Link>
+
         {/* Proceso */}
         <Kicker>Cómo la hacemos, sea cual sea el sistema</Kicker>
         <div className="pg-grid-3" style={{ marginBottom: '56px' }}>
@@ -200,6 +212,8 @@ export default function PergolasMetalicasPage() {
         .pg-ficha { display: grid; grid-template-columns: 5fr 7fr; align-items: stretch; }
         .pg-ficha-img { min-height: 320px; }
         .pg-ficha-row { display: grid; grid-template-columns: 150px 1fr; gap: 14px; padding: 11px 16px; align-items: start; }
+        .pg-acc-banner { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+        @media (max-width: 700px) { .pg-acc-banner { grid-template-columns: 1fr; } }
         @media (max-width: 900px) {
           .pg-sistemas { grid-template-columns: 1fr; }
           .pg-grid-3 { grid-template-columns: 1fr; }
