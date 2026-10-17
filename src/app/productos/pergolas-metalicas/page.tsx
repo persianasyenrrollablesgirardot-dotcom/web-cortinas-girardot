@@ -69,7 +69,7 @@ export default function PergolasMetalicasPage() {
           {sistemas.map((s, i) => (
             <a key={s.slug} href={`#${s.slug}`} className={`card-glass pg-sis-card${i === 0 ? ' pg-sis-card--wide' : ''}`} style={{ textDecoration: 'none', overflow: 'hidden', display: 'flex', flexDirection: 'column', borderColor: s.destacado ? 'rgba(201,169,110,0.35)' : undefined }}>
               <div className="img-zoom-wrap" style={{ position: 'relative', aspectRatio: i === 0 ? '16/7' : '4/3', background: 'linear-gradient(135deg,#0D1525,#1A2A4A)' }}>
-                <img className="img-zoom" src={s.img} alt={s.imgAlt} loading={i < 2 ? 'eager' : 'lazy'} />
+                <img className="img-zoom" src={s.img} alt={s.imgAlt} loading={i < 2 ? 'eager' : 'lazy'} style={{ objectPosition: 'center 40%' }} />
                 <span className="tag" style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(255,255,255,0.92)', color: 'var(--gold-dark)', fontWeight: 600, fontSize: '12px' }}>{s.tag}</span>
                 <span style={{ position: 'absolute', bottom: '12px', right: '12px', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', background: 'rgba(0,0,0,0.35)', padding: '3px 8px', borderRadius: '6px' }}>Render provisional</span>
               </div>
