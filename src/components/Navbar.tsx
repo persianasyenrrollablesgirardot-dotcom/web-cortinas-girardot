@@ -70,6 +70,7 @@ const links = [
   { href: '/',          label: 'Inicio' },
   { href: '/productos', label: 'Productos', hasSub: true },
   { href: '/exteriores', label: 'Exteriores' },
+  { href: '/estructuras', label: 'Estructuras' },
   { href: '/proyectos', label: 'Proyectos' },
   { href: '/nosotros',  label: 'Nosotros' },
   { href: '/blog',      label: 'Blog' },

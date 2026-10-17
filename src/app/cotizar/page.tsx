@@ -23,6 +23,20 @@ const sistemasGrupos = [
     ],
   },
   {
+    grupo: 'Estructuras metálicas (construcción, con diseño firmado)',
+    items: [
+      'Escaleras metálicas',
+      'Mezzanines y altillos',
+      'Domos y claraboyas',
+      'Cubiertas de locales, salones y bodegas',
+      'Ampliaciones y segundos pisos',
+      'Locales comerciales y fachadas',
+      'Pasarelas y puentes peatonales',
+      'Naves y pórticos estructurales',
+      'Otra estructura — necesito visita técnica',
+    ],
+  },
+  {
     grupo: 'Sistemas enrollables',
     items: ['Persiana Enrollable Blackout', 'Persiana Enrollable Screen', 'Persiana Enrollable Traslúcida', 'Persiana Enrollable Premium (cabezal metálico)', 'Panel Japonés'],
   },

@@ -72,7 +72,7 @@ export default function ExterioresPage() {
         {/* Problemas → soluciones */}
         <div id="problemas" style={{ scrollMarginTop: '110px', marginBottom: '16px' }}>
           <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '8px' }}>Empieza por lo que te molesta</p>
-          <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, lineHeight: 1.1, marginBottom: '8px' }}>Cinco problemas, <span className="text-gold-gradient">doce soluciones</span></h2>
+          <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, lineHeight: 1.1, marginBottom: '8px' }}>Cinco problemas, <span className="text-gold-gradient">{sistemas.length} soluciones</span></h2>
           <p style={{ fontSize: '15px', color: 'var(--text-2)', maxWidth: '640px' }}>Todas en acero estructural, con anclaje elegido según tu piso y prueba de agua antes de entregar. Cada una tiene ficha técnica.</p>
         </div>
 
