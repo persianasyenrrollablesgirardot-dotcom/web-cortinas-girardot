@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 /* ⚑ = dato que Jhon debe confirmar antes de publicar */
 const PENDIENTES = {
-  garantia: '⚑ por definir',
-  plazo: '⚑ por definir',
-  precio: '⚑ por definir',
+  garantia: 'por definir',
+  plazo: 'por definir',
+  precio: 'por definir',
 }
 
 const specs = [
@@ -91,7 +91,7 @@ const comparativa = [
   { k: 'Estructura',    kit: 'Aluminio liviano',                      nuestra: 'Acero estructural A500 soldado' },
   { k: 'Anclaje',       kit: 'No incluido; "requiere superficie adecuada"', nuestra: 'Platina y anclajes según el piso, sellados' },
   { k: 'Agua',          kit: 'Sin pendiente definida ni canal',       nuestra: 'Pendiente ≥ 5°, canal y bajante' },
-  { k: 'Garantía',      kit: '1 año',                                 nuestra: PENDIENTES.garantia },
+  { k: 'Garantía',      kit: '1 año',                                 nuestra: PENDIENTES.garantia, pendiente: true },
   { k: 'Instalación',   kit: 'Armado opcional, sin diseño',           nuestra: 'Visita, render, montaje y prueba de agua' },
 ]
 
@@ -99,7 +99,7 @@ const faq = [
   { q: '¿Necesito permiso del conjunto?', a: 'Casi siempre sí, para cualquier estructura fija en terraza o zona común. Lo pedimos antes de fabricar, no después.' },
   { q: '¿Se puede anclar en una terraza impermeabilizada?', a: 'Sí. Preferimos anclar a muros y vigas; sobre la placa usamos anclaje químico, sello elastomérico bajo la platina y reponemos la impermeabilización alrededor de cada pie.' },
   { q: '¿Aguanta granizo y aguaceros?', a: 'Con policarbonato de 6–8 mm sobre correas a la distancia que indica el fabricante, pendiente de 5° o más y canal amplia, sí. La prueba de agua se hace delante de ti.' },
-  { q: '¿Cuánto tarda?', a: `Fabricación e instalación: ${PENDIENTES.plazo}. Depende del tamaño y del acabado (la pintura electrostática suma días de horno).` },
+  { q: '¿Cuánto tarda?', a: `Fabricación e instalación: ${PENDIENTES.plazo} ⚑. Depende del tamaño y del acabado (la pintura electrostática suma días de horno).` },
   { q: '¿Qué mantenimiento necesita?', a: 'Lavar el policarbonato y la canal dos veces al año con agua y jabón neutro. Revisar la pintura una vez al año en uniones y pies de columna y retocar si hay un rayón.' },
 ]
 
@@ -113,7 +113,7 @@ function Pendiente({ children }: { children: React.ReactNode }) {
 
 function IlustracionPergola() {
   return (
-    <svg viewBox="0 0 800 420" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} aria-hidden>
+    <svg viewBox="0 0 1200 320" preserveAspectRatio="xMaxYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} aria-hidden>
       <defs>
         <linearGradient id="pgSky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#0B1526" />
@@ -123,15 +123,16 @@ function IlustracionPergola() {
           <stop offset="0%" stopColor="rgba(201,169,110,0.35)" />
           <stop offset="100%" stopColor="rgba(201,169,110,0.08)" />
         </linearGradient>
-        <radialGradient id="pgSun" cx="80%" cy="15%" r="40%">
+        <radialGradient id="pgSun" cx="85%" cy="10%" r="35%">
           <stop offset="0%" stopColor="rgba(232,201,138,0.45)" />
           <stop offset="100%" stopColor="rgba(232,201,138,0)" />
         </radialGradient>
       </defs>
-      <rect width="800" height="420" fill="url(#pgSky)" />
-      <rect width="800" height="420" fill="url(#pgSun)" />
-      <rect x="0" y="330" width="800" height="90" fill="#0A1220" />
-      <line x1="0" y1="330" x2="800" y2="330" stroke="#1A2A4A" strokeWidth="1.5" />
+      <rect width="1200" height="320" fill="url(#pgSky)" />
+      <rect width="1200" height="320" fill="url(#pgSun)" />
+      <rect x="0" y="248" width="1200" height="72" fill="#0A1220" />
+      <line x1="0" y1="248" x2="1200" y2="248" stroke="#1A2A4A" strokeWidth="1.5" />
+      <g transform="translate(560 0) scale(0.75)">
       {/* techo policarbonato en perspectiva */}
       <polygon points="300,120 760,95 740,160 280,185" fill="url(#pgPoly)" stroke="rgba(201,169,110,0.5)" strokeWidth="1.2" />
       {/* correas */}
@@ -162,7 +163,8 @@ function IlustracionPergola() {
       {/* cotas */}
       <text x="520" y="80" textAnchor="middle" fill="rgba(201,169,110,0.7)" fontSize="11" fontFamily="sans-serif" letterSpacing="2">POLICARBONATO 8 mm · PENDIENTE 5°</text>
       <text x="200" y="260" fill="rgba(201,169,110,0.6)" fontSize="10" fontFamily="sans-serif" letterSpacing="1.5">COLUMNA 100×100</text>
-      <text x="200" y="345" fill="rgba(201,169,110,0.6)" fontSize="10" fontFamily="sans-serif" letterSpacing="1.5">PLATINA + ANCLAJE 1/2"</text>
+      <text x="200" y="345" fill="rgba(201,169,110,0.6)" fontSize="10" fontFamily="sans-serif" letterSpacing="1.5">PLATINA + ANCLAJE 1/2&quot;</text>
+      </g>
     </svg>
   )
 }
@@ -314,8 +316,8 @@ export default function PergolasMetalicasPage() {
           {comparativa.map((r, i) => (
             <div key={r.k} className="pg-cmp-row" style={{ background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent', borderTop: '1px solid var(--border)' }}>
               <span style={{ fontSize: '13px', color: 'var(--text-3)', fontWeight: 600 }}>{r.k}</span>
-              <span style={{ fontSize: '13px', color: 'var(--text-2)' }}>{r.kit}</span>
-              <span style={{ fontSize: '13px', color: 'var(--text)', fontWeight: 500 }}>{r.nuestra.startsWith('⚑') ? <Pendiente>{r.nuestra}</Pendiente> : r.nuestra}</span>
+              <span className="pg-cmp-kit" style={{ fontSize: '13px', color: 'var(--text-2)' }}>{r.kit}</span>
+              <span className="pg-cmp-nuestra" style={{ fontSize: '13px', color: 'var(--text)', fontWeight: 500 }}>{r.pendiente ? <Pendiente>{r.nuestra}</Pendiente> : r.nuestra}</span>
             </div>
           ))}
         </div>
@@ -375,7 +377,10 @@ export default function PergolasMetalicasPage() {
         @media (max-width: 900px) {
           .pg-grid-3 { grid-template-columns: 1fr; }
           .pg-cmp-row { grid-template-columns: 1fr; gap: 4px; }
-          .pg-cmp-row > span:first-child { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+          .pg-cmp-row:first-child { display: none; }
+          .pg-cmp-row > span:first-child { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+          .pg-cmp-kit::before { content: 'Kit de almacén: '; color: var(--text-3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+          .pg-cmp-nuestra::before { content: 'A medida: '; color: var(--gold-dark); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
         }
       `}</style>
     </div>
