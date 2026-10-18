@@ -86,14 +86,25 @@ const lineasMenores: Linea[] = [
     ],
   },
   {
+    slug: 'peliculas',
+    kicker: 'Control solar en el vidrio',
+    titulo: 'Películas solares',
+    desc: 'HAVERKAMP: calor, rayos UV y seguridad sin tapar la vista.',
+    href: '/productos/peliculas',
+    img: '/home/peliculas.jpg',
+    temas: [
+      { label: 'Control solar', href: '/productos/peliculas' },
+      { label: 'Seguridad', href: '/productos/peliculas' },
+    ],
+  },
+  {
     slug: 'decoracion',
     kicker: 'Complementos',
-    titulo: 'Decoración y protección',
-    desc: 'Películas solares, papel de colgadura, lienzo y persianas estampadas.',
+    titulo: 'Decoración',
+    desc: 'Papel de colgadura, lienzo y persianas estampadas.',
     href: '/productos',
     img: '/home/decoracion.jpg',
     temas: [
-      { label: 'Películas', href: '/productos/peliculas' },
       { label: 'Papel', href: '/productos/papel' },
       { label: 'Lienzo', href: '/productos/lienzo' },
       { label: 'Estampados', href: '/productos/estampados' },
@@ -107,7 +118,7 @@ const problemas = [
   { t: 'Subir y bajar desde el celular', s: 'Motorización Wi-Fi', href: '/productos/motorizacion', img: '/home/persianas-motor.jpg' },
   { t: 'La terraza no se usa por el sol', s: 'Pérgola metálica adosada', href: '/productos/pergolas-metalicas#adosada-policarbonato', img: '/pergolas-metalicas/adosada-policarbonato.jpg' },
   { t: 'El carro queda al sol', s: 'Carport metálico', href: '/productos/pergolas-metalicas#carport-diseno', img: '/pergolas-metalicas/carport-diseno.jpg' },
-  { t: 'Sombra solo cuando la necesito', s: 'Toldo romano corredizo', href: '/productos/toldo-romano', img: '/galeria/toldo-romano/toldo-romano-01.jpeg' },
+  { t: 'El vidrio calienta y decolora los muebles', s: 'Película solar HAVERKAMP', href: '/productos/peliculas', img: '/home/peliculas.jpg' },
 ]
 
 const confianza = [
@@ -254,9 +265,10 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
         .hd-grid { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 290px 290px; gap: 16px; }
         .hd-tile { position: relative; border-radius: 22px; overflow: hidden; background: #ddd; box-shadow: 0 10px 30px rgba(0,0,0,0.08); isolation: isolate; }
         .hd-tile-grande { grid-row: 1 / 3; }
-        .hd-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+        .hd-grid-3 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px; }
         .hd-grid-3 .hd-tile { height: 250px; }
-        .hd-grid-3 .hd-titulo { font-size: clamp(22px, 2vw, 28px); }
+        .hd-grid-3 .hd-body { padding: 18px; }
+        .hd-grid-3 .hd-titulo { font-size: clamp(20px, 1.7vw, 25px); }
         .hd-grid-3 .hd-desc { display: none; }
         .hd-img { transition: transform .5s ease; }
         .hd-tile:hover .hd-img, .hd-prob:hover .hd-img { transform: scale(1.04); }
@@ -286,7 +298,7 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
           .hd-grid { grid-template-columns: 1fr; grid-template-rows: none; }
           .hd-tile { height: 250px; }
           .hd-tile-grande { grid-row: auto; height: 320px; }
-          .hd-grid-3 { grid-template-columns: 1fr; }
+          .hd-grid-3 { grid-template-columns: 1fr 1fr; }
           .hd-conf { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 640px) {
@@ -297,6 +309,7 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
           .hd-prob-s { font-size: 11.5px; }
           .hd-body { padding: 16px; }
           .hd-desc { display: none; }
+          .hd-grid-3 { grid-template-columns: 1fr; }
           .hd-conf { grid-template-columns: 1fr; }
         }
       `}</style>
