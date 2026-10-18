@@ -112,14 +112,6 @@ const lineasMenores: Linea[] = [
   },
 ]
 
-const problemas = [
-  { t: 'Entra mucho calor por la ventana', s: 'Enrollable Screen o Blackout', href: '/productos/enrollables', img: '/home/persianas-screen.jpg' },
-  { t: 'Quiero luz sin perder privacidad', s: 'Sheer Elegance', href: '/productos/sheer-elegance', img: '/home/persianas-sheer.jpg' },
-  { t: 'Subir y bajar desde el celular', s: 'Motorización Wi-Fi', href: '/productos/motorizacion', img: '/home/persianas-motor.jpg' },
-  { t: 'La terraza no se usa por el sol', s: 'Pérgola metálica adosada', href: '/productos/pergolas-metalicas#adosada-policarbonato', img: '/pergolas-metalicas/adosada-policarbonato.jpg' },
-  { t: 'El carro queda al sol', s: 'Carport metálico', href: '/productos/pergolas-metalicas#carport-diseno', img: '/pergolas-metalicas/carport-diseno.jpg' },
-  { t: 'El vidrio calienta y decolora los muebles', s: 'Película solar HAVERKAMP', href: '/productos/peliculas', img: '/home/peliculas.jpg' },
-]
 
 const confianza = [
   { Icon: Shield, t: 'Garantía 7 años', d: 'en sistemas enrollables' },
@@ -200,30 +192,6 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
         </div>
       </section>
 
-      {/* ══════════ ¿QUÉ NECESITAS RESOLVER? ══════════ */}
-      <section className="section" style={{ borderTop: '1px solid var(--border)', background: 'var(--surface)' }}>
-        <div className="container-site">
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <h2 style={{ fontSize: 'clamp(26px, 3.4vw, 40px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text)', marginBottom: '8px' }}>
-              ¿Qué necesitas resolver?
-            </h2>
-            <p style={{ color: 'var(--text-2)', fontSize: '16px' }}>Toca el problema y te llevamos a la solución.</p>
-          </div>
-          <div className="hd-prob-grid">
-            {problemas.map((p) => (
-              <Link key={p.href} href={p.href} className="hd-prob">
-                <Image src={p.img} alt={p.s} fill sizes="(max-width: 640px) 50vw, 33vw" style={{ objectFit: 'cover' }} className="hd-img" />
-                <div className="hd-shade" />
-                <div className="hd-prob-body">
-                  <span className="hd-prob-t">{p.t}</span>
-                  <span className="hd-prob-s">{p.s} <ArrowRight size={12} /></span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ══════════ CONFIANZA ══════════ */}
       <section className="section-sm" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="container-site">
@@ -271,7 +239,7 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
         .hd-grid-3 .hd-titulo { font-size: clamp(20px, 1.7vw, 25px); }
         .hd-grid-3 .hd-desc { display: none; }
         .hd-img { transition: transform .5s ease; }
-        .hd-tile:hover .hd-img, .hd-prob:hover .hd-img { transform: scale(1.04); }
+        .hd-tile:hover .hd-img { transform: scale(1.04); }
         .hd-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,6,0.88) 0%, rgba(10,8,6,0.45) 45%, rgba(10,8,6,0.05) 75%); pointer-events: none; }
         .hd-stretch { position: absolute; inset: 0; z-index: 1; }
         .hd-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 24px; color: #fff; z-index: 2; pointer-events: none; }
@@ -285,11 +253,6 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
         .hd-chip:hover { background: rgba(255,255,255,0.3); }
         .hd-chip-ver { background: var(--gold); border-color: var(--gold); }
         .hd-chip-ver:hover { background: var(--gold-light); }
-        .hd-prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-        .hd-prob { position: relative; aspect-ratio: 4 / 3; border-radius: 18px; overflow: hidden; background: #ddd; text-decoration: none; isolation: isolate; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
-        .hd-prob-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 18px; color: #fff; display: flex; flex-direction: column; gap: 4px; }
-        .hd-prob-t { color: #fff; font-size: clamp(16px, 1.5vw, 20px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; text-shadow: 0 2px 10px rgba(0,0,0,.4); }
-        .hd-prob-s { font-size: 12.5px; font-weight: 600; color: #E8C76A; display: inline-flex; align-items: center; gap: 4px; }
         .hd-conf { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
         .hd-conf-item { display: flex; gap: 12px; align-items: center; padding: 14px 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
         .hd-conf-ico { width: 40px; height: 40px; border-radius: 12px; background: rgba(184,145,42,0.12); color: var(--gold-dark); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -302,11 +265,6 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
           .hd-conf { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 640px) {
-          .hd-prob-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-          .hd-prob { aspect-ratio: 1 / 1; }
-          .hd-prob-body { padding: 12px; }
-          .hd-prob-t { font-size: 14.5px; }
-          .hd-prob-s { font-size: 11.5px; }
           .hd-body { padding: 16px; }
           .hd-desc { display: none; }
           .hd-grid-3 { grid-template-columns: 1fr; }
