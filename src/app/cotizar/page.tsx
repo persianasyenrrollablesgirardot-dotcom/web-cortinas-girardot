@@ -5,7 +5,7 @@ import CotizarForm from './CotizarForm'
 
 const sistemasGrupos = [
   {
-    grupo: 'Exteriores · clima cálido (estructura metálica)',
+    grupo: 'Pérgolas metálicas · clima cálido (fabricación propia)',
     items: [
       'Pérgola adosada con policarbonato',
       'Pérgola abierta de lamas fijas',

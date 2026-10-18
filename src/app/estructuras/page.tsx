@@ -176,7 +176,7 @@ export default function EstructurasPage() {
           <Link href="/exteriores" style={{ textDecoration: 'none' }}>
             <div className="card-glass" style={{ padding: '20px 24px', borderRadius: '12px' }}>
               <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '4px' }}>¿Es sombra o techo liviano para la casa?</p>
-              <p style={{ fontSize: '16px', fontWeight: 600, color: 'var(--text)', marginBottom: '4px' }}>Exteriores · Clima cálido →</p>
+              <p style={{ fontSize: '16px', fontWeight: 600, color: 'var(--text)', marginBottom: '4px' }}>Pérgolas metálicas · Clima cálido →</p>
               <p style={{ fontSize: '13px', color: 'var(--text-3)' }}>Pérgolas, carports, marquesinas, quiebrasoles y deck, sin trámite de licencia.</p>
             </div>
           </Link>

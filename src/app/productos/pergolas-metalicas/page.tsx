@@ -49,14 +49,14 @@ export default function PergolasMetalicasPage() {
       <div className="container-site">
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '28px', fontSize: '13px', color: 'var(--text-3)', flexWrap: 'wrap' }}>
-          <Link href="/exteriores" style={{ color: 'var(--text-3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><ArrowLeft size={13} /> Exteriores · Clima cálido</Link>
+          <Link href="/exteriores" style={{ color: 'var(--text-3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><ArrowLeft size={13} /> Pérgolas metálicas · Girardot</Link>
           <span>/</span>
           <span style={{ color: 'var(--text-2)' }}>Pérgolas y estructuras metálicas</span>
         </div>
 
         {/* Encabezado */}
         <div style={{ maxWidth: '760px', marginBottom: '36px' }}>
-          <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Exteriores · Clima cálido · Fabricación propia</span>
+          <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Clima cálido · Fabricación propia</span>
           <h1 style={{ fontSize: 'clamp(32px, 4.5vw, 52px)', fontWeight: 300, lineHeight: 1.08, marginBottom: '14px' }}>
             Sombra y techo <span className="text-gold-gradient">para el sol de Girardot</span>
           </h1>

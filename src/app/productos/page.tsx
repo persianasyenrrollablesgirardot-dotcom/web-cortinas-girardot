@@ -118,7 +118,7 @@ const grupos = [
         href: '/productos/pergolas-metalicas',
         num: '13',
         title: 'Pérgolas y estructuras metálicas',
-        sub: 'Exteriores · Clima cálido · Fabricación propia',
+        sub: 'Clima cálido · Fabricación propia · Girardot',
         desc: 'Catorce sistemas en acero estructural ordenados por el problema que resuelven: terraza, jardín y piscina, vehículos, fachada y piso. Policarbonato bronce u opal, teja o lamas. Anclaje según el piso y prueba de agua antes de entregar.',
         tag: 'Nuevo · propio',
         features: ['Adosada · autoportante · gazebo', 'Carport · cubierta de parqueadero', 'Quiebrasol · celosía · deck', 'Catálogo de 108 accesorios'],

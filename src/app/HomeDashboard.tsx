@@ -32,23 +32,39 @@ const lineas: Linea[] = [
     ],
   },
   {
-    slug: 'exteriores',
-    kicker: 'Nuevo · hecho para Girardot',
-    titulo: 'Exteriores · clima cálido',
-    desc: 'Pérgolas metálicas, celosías y cubiertas para terrazas, jardines y parqueaderos.',
-    href: '/exteriores',
+    slug: 'pergolas-metalicas',
+    kicker: 'Nuevo · fabricación propia',
+    titulo: 'Pérgolas metálicas',
+    desc: 'Pérgolas, celosías, carports y cubiertas para terrazas, jardines y parqueaderos. Hechas para el clima de Girardot.',
+    href: '/productos/pergolas-metalicas',
     img: '/pergolas-metalicas/adosada-policarbonato.jpg',
     temas: [
-      { label: 'Pérgolas metálicas', href: '/productos/pergolas-metalicas' },
+      { label: 'Terraza', href: '/productos/pergolas-metalicas#adosada-policarbonato' },
       { label: 'Carport', href: '/productos/pergolas-metalicas#carport-diseno' },
       { label: 'Celosías', href: '/productos/pergolas-metalicas#celosia-lamas-fijas' },
     ],
   },
   {
+    slug: 'toldos',
+    kicker: 'Sombra retráctil · lona',
+    titulo: 'Toldos y pérgolas de lona',
+    desc: 'Toldo romano corredizo, pérgola de lona Acrysun y sus accesorios.',
+    href: '/productos/toldo-romano',
+    img: '/galeria/toldo-romano/toldo-romano-01.jpeg',
+    temas: [
+      { label: 'Toldo romano', href: '/productos/toldo-romano' },
+      { label: 'Pérgola de lona', href: '/productos/pergolas' },
+      { label: 'Accesorios', href: '/productos/accesorios-toldos' },
+    ],
+  },
+]
+
+const lineasMenores: Linea[] = [
+  {
     slug: 'estructuras',
     kicker: 'Construcción · con diseño firmado',
     titulo: 'Estructuras metálicas',
-    desc: 'Escaleras, mezzanines, cubiertas y ampliaciones para casas, locales y bodegas.',
+    desc: 'Escaleras, mezzanines, cubiertas y ampliaciones.',
     href: '/estructuras',
     img: '/estructuras/naves-porticos.jpg',
     temas: [
@@ -57,15 +73,41 @@ const lineas: Linea[] = [
       { label: 'Cubiertas', href: '/estructuras#cubiertas-comerciales' },
     ],
   },
+  {
+    slug: 'motorizacion',
+    kicker: 'Smart home',
+    titulo: 'Motorización',
+    desc: 'Wi-Fi, app y voz para persianas, cortinas y toldos.',
+    href: '/productos/motorizacion',
+    img: '/home/persianas-motor.jpg',
+    temas: [
+      { label: 'Motores Wi-Fi', href: '/productos/motorizacion' },
+      { label: 'Riel motor', href: '/productos/riel-motor' },
+    ],
+  },
+  {
+    slug: 'decoracion',
+    kicker: 'Complementos',
+    titulo: 'Decoración y protección',
+    desc: 'Películas solares, papel de colgadura, lienzo y persianas estampadas.',
+    href: '/productos',
+    img: '/home/decoracion.jpg',
+    temas: [
+      { label: 'Películas', href: '/productos/peliculas' },
+      { label: 'Papel', href: '/productos/papel' },
+      { label: 'Lienzo', href: '/productos/lienzo' },
+      { label: 'Estampados', href: '/productos/estampados' },
+    ],
+  },
 ]
 
 const problemas = [
   { t: 'Entra mucho calor por la ventana', s: 'Enrollable Screen o Blackout', href: '/productos/enrollables', img: '/home/persianas-screen.jpg' },
   { t: 'Quiero luz sin perder privacidad', s: 'Sheer Elegance', href: '/productos/sheer-elegance', img: '/home/persianas-sheer.jpg' },
   { t: 'Subir y bajar desde el celular', s: 'Motorización Wi-Fi', href: '/productos/motorizacion', img: '/home/persianas-motor.jpg' },
-  { t: 'La terraza no se usa por el sol', s: 'Pérgola adosada con policarbonato', href: '/productos/pergolas-metalicas#adosada-policarbonato', img: '/pergolas-metalicas/adosada-policarbonato.jpg' },
+  { t: 'La terraza no se usa por el sol', s: 'Pérgola metálica adosada', href: '/productos/pergolas-metalicas#adosada-policarbonato', img: '/pergolas-metalicas/adosada-policarbonato.jpg' },
   { t: 'El carro queda al sol', s: 'Carport metálico', href: '/productos/pergolas-metalicas#carport-diseno', img: '/pergolas-metalicas/carport-diseno.jpg' },
-  { t: 'Necesito más espacio en casa o en el local', s: 'Mezzanine o segundo piso', href: '/estructuras#ampliacion-segundo-piso', img: '/estructuras/ampliacion-segundo-piso.jpg' },
+  { t: 'Sombra solo cuando la necesito', s: 'Toldo romano corredizo', href: '/productos/toldo-romano', img: '/galeria/toldo-romano/toldo-romano-01.jpeg' },
 ]
 
 const confianza = [
@@ -135,6 +177,9 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
         <div className="container-site">
           <div className="hd-grid">
             {lineasRender.map((l) => <TileLinea key={l.slug} l={l} />)}
+          </div>
+          <div className="hd-grid-3">
+            {lineasMenores.map((l) => <TileLinea key={l.slug} l={l} />)}
           </div>
           <div style={{ textAlign: 'center', marginTop: '22px' }}>
             <Link href="/productos" style={{ fontSize: '15px', fontWeight: 600, color: 'var(--gold-dark)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
@@ -209,6 +254,10 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
         .hd-grid { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 290px 290px; gap: 16px; }
         .hd-tile { position: relative; border-radius: 22px; overflow: hidden; background: #ddd; box-shadow: 0 10px 30px rgba(0,0,0,0.08); isolation: isolate; }
         .hd-tile-grande { grid-row: 1 / 3; }
+        .hd-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+        .hd-grid-3 .hd-tile { height: 250px; }
+        .hd-grid-3 .hd-titulo { font-size: clamp(22px, 2vw, 28px); }
+        .hd-grid-3 .hd-desc { display: none; }
         .hd-img { transition: transform .5s ease; }
         .hd-tile:hover .hd-img, .hd-prob:hover .hd-img { transform: scale(1.04); }
         .hd-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,6,0.88) 0%, rgba(10,8,6,0.45) 45%, rgba(10,8,6,0.05) 75%); pointer-events: none; }
@@ -237,6 +286,7 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
           .hd-grid { grid-template-columns: 1fr; grid-template-rows: none; }
           .hd-tile { height: 250px; }
           .hd-tile-grande { grid-row: auto; height: 320px; }
+          .hd-grid-3 { grid-template-columns: 1fr; }
           .hd-conf { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 640px) {

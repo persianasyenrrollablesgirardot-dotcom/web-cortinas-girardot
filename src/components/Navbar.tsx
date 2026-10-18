@@ -44,7 +44,7 @@ const submenuGrupos = [
   {
     titulo: 'Pérgolas & exteriores',
     items: [
-      { href: '/exteriores',                     label: 'Exteriores · Clima cálido', sub: 'Sombra, techo y frescura · Girardot' },
+      { href: '/exteriores',                     label: 'Pérgolas metálicas · Girardot', sub: 'Sombra, techo y frescura · Clima cálido' },
       { href: '/productos/pergolas-metalicas',   label: 'Pérgolas metálicas',   sub: '12 sistemas · fabricación propia' },
       { href: '/productos/pergolas',             label: 'Pérgola de lona (Palillería)', sub: 'Paredón · Lobby · Doble Lobby' },
       { href: '/productos/toldo-romano',         label: 'Toldo Romano',         sub: 'Corredizo · 3 acabados · Solar Screen' },
@@ -69,7 +69,7 @@ const submenuGrupos = [
 const links = [
   { href: '/',          label: 'Inicio' },
   { href: '/productos', label: 'Productos', hasSub: true },
-  { href: '/exteriores', label: 'Exteriores' },
+  { href: '/exteriores', label: 'Pérgolas' },
   { href: '/estructuras', label: 'Estructuras' },
   { href: '/proyectos', label: 'Proyectos' },
   { href: '/nosotros',  label: 'Nosotros' },

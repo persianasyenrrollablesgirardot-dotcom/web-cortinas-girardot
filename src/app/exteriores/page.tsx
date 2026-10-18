@@ -4,7 +4,7 @@ import { ArrowRight, Sun, CloudRain, Car, Building2, Footprints, Thermometer, Wi
 import { sistemas, familias, type FamiliaSlug } from '../productos/pergolas-metalicas/sistemas'
 
 export const metadata: Metadata = {
-  title: 'Exteriores para clima cálido en Girardot: sombra, techo y frescura | Fábrica de Cortinas Girardot',
+  title: 'Pérgolas metálicas para el clima de Girardot: sombra, techo y frescura | Fábrica de Cortinas Girardot',
   description:
     'Soluciones para el sol de mediodía, el aguacero de la tarde y el calor de la noche en Girardot, Melgar y el Alto Magdalena: pérgolas metálicas, cubiertas, carports, quiebrasoles, pérgolas de lona, toldos y cortinas screen de exterior.',
 }
@@ -38,7 +38,7 @@ export default function ExterioresPage() {
           <img src={portada.img} alt={portada.imgAlt} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 35%' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(8,14,26,0.92) 0%, rgba(8,14,26,0.6) 55%, rgba(8,14,26,0.15) 100%)' }} />
           <div style={{ position: 'relative', padding: 'clamp(28px, 5vw, 56px)', maxWidth: '640px' }}>
-            <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Exteriores · Clima cálido</span>
+            <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Pérgolas metálicas · Clima cálido</span>
             <h1 style={{ fontSize: 'clamp(30px, 4.6vw, 54px)', fontWeight: 300, lineHeight: 1.06, color: '#EEF2FF', marginBottom: '14px' }}>
               Sombra, techo y frescura<br /><span className="text-gold-gradient" style={{ fontWeight: 500 }}>para vivir afuera en Girardot</span>
             </h1>
