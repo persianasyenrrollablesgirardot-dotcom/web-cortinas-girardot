@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Shield, Ruler, Layers, Thermometer, Star } from 'lucide-react'
 import ProductCover from '@/components/ProductCover'
 import { getImagesConfig } from '@/lib/getImagesConfig'
+import GaleriaFotos from '@/components/GaleriaFotos'
 
 const specs = [
   { Icon: Ruler,       label: 'Ancho máximo manual',  value: 'Hasta 3.00 m (recargo R24 > 3 m)' },
@@ -390,13 +391,7 @@ export default async function EnrollablesPage() {
                 <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-2)', marginBottom: '12px' }}>
                   Blackout ({fotosBlackout.length} fotos)
                 </p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: '6px' }}>
-                  {fotosBlackout.map((src) => (
-                    <a key={src} href={src} target="_blank" rel="noopener noreferrer" className="gal-item">
-                      <img src={src} alt="Instalación blackout" loading="lazy" className="gal-img" />
-                    </a>
-                  ))}
-                </div>
+                <GaleriaFotos fotos={fotosBlackout} alt="Instalación blackout" />
               </div>
             )}
 
@@ -405,13 +400,7 @@ export default async function EnrollablesPage() {
                 <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-2)', marginBottom: '12px' }}>
                   Screen Solar ({fotosScreen.length} fotos)
                 </p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: '6px' }}>
-                  {fotosScreen.map((src) => (
-                    <a key={src} href={src} target="_blank" rel="noopener noreferrer" className="gal-item">
-                      <img src={src} alt="Instalación screen solar" loading="lazy" className="gal-img" />
-                    </a>
-                  ))}
-                </div>
+                <GaleriaFotos fotos={fotosScreen} alt="Instalación screen solar" />
               </div>
             )}
           </div>

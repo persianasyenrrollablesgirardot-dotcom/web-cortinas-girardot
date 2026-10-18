@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import ProductCover from '@/components/ProductCover'
 import { getImagesConfig } from '@/lib/getImagesConfig'
+import GaleriaFotos from '@/components/GaleriaFotos'
 
 const alturas = [
   { cenefa: 'R24',       max: '3.50 m', nota: 'Mayor altura disponible' },
@@ -251,13 +252,7 @@ export default async function SheerElegancePage() {
             <p style={{ fontSize: '14px', color: 'var(--text-3)', marginBottom: '24px' }}>
               {fotos.length} proyectos reales instalados en Girardot y la región.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: '6px' }}>
-              {fotos.map((src) => (
-                <a key={src} href={src} target="_blank" rel="noopener noreferrer" className="gal-item">
-                  <img src={src} alt="Instalación Sheer Elegance" loading="lazy" className="gal-img" />
-                </a>
-              ))}
-            </div>
+            <GaleriaFotos fotos={fotos} alt="Instalación Sheer Elegance" />
           </div>
         )}
 

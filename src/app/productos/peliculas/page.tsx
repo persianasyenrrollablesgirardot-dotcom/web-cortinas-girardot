@@ -96,15 +96,15 @@ export default async function PeliculasPage() {
         <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '16px' }}>
           Comparación de filtración por película
         </p>
-        <div style={{ marginBottom: '44px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+        <div className="tabla-scroll" style={{ marginBottom: '44px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border)' }}>
           {/* Encabezado */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 2fr', background: 'rgba(201,169,110,0.08)', padding: '12px 20px', borderBottom: '1px solid var(--border)' }}>
+          <div className="tabla-fila" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 2fr', background: 'rgba(201,169,110,0.08)', padding: '12px 20px', borderBottom: '1px solid var(--border)' }}>
             {['Película', 'Luz visible', 'Bloqueo UV', 'Bloqueo calor', 'Uso recomendado'].map(h => (
               <p key={h} style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-2)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{h}</p>
             ))}
           </div>
           {filtracion.map((f, i) => (
-            <div key={f.pelicula} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 2fr', padding: '14px 20px', borderBottom: i < filtracion.length - 1 ? '1px solid var(--border)' : 'none', background: f.destacado ? 'rgba(201,169,110,0.04)' : undefined, alignItems: 'center' }}>
+            <div key={f.pelicula} className="tabla-fila" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 2fr', padding: '14px 20px', borderBottom: i < filtracion.length - 1 ? '1px solid var(--border)' : 'none', background: f.destacado ? 'rgba(201,169,110,0.04)' : undefined, alignItems: 'center' }}>
               <p style={{ fontSize: '15px', fontWeight: 700, color: 'var(--gold)' }}>{f.pelicula}</p>
               <p style={{ fontSize: '15px', color: 'var(--text-2)', fontWeight: 500 }}>{f.luz}</p>
               <p style={{ fontSize: '15px', color: 'var(--text-2)', fontWeight: 500 }}>{f.uv}</p>

@@ -3,6 +3,7 @@ import path from 'path'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { getImagesConfig } from '@/lib/getImagesConfig'
+import GaleriaFotos from '@/components/GaleriaFotos'
 
 const sistemas = [
   {
@@ -208,13 +209,7 @@ export default async function PanelPage() {
             <p style={{ fontSize: '14px', color: 'var(--text-3)', marginBottom: '24px' }}>
               {fotos.length} proyectos reales instalados en Girardot y la región.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: '6px' }}>
-              {fotos.map((src) => (
-                <a key={src} href={src} target="_blank" rel="noopener noreferrer" className="gal-item">
-                  <img src={src} alt="Instalación Panel Japonés" loading="lazy" className="gal-img" />
-                </a>
-              ))}
-            </div>
+            <GaleriaFotos fotos={fotos} alt="Instalación Panel Japonés" />
           </div>
         )}
 

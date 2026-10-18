@@ -159,14 +159,14 @@ export default async function MotorizacionPage() {
         <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '16px' }}>
           Motores tubulares — para enrollables
         </p>
-        <div style={{ marginBottom: '44px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr 1fr 2fr', background: 'rgba(201,169,110,0.08)', padding: '10px 20px', borderBottom: '1px solid var(--border)', gap: '8px' }}>
+        <div className="tabla-scroll" style={{ marginBottom: '44px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+          <div className="tabla-fila" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr 1fr 2fr', background: 'rgba(201,169,110,0.08)', padding: '10px 20px', borderBottom: '1px solid var(--border)', gap: '8px' }}>
             {['Motor', 'Fuerza', 'RPM', 'Sonido', 'Cables', 'Peso máx. R16', 'Descripción'].map(h => (
               <p key={h} style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{h}</p>
             ))}
           </div>
           {motoresTubulares.map((m, i) => (
-            <div key={m.nombre} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr 1fr 2fr', padding: '14px 20px', borderBottom: i < motoresTubulares.length - 1 ? '1px solid var(--border)' : 'none', gap: '8px', alignItems: 'center', background: m.destacado ? 'rgba(201,169,110,0.03)' : undefined }}>
+            <div key={m.nombre} className="tabla-fila" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr 1fr 2fr', padding: '14px 20px', borderBottom: i < motoresTubulares.length - 1 ? '1px solid var(--border)' : 'none', gap: '8px', alignItems: 'center', background: m.destacado ? 'rgba(201,169,110,0.03)' : undefined }}>
               <div>
                 <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text)', lineHeight: 1.2 }}>{m.nombre}</p>
                 <p style={{ fontSize: '12px', color: 'var(--text-3)' }}>{m.sub}</p>

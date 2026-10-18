@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import ProductCover from '@/components/ProductCover'
 import { getImagesConfig } from '@/lib/getImagesConfig'
+import GaleriaFotos from '@/components/GaleriaFotos'
 
 const fichaTecnica = [
   { label: 'Ancho de lamas',     value: '9 cm' },
@@ -186,13 +187,7 @@ export default async function VerticalesPage() {
             <p style={{ fontSize: '14px', color: 'var(--text-3)', marginBottom: '24px' }}>
               {fotos.length} proyectos reales instalados en Girardot y la región.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: '6px' }}>
-              {fotos.map((src) => (
-                <a key={src} href={src} target="_blank" rel="noopener noreferrer" className="gal-item">
-                  <img src={src} alt="Instalación Persiana Vertical" loading="lazy" className="gal-img" />
-                </a>
-              ))}
-            </div>
+            <GaleriaFotos fotos={fotos} alt="Instalación Persiana Vertical" />
           </div>
         )}
 

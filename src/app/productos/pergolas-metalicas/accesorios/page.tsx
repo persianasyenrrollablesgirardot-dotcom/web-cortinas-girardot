@@ -155,7 +155,7 @@ export default function AccesoriosPergolasMetalicasPage() {
         .acc-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
         .acc-meta { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         .acc-meta span { display: flex; flex-direction: column; font-size: 12px; color: var(--text-2); }
-        .acc-meta b { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); font-weight: 700; }
+        .acc-meta b { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); font-weight: 700; }
         .acc-kit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
         @media (max-width: 1024px) { .acc-kit { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 640px) { .acc-grid { grid-template-columns: repeat(2, 1fr); } .acc-kit { grid-template-columns: 1fr; } }

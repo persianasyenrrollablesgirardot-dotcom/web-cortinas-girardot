@@ -316,3 +316,38 @@ textarea.input { resize: vertical; }
 .img-zoom { transition: transform 0.3s ease; display: block; width: 100%; height: 100%; object-fit: cover; }
 .img-zoom-wrap { overflow: hidden; }
 .img-zoom-wrap:hover .img-zoom { transform: scale(1.05); }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   RED DE SEGURIDAD MÓVIL (17-oct-2026)
+   Casi todas las páginas de producto arman sus columnas con estilos en línea
+   (style={{ gridTemplateColumns: '1fr 1fr' }}), que ninguna media query alcanza.
+   En pantallas angostas: las rejillas fijas se apilan, las de repeat() se vuelven
+   fluidas, las tablas comparativas se desplazan de lado y no hay texto < 12 px.
+   Para que una rejilla conserve sus columnas en móvil: className="mv-keep".
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  [style*="grid-template-columns"]:not([style*="repeat("]):not(.mv-keep):not(.tabla-fila) {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="grid-template-columns:repeat("]:not(.mv-keep),
+  [style*="grid-template-columns: repeat("]:not(.mv-keep) {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 120px), 1fr)) !important;
+  }
+  /* gaps de escritorio (40–56 px) apilados dejan huecos enormes */
+  [style*="gap:56px"], [style*="gap: 56px"], [style*="gap:48px"], [style*="gap: 48px"],
+  [style*="gap:40px"], [style*="gap: 40px"] { gap: 20px !important; }
+
+  .tabla-scroll { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+  .tabla-fila { min-width: 760px; }
+
+  [style*="font-size:9px"], [style*="font-size: 9px"],
+  [style*="font-size:10px"], [style*="font-size: 10px"],
+  [style*="font-size:11px"], [style*="font-size: 11px"] { font-size: 12px !important; }
+
+  /* tarjetas con relleno de escritorio */
+  .card-glass[style*="padding:36px"], .card-glass[style*="padding: 36px"],
+  .card-glass[style*="padding:40px"], .card-glass[style*="padding: 40px"] { padding: 20px !important; }
+
+  img, video, iframe { max-width: 100%; }
+}

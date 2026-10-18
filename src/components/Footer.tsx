@@ -38,7 +38,7 @@ export default function Footer() {
       <div className="container-site" style={{ paddingTop: '56px', paddingBottom: '40px' }}>
 
         {/* Grid principal */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr', gap: '40px', marginBottom: '40px' }}>
+        <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr', gap: '40px', marginBottom: '40px' }}>
 
           {/* Brand */}
           <div>
