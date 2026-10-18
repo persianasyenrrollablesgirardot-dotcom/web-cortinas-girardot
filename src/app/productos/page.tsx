@@ -17,7 +17,7 @@ const mapa: Record<string, string> = {
 const grupos = [
   {
     slug: 'persianas-y-cortinas',
-    titulo: 'Persianas y cortinas',
+    titulo: 'Persianas y cortinas · Control de luz',
     desc: 'Lo que fabricamos e instalamos todos los días: enrollables, franjas, verticales, panel, cortina y persianas estampadas.',
     productos: [
       {
@@ -105,7 +105,7 @@ const grupos = [
   },
   {
     slug: 'motorizacion-y-domotica-de-persianas',
-    titulo: 'Motorización y domótica de persianas',
+    titulo: 'Smart Shade · Motorización y domótica',
     desc: 'Motores Wi-Fi, app, voz y rieles motorizados para persianas, cortinas y panel.',
     productos: [
       {
@@ -131,13 +131,13 @@ const grupos = [
   },
   {
     slug: 'accesorios-de-persianas-y-cortinas',
-    titulo: 'Accesorios de persianas y cortinas',
+    titulo: 'Repuestos & Rieles · Accesorios de persianas',
     desc: 'Insumos, rieles armados y repuestos de todos los sistemas de persianas.',
     productos: [
       {
         href: '/productos/accesorios-pel',
         num: '12',
-        title: 'Accesorios Persianas — Lista 220',
+        title: 'Repuestos de persianas · Lista 220',
         sub: '11 líneas · 259 referencias',
         desc: 'Catálogo completo de accesorios e insumos: tubos, cenefas, controles, soportes, rieles, rodachinas, bastones y más para enrollables, panel japonés, romana, vertical, Hanna, Flexiriel y Riel Luxury.',
         tag: '259 referencias',
@@ -165,13 +165,13 @@ const grupos = [
   },
   {
     slug: 'pergolas-metalicas',
-    titulo: 'Pérgolas metálicas',
+    titulo: 'Pérgolas metálicas · Techos para vivir afuera',
     desc: 'Fabricación propia en acero para el clima de Girardot, con su ferretería completa.',
     productos: [
       {
         href: '/productos/pergolas-metalicas',
         num: '15',
-        title: 'Pérgolas metálicas',
+        title: 'Sistemas de pérgola metálica',
         sub: 'Clima cálido · Fabricación propia · Girardot',
         desc: 'Catorce sistemas en acero estructural ordenados por el problema que resuelven: terraza, jardín y piscina, vehículos, fachada y piso. Policarbonato bronce u opal, teja o lamas. Anclaje según el piso y prueba de agua antes de entregar.',
         tag: 'Nuevo · propio',
@@ -181,7 +181,7 @@ const grupos = [
       {
         href: '/productos/pergolas-metalicas/accesorios',
         num: '16',
-        title: 'Accesorios y ferretería para pérgolas metálicas',
+        title: 'Ferretería de pérgola metálica',
         sub: '108 referencias · 12 grupos · cada una con foto',
         desc: 'Todo lo que lleva una pérgola metálica, del chazo a la tapa del perfil: perfilería estructural (tubo cuadrado y rectangular, IPE, canal, ángulo), anclajes químicos y expansivos, pernos y tornillería inoxidable, herrajes, policarbonato y teja, canal y bajante, sellado, acabado, eléctrico y confort. Con el kit de referencia para una pérgola de 3 × 4 m.',
         tag: 'Con foto · sin precios',
@@ -191,7 +191,7 @@ const grupos = [
   },
   {
     slug: 'estructuras-metalicas',
-    titulo: 'Estructuras metálicas',
+    titulo: 'Estructuras metálicas · Acero con cálculo',
     desc: 'Escaleras, mezzanines, cubiertas y ampliaciones con diseño firmado.',
     productos: [
       {
@@ -207,7 +207,7 @@ const grupos = [
   },
   {
     slug: 'toldos-y-pergolas-de-lona',
-    titulo: 'Toldos y pérgolas de lona',
+    titulo: 'Toldos · Sombra retráctil',
     desc: 'Sombra retráctil: brazos extensibles, toldo romano corredizo, pérgola de lona (palillería) y sus accesorios.',
     productos: [
       {
@@ -240,7 +240,7 @@ const grupos = [
       {
         href: '/productos/accesorios-toldos',
         num: '21',
-        title: 'Accesorios Toldos',
+        title: 'Repuestos de toldo',
         sub: 'Brazos · Motores · Estructuras · Telas',
         desc: 'Insumos completos para toldos Octopus y Vértice: brazos de lujo en 6 longitudes, casquillos, empalmes, motores 50/100NW, controles remotos, perfiles frontales P-02, tejadillos y telas Acrysun/SUNPRO.',
         tag: '+60 referencias',
@@ -249,7 +249,7 @@ const grupos = [
       {
         href: '/productos/accesorios-pergolas',
         num: '22',
-        title: 'Accesorios pérgola de lona',
+        title: 'Repuestos de pérgola de lona',
         sub: 'Tubos · Guías · Bridas · Poleas · Kits',
         desc: 'Referencias de insumos y accesorios para instalación de pérgolas palillería: tubos estructurales 80×80 y 80×40, guías, palillos dobles, soportes de pared, poleas, bridas con rodamiento y kits de unión.',
         tag: '25 referencias',
@@ -259,7 +259,7 @@ const grupos = [
   },
   {
     slug: 'peliculas-solares',
-    titulo: 'Películas solares',
+    titulo: 'Películas solares · Vidrio inteligente',
     desc: 'Control solar y seguridad directamente en el vidrio.',
     productos: [
       {
@@ -275,7 +275,7 @@ const grupos = [
   },
   {
     slug: 'lienzos',
-    titulo: 'Lienzos',
+    titulo: 'Lienzos · Arte para la pared',
     desc: 'Arte digital en lienzo para completar el espacio.',
     productos: [
       {
@@ -291,7 +291,7 @@ const grupos = [
   },
   {
     slug: 'papel-de-colgadura',
-    titulo: 'Papel de colgadura',
+    titulo: 'Papel de colgadura · Paredes con textura',
     desc: 'Colecciones Safra Living para paredes.',
     productos: [
       {
@@ -330,7 +330,8 @@ export default async function ProductosPage() {
                 <img src={mapa[g.slug] || '/hero_banner.png'} alt="" loading="lazy" />
                 <span className="mapa-shade" />
                 <span className="mapa-body">
-                  <b>{g.titulo}</b>
+                  <b>{g.titulo.split(' · ')[0]}</b>
+                  <i style={{ fontStyle: 'normal', fontSize: '12px', color: 'rgba(243,239,230,0.8)' }}>{g.titulo.split(' · ')[1] || ''}</i>
                   <small>{g.productos.length} {g.productos.length === 1 ? 'página' : 'páginas'}</small>
                 </span>
               </a>

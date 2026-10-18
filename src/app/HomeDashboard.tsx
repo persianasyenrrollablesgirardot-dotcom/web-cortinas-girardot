@@ -22,7 +22,7 @@ type Linea = {
 const lineas: Linea[] = [
   {
     slug: 'persianas',
-    kicker: 'Lo nuestro desde el primer día',
+    kicker: 'Control de luz · lo nuestro desde el primer día',
     titulo: 'Persianas y cortinas',
     desc: 'Enrollables, Sheer Elegance, verticales, romanas y motorización. Garantía 7 años en enrollables.',
     href: '/persianas',
@@ -37,7 +37,7 @@ const lineas: Linea[] = [
   },
   {
     slug: 'pergolas-metalicas',
-    kicker: 'Nuevo · fabricación propia',
+    kicker: 'Techos para vivir afuera · fabricación propia',
     titulo: 'Pérgolas metálicas',
     desc: 'Pérgolas, celosías, carports y cubiertas para terrazas, jardines y parqueaderos. Hechas para el clima de Girardot.',
     href: '/productos/pergolas-metalicas',
@@ -51,7 +51,7 @@ const lineas: Linea[] = [
   },
   {
     slug: 'toldos',
-    kicker: 'Sombra retráctil · lona',
+    kicker: 'Sombra retráctil',
     titulo: 'Toldos',
     desc: 'Brazos extensibles, toldo romano corredizo y pérgola de lona Acrysun.',
     href: '/productos/toldos-brazos',
@@ -67,7 +67,7 @@ const lineas: Linea[] = [
 const lineasMenores: Linea[] = [
   {
     slug: 'estructuras',
-    kicker: 'Construcción · con diseño firmado',
+    kicker: 'Acero con cálculo · diseño firmado',
     titulo: 'Estructuras metálicas',
     desc: 'Escaleras, mezzanines, cubiertas y ampliaciones.',
     href: '/estructuras',
@@ -80,8 +80,8 @@ const lineasMenores: Linea[] = [
   },
   {
     slug: 'motorizacion',
-    kicker: 'Smart home',
-    titulo: 'Motorización',
+    kicker: 'Smart Shade',
+    titulo: 'Motorización y domótica',
     desc: 'Wi-Fi, app y voz para persianas, cortinas y toldos.',
     href: '/productos/motorizacion',
     img: '/home/persianas-motor.jpg',
@@ -92,7 +92,7 @@ const lineasMenores: Linea[] = [
   },
   {
     slug: 'peliculas',
-    kicker: 'Control solar en el vidrio',
+    kicker: 'Vidrio inteligente',
     titulo: 'Películas solares',
     desc: 'HAVERKAMP: calor, rayos UV y seguridad sin tapar la vista.',
     href: '/productos/peliculas',
@@ -104,7 +104,7 @@ const lineasMenores: Linea[] = [
   },
   {
     slug: 'decoracion',
-    kicker: 'Paredes',
+    kicker: 'Paredes con textura · arte',
     titulo: 'Papel de colgadura y lienzos',
     desc: 'Colecciones Safra Living y arte digital en lienzo.',
     href: '/productos/papel',

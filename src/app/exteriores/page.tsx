@@ -46,7 +46,7 @@ export default function ExterioresPage() {
               La terraza a las dos de la tarde, el aguacero de las cuatro, el carro al sol y el calor de la noche. Cada problema tiene aquí su solución, hecha para este clima y no para el de Bogotá.
             </p>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <a href="#problemas" className="btn-primary" style={{ fontSize: '15px', padding: '12px 24px' }}>Empezar por el problema <ArrowRight size={14} /></a>
+              <a href="#problemas" className="btn-primary" style={{ fontSize: '15px', padding: '12px 24px' }}>Elegir mi espacio <ArrowRight size={14} /></a>
               <Link href="/cotizar" className="btn-secondary" style={{ fontSize: '15px', padding: '12px 24px' }}>Pedir visita</Link>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function ExterioresPage() {
         {/* Problemas → soluciones */}
         <div id="problemas" style={{ scrollMarginTop: '110px', marginBottom: '16px' }}>
           <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '8px' }}>Empieza por lo que te molesta</p>
-          <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, lineHeight: 1.1, marginBottom: '8px' }}>Cinco problemas, <span className="text-gold-gradient">{sistemas.length} soluciones</span></h2>
+          <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, lineHeight: 1.1, marginBottom: '8px' }}>Cinco espacios, <span className="text-gold-gradient">{sistemas.length} soluciones</span></h2>
           <p style={{ fontSize: '15px', color: 'var(--text-2)', maxWidth: '640px' }}>Todas en acero estructural, con anclaje elegido según tu piso y prueba de agua antes de entregar. Cada una tiene ficha técnica.</p>
         </div>
 

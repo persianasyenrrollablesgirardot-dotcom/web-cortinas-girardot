@@ -61,7 +61,7 @@ export default function PergolasMetalicasPage() {
             Sombra y techo <span className="text-gold-gradient">para el sol de Girardot</span>
           </h1>
           <p style={{ fontSize: '16px', color: 'var(--text-2)', lineHeight: 1.7 }}>
-            {sistemas.length} sistemas ordenados por el problema que resuelven: la terraza a las dos de la tarde, el aguacero de las cuatro, el carro al sol, la fachada al poniente, el piso que quema. Misma forma de hacerlos: acero estructural, anclaje elegido según tu piso y prueba de agua antes de entregar.
+            {sistemas.length} sistemas ordenados por el espacio que resuelven: la terraza a las dos de la tarde, el aguacero de las cuatro, el carro al sol, la fachada al poniente, el piso que quema. Misma forma de hacerlos: acero estructural, anclaje elegido según tu piso y prueba de agua antes de entregar.
           </p>
         </div>
 
