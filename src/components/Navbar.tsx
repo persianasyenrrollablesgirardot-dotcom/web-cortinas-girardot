@@ -99,9 +99,11 @@ export default function Navbar() {
   const active = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
+  // Sobre el hero oscuro de la home (sin desplazar) los enlaces van claros
+  const sobreOscuro = isHome && !scrolled
   const linkColor = (href: string) => {
-    if (active(href)) return 'var(--gold)'
-    return 'var(--text-2)'
+    if (active(href)) return sobreOscuro ? '#E8C76A' : 'var(--gold)'
+    return sobreOscuro ? 'rgba(243,239,230,0.82)' : 'var(--text-2)'
   }
 
   // Cerrar menús al cambiar de ruta
@@ -252,7 +254,7 @@ export default function Navbar() {
           </span>
           <span className="logo-sub" style={{
             textTransform: 'uppercase', fontWeight: 400,
-            color: 'var(--text-3)',
+            color: sobreOscuro ? 'rgba(243,239,230,0.7)' : 'var(--text-3)',
             textAlign: 'right'
           }}>
             Girardot · Colombia

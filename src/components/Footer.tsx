@@ -36,7 +36,7 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer style={{ borderTop: '1px solid var(--border)', background: 'var(--bg)' }}>
+    <footer className="footer-ia" style={{ borderTop: '1px solid var(--border)', background: 'var(--bg)' }}>
       <div className="container-site" style={{ paddingTop: '56px', paddingBottom: '40px' }}>
 
         {/* Grid principal */}

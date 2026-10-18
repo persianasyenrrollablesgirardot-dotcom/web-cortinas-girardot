@@ -158,13 +158,13 @@ export default function HomeDashboard({ cfg, dias = [] }: { cfg: ImagesConfig; d
   return (
     <>
       {/* ══════════ BIENVENIDA ══════════ */}
-      <section className="page-top" style={{ paddingBottom: '28px', background: 'var(--surface)', borderBottom: '1px solid var(--border)' }}>
-        <div className="container-site" style={{ textAlign: 'center' }}>
+      <section className="page-top hero-ia" style={{ paddingBottom: '34px' }}>
+        <div className="container-site" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <span className="badge" style={{ marginBottom: '18px' }}>Girardot · Alto Magdalena</span>
-          <h1 style={{ fontSize: 'clamp(32px, 5vw, 60px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', color: 'var(--text)', maxWidth: '860px', margin: '0 auto 14px' }}>
+          <h1 style={{ fontSize: 'clamp(32px, 5vw, 60px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', maxWidth: '860px', margin: '0 auto 14px' }}>
             Bienvenido a <span className="text-gold-gradient">Fábrica de Cortinas Girardot</span>
           </h1>
-          <p style={{ fontSize: 'clamp(16px, 1.4vw, 19px)', color: 'var(--text-2)', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 24px' }}>
+          <p style={{ fontSize: 'clamp(16px, 1.4vw, 19px)', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 24px' }}>
             Persianas, cortinas, pérgolas y estructuras metálicas. Fabricamos e instalamos para el clima cálido. Elige por dónde empezar.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '22px' }}>
@@ -268,7 +268,7 @@ export default function HomeDashboard({ cfg, dias = [] }: { cfg: ImagesConfig; d
         .hd-chip-ver:hover { background: var(--gold-light); }
         .hd-conf { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
         .hd-conf-item { display: flex; gap: 12px; align-items: center; padding: 14px 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
-        .hd-conf-ico { width: 40px; height: 40px; border-radius: 12px; background: rgba(184,145,42,0.12); color: var(--gold-dark); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .hd-conf-ico { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, rgba(232,199,106,0.25), rgba(184,145,42,0.08)); color: var(--gold-dark); box-shadow: inset 0 0 0 1px rgba(184,145,42,0.25), 0 0 18px rgba(232,199,106,0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .hd-cta { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 32px; flex-wrap: wrap; }
         @media (max-width: 900px) {
           .hd-grid { grid-template-columns: 1fr; grid-template-rows: none; }

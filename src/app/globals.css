@@ -351,3 +351,65 @@ textarea.input { resize: vertical; }
 
   img, video, iframe { max-width: 100%; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MATIZ FUTURISTA «SAFRI IA» (18-oct-2026)
+   Capa fina sobre el diseño actual: grafito + oro, brillos suaves, líneas finas,
+   sin tocar la legibilidad de las páginas de producto (siguen claras).
+   ═══════════════════════════════════════════════════════════════ */
+:root { --grafito: #0E0B08; --grafito-2: #1A1612; --oro-claro: #E8C76A; }
+
+/* Hero oscuro de la home: grafito con halo dorado y retícula fina */
+.hero-ia {
+  position: relative; overflow: hidden; color: #F3EFE6;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 0%, rgba(232,199,106,0.22), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 85% 100%, rgba(184,145,42,0.14), transparent 70%),
+    linear-gradient(180deg, var(--grafito) 0%, var(--grafito-2) 100%);
+  border-bottom: 1px solid rgba(232,199,106,0.18);
+}
+.hero-ia::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(232,199,106,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,199,106,0.08) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 20%, #000 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 20%, #000 30%, transparent 100%);
+}
+.hero-ia::after {
+  /* barrido de luz lento, como un escaneo */
+  content: ''; position: absolute; top: 0; bottom: 0; width: 38%; left: -40%; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(232,199,106,0.06), transparent);
+  animation: barrido 9s ease-in-out infinite;
+}
+@keyframes barrido { 0% { left: -40%; } 55% { left: 110%; } 100% { left: 110%; } }
+.hero-ia .badge { background: rgba(232,199,106,0.12); border-color: rgba(232,199,106,0.4); color: var(--oro-claro); }
+.hero-ia h1 { color: #FFFFFF; }
+.hero-ia .text-gold-gradient { background: linear-gradient(135deg, #F3DC8E 0%, #E8C76A 45%, #B8912A 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-ia p { color: rgba(243,239,230,0.78); }
+.hero-ia .btn-secondary { background: rgba(255,255,255,0.06); border-color: rgba(232,199,106,0.35); color: #F3EFE6; }
+.hero-ia .btn-secondary:hover { background: rgba(232,199,106,0.14); color: #fff; border-color: var(--oro-claro); }
+.hero-ia .hd-sello { background: rgba(255,255,255,0.05); border-color: rgba(232,199,106,0.5); box-shadow: 0 0 0 1px rgba(232,199,106,0.08), 0 10px 30px rgba(0,0,0,0.35), inset 0 0 24px rgba(232,199,106,0.06); }
+
+/* Botón principal: oro con brillo que recorre al pasar el mouse */
+.btn-primary { position: relative; overflow: hidden; background: linear-gradient(135deg, #D4A94A 0%, #B8912A 100%); box-shadow: 0 6px 18px rgba(184,145,42,0.28); }
+.btn-primary::after { content: ''; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent); transform: skewX(-20deg); transition: left 0.6s ease; }
+.btn-primary:hover::after { left: 120%; }
+.btn-primary:hover { box-shadow: 0 10px 26px rgba(184,145,42,0.38); }
+
+/* Tarjetas: borde con degradado dorado al pasar el mouse */
+.card-glass:hover, .surface:hover { border-color: rgba(184,145,42,0.45); box-shadow: 0 8px 36px rgba(184,145,42,0.12), 0 2px 16px rgba(0,0,0,0.06); }
+.hd-tile::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; border: 1px solid rgba(232,199,106,0); transition: border-color .3s ease, box-shadow .3s ease; }
+.hd-tile:hover::after { border-color: rgba(232,199,106,0.6); box-shadow: inset 0 0 0 1px rgba(232,199,106,0.25), 0 0 32px rgba(232,199,106,0.18); }
+
+/* Etiquetas con destello ✦ y línea dorada fina */
+.badge::before { content: '✦'; font-size: 10px; color: var(--gold); }
+.linea-oro { height: 1px; border: 0; background: linear-gradient(90deg, transparent, rgba(184,145,42,0.6), transparent); }
+
+/* Barra superior: vidrio oscuro suave con línea dorada */
+.navbar-ia { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(184,145,42,0.22) !important; }
+
+/* Pie: grafito con la retícula */
+.footer-ia { background: linear-gradient(180deg, var(--bg) 0%, #F1EDE6 100%); border-top: 1px solid rgba(184,145,42,0.25) !important; }
