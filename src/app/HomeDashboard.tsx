@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Shield, Award, MapPin, Wrench, MessageCircle } from 'lucide-react'
 import type { ImagesConfig } from '@/lib/getImagesConfig'
+import type { DiaGaleria } from '@/lib/galeriaDia'
+import GaleriaDiaCarrusel from '@/components/GaleriaDiaCarrusel'
 
 /* ─── DATOS ─────────────────────────────────────────── */
 
@@ -147,7 +149,7 @@ function TileLinea({ l }: { l: Linea }) {
 
 /* ─── PÁGINA ────────────────────────────────────────── */
 
-export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
+export default function HomeDashboard({ cfg, dias = [] }: { cfg: ImagesConfig; dias?: DiaGaleria[] }) {
   // Si el panel admin fijó un banner remoto válido, lo usamos en el mosaico grande.
   const bannerAdmin = cfg.hero_banner && cfg.hero_banner.startsWith('http') ? cfg.hero_banner : null
   const lineasRender = lineas.map((l) => (l.grande && bannerAdmin ? { ...l, img: bannerAdmin } : l))
@@ -191,6 +193,9 @@ export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
           </div>
         </div>
       </section>
+
+      {/* ══════════ GALERÍA DEL DÍA (rota sola) ══════════ */}
+      <GaleriaDiaCarrusel dias={dias} />
 
       {/* ══════════ CONFIANZA ══════════ */}
       <section className="section-sm" style={{ borderTop: '1px solid var(--border)' }}>

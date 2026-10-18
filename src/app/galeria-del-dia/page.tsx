@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { unstable_noStore as noStore } from 'next/cache'
+import { cargarGaleriaDia, fechaLarga } from '@/lib/galeriaDia'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -8,38 +8,8 @@ export const metadata: Metadata = {
   description: 'Cada día una idea nueva: persianas, pérgolas metálicas, toldos y estructuras para el clima de Girardot. Imágenes de referencia y datos técnicos.',
 }
 
-type Dia = {
-  fecha: string
-  formato: string
-  productos: string[]
-  titulo: string
-  imagenes: { url: string; producto: string }[]
-  rotulos: { titulo: string; sub: string }[]
-}
-
-// Las imágenes del día las sube la automatización a Supabase Storage (bucket público
-// web_uploads/galeria-dia). La página solo lee el índice: no hay despliegue diario.
-async function cargarIndice(): Promise<Dia[]> {
-  noStore()
-  const base = process.env.NEXT_PUBLIC_SUPABASE_URL
-  if (!base) return []
-  try {
-    const r = await fetch(`${base}/storage/v1/object/public/web_uploads/galeria-dia/index.json`, { cache: 'no-store' })
-    if (!r.ok) return []
-    const j = (await r.json()) as { dias?: Dia[] }
-    return (j.dias || []).slice(0, 30)
-  } catch {
-    return []
-  }
-}
-
-function fechaLarga(iso: string) {
-  const [y, m, d] = iso.split('-').map(Number)
-  return new Date(y, m - 1, d).toLocaleDateString('es-CO', { weekday: 'long', day: 'numeric', month: 'long' })
-}
-
 export default async function GaleriaDelDiaPage() {
-  const dias = await cargarIndice()
+  const dias = await cargarGaleriaDia()
   return (
     <div className="page-top">
       <div className="container-site">
