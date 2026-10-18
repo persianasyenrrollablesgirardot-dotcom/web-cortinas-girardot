@@ -1,0 +1,255 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import { ArrowRight, Shield, Award, MapPin, Wrench, MessageCircle } from 'lucide-react'
+import type { ImagesConfig } from '@/lib/getImagesConfig'
+
+/* ─── DATOS ─────────────────────────────────────────── */
+
+type Linea = {
+  slug: string
+  kicker: string
+  titulo: string
+  desc: string
+  href: string
+  img: string
+  grande?: boolean
+  temas: { label: string; href: string }[]
+}
+
+const lineas: Linea[] = [
+  {
+    slug: 'persianas',
+    kicker: 'Lo nuestro desde el primer día',
+    titulo: 'Persianas y cortinas',
+    desc: 'Enrollables, Sheer Elegance, verticales, romanas y motorización. Garantía 7 años en enrollables.',
+    href: '/persianas',
+    img: '/hero_banner.png',
+    grande: true,
+    temas: [
+      { label: 'Enrollables', href: '/productos/enrollables' },
+      { label: 'Sheer Elegance', href: '/productos/sheer-elegance' },
+      { label: 'Motorización', href: '/productos/motorizacion' },
+    ],
+  },
+  {
+    slug: 'exteriores',
+    kicker: 'Nuevo · hecho para Girardot',
+    titulo: 'Exteriores · clima cálido',
+    desc: 'Pérgolas metálicas, celosías y cubiertas para terrazas, jardines y parqueaderos.',
+    href: '/exteriores',
+    img: '/pergolas-metalicas/adosada-policarbonato.jpg',
+    temas: [
+      { label: 'Pérgolas metálicas', href: '/productos/pergolas-metalicas' },
+      { label: 'Carport', href: '/productos/pergolas-metalicas#carport-diseno' },
+      { label: 'Celosías', href: '/productos/pergolas-metalicas#celosia-lamas-fijas' },
+    ],
+  },
+  {
+    slug: 'estructuras',
+    kicker: 'Construcción · con diseño firmado',
+    titulo: 'Estructuras metálicas',
+    desc: 'Escaleras, mezzanines, cubiertas y ampliaciones para casas, locales y bodegas.',
+    href: '/estructuras',
+    img: '/estructuras/naves-porticos.jpg',
+    temas: [
+      { label: 'Escaleras', href: '/estructuras#escaleras-metalicas' },
+      { label: 'Mezzanine', href: '/estructuras#mezzanine-altillo' },
+      { label: 'Cubiertas', href: '/estructuras#cubiertas-comerciales' },
+    ],
+  },
+]
+
+const problemas = [
+  { t: 'Entra mucho calor por la ventana', s: 'Enrollable Screen o Blackout', href: '/productos/enrollables', img: '/home/persianas-screen.jpg' },
+  { t: 'Quiero luz sin perder privacidad', s: 'Sheer Elegance', href: '/productos/sheer-elegance', img: '/home/persianas-sheer.jpg' },
+  { t: 'Subir y bajar desde el celular', s: 'Motorización Wi-Fi', href: '/productos/motorizacion', img: '/home/persianas-motor.jpg' },
+  { t: 'La terraza no se usa por el sol', s: 'Pérgola adosada con policarbonato', href: '/productos/pergolas-metalicas#adosada-policarbonato', img: '/pergolas-metalicas/adosada-policarbonato.jpg' },
+  { t: 'El carro queda al sol', s: 'Carport metálico', href: '/productos/pergolas-metalicas#carport-diseno', img: '/pergolas-metalicas/carport-diseno.jpg' },
+  { t: 'Necesito más espacio en casa o en el local', s: 'Mezzanine o segundo piso', href: '/estructuras#ampliacion-segundo-piso', img: '/estructuras/ampliacion-segundo-piso.jpg' },
+]
+
+const confianza = [
+  { Icon: Shield, t: 'Garantía 7 años', d: 'en sistemas enrollables' },
+  { Icon: Award, t: 'Telas certificadas', d: 'OEKO-TEX · GREENGUARD Gold' },
+  { Icon: Wrench, t: 'Fabricación propia', d: 'medimos, fabricamos e instalamos' },
+  { Icon: MapPin, t: 'Girardot y región', d: 'Melgar · Ricaurte · Flandes · Bogotá' },
+]
+
+const WA = 'https://wa.me/573202381865?text=Hola%2C%20quiero%20una%20asesor%C3%ADa'
+
+/* ─── PIEZAS ────────────────────────────────────────── */
+
+function TileLinea({ l }: { l: Linea }) {
+  return (
+    <article className={`hd-tile ${l.grande ? 'hd-tile-grande' : ''}`}>
+      <Image src={l.img} alt={l.titulo} fill sizes={l.grande ? '(max-width: 900px) 100vw, 58vw' : '(max-width: 900px) 100vw, 42vw'} priority={!!l.grande} style={{ objectFit: 'cover' }} className="hd-img" />
+      <div className="hd-shade" />
+      <Link href={l.href} className="hd-stretch" aria-label={l.titulo} />
+      <div className="hd-body">
+        <span className="hd-kicker">{l.kicker}</span>
+        <h2 className="hd-titulo">{l.titulo}</h2>
+        <p className="hd-desc">{l.desc}</p>
+        <div className="hd-temas">
+          {l.temas.map((t) => (
+            <Link key={t.href} href={t.href} className="hd-chip">{t.label}</Link>
+          ))}
+          <Link href={l.href} className="hd-chip hd-chip-ver">Ver todo <ArrowRight size={13} /></Link>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+/* ─── PÁGINA ────────────────────────────────────────── */
+
+export default function HomeDashboard({ cfg }: { cfg: ImagesConfig }) {
+  // Si el panel admin fijó un banner remoto válido, lo usamos en el mosaico grande.
+  const bannerAdmin = cfg.hero_banner && cfg.hero_banner.startsWith('http') ? cfg.hero_banner : null
+  const lineasRender = lineas.map((l) => (l.grande && bannerAdmin ? { ...l, img: bannerAdmin } : l))
+
+  return (
+    <>
+      {/* ══════════ BIENVENIDA ══════════ */}
+      <section className="page-top" style={{ paddingBottom: '28px', background: 'var(--surface)', borderBottom: '1px solid var(--border)' }}>
+        <div className="container-site" style={{ textAlign: 'center' }}>
+          <span className="badge" style={{ marginBottom: '18px' }}>Girardot · Alto Magdalena</span>
+          <h1 style={{ fontSize: 'clamp(32px, 5vw, 60px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', color: 'var(--text)', maxWidth: '860px', margin: '0 auto 14px' }}>
+            Bienvenido a <span className="text-gold-gradient">Fábrica de Cortinas Girardot</span>
+          </h1>
+          <p style={{ fontSize: 'clamp(16px, 1.4vw, 19px)', color: 'var(--text-2)', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 24px' }}>
+            Persianas, cortinas, pérgolas y estructuras metálicas. Fabricamos e instalamos para el clima cálido. Elige por dónde empezar.
+          </p>
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/cotizar" className="btn-primary" style={{ padding: '14px 26px', borderRadius: '14px' }}>
+              Cotizar <ArrowRight size={16} />
+            </Link>
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ padding: '14px 26px', borderRadius: '14px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <MessageCircle size={16} /> WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════ TRES LÍNEAS ══════════ */}
+      <section className="section-sm" style={{ paddingTop: '32px' }}>
+        <div className="container-site">
+          <div className="hd-grid">
+            {lineasRender.map((l) => <TileLinea key={l.slug} l={l} />)}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '22px' }}>
+            <Link href="/productos" style={{ fontSize: '15px', fontWeight: 600, color: 'var(--gold-dark)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              Ver el portafolio completo <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════ ¿QUÉ NECESITAS RESOLVER? ══════════ */}
+      <section className="section" style={{ borderTop: '1px solid var(--border)', background: 'var(--surface)' }}>
+        <div className="container-site">
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <h2 style={{ fontSize: 'clamp(26px, 3.4vw, 40px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text)', marginBottom: '8px' }}>
+              ¿Qué necesitas resolver?
+            </h2>
+            <p style={{ color: 'var(--text-2)', fontSize: '16px' }}>Toca el problema y te llevamos a la solución.</p>
+          </div>
+          <div className="hd-prob-grid">
+            {problemas.map((p) => (
+              <Link key={p.href} href={p.href} className="hd-prob">
+                <Image src={p.img} alt={p.s} fill sizes="(max-width: 640px) 50vw, 33vw" style={{ objectFit: 'cover' }} className="hd-img" />
+                <div className="hd-shade" />
+                <div className="hd-prob-body">
+                  <span className="hd-prob-t">{p.t}</span>
+                  <span className="hd-prob-s">{p.s} <ArrowRight size={12} /></span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════ CONFIANZA ══════════ */}
+      <section className="section-sm" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="container-site">
+          <div className="hd-conf">
+            {confianza.map(({ Icon, t, d }) => (
+              <div key={t} className="hd-conf-item">
+                <div className="hd-conf-ico"><Icon size={20} /></div>
+                <div>
+                  <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: '15px' }}>{t}</div>
+                  <div style={{ color: 'var(--text-3)', fontSize: '13px' }}>{d}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════ CTA ══════════ */}
+      <section className="section-sm" style={{ borderTop: '1px solid var(--border)', background: 'var(--surface)' }}>
+        <div className="container-site">
+          <div className="card-glass hd-cta">
+            <div>
+              <h3 style={{ fontSize: 'clamp(22px, 2.6vw, 30px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text)', marginBottom: '6px' }}>
+                ¿No sabes cuál te sirve?
+              </h3>
+              <p style={{ color: 'var(--text-2)', fontSize: '16px' }}>Cuéntanos el espacio y el problema. Te decimos qué sistema conviene y vamos a medir.</p>
+            </div>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '14px 24px', borderRadius: '14px' }}>
+                <MessageCircle size={16} /> Escribir por WhatsApp
+              </a>
+              <Link href="/cotizar" className="btn-secondary" style={{ padding: '14px 24px', borderRadius: '14px' }}>Pedir cotización</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        .hd-grid { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 290px 290px; gap: 16px; }
+        .hd-tile { position: relative; border-radius: 22px; overflow: hidden; background: #ddd; box-shadow: 0 10px 30px rgba(0,0,0,0.08); isolation: isolate; }
+        .hd-tile-grande { grid-row: 1 / 3; }
+        .hd-img { transition: transform .5s ease; }
+        .hd-tile:hover .hd-img, .hd-prob:hover .hd-img { transform: scale(1.04); }
+        .hd-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,6,0.88) 0%, rgba(10,8,6,0.45) 45%, rgba(10,8,6,0.05) 75%); pointer-events: none; }
+        .hd-stretch { position: absolute; inset: 0; z-index: 1; }
+        .hd-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 24px; color: #fff; z-index: 2; pointer-events: none; }
+        .hd-body > * { pointer-events: auto; }
+        .hd-kicker { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #E8C76A; margin-bottom: 8px; }
+        .hd-titulo { color: #fff; font-size: clamp(24px, 2.6vw, 36px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 6px; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+        .hd-tile-grande .hd-titulo { font-size: clamp(30px, 3.6vw, 48px); }
+        .hd-desc { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85); max-width: 520px; margin-bottom: 12px; }
+        .hd-temas { display: flex; flex-wrap: wrap; gap: 8px; }
+        .hd-chip { font-size: 12.5px; font-weight: 600; color: #fff; text-decoration: none; padding: 7px 12px; border-radius: 100px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: inline-flex; align-items: center; gap: 5px; transition: background .2s; }
+        .hd-chip:hover { background: rgba(255,255,255,0.3); }
+        .hd-chip-ver { background: var(--gold); border-color: var(--gold); }
+        .hd-chip-ver:hover { background: var(--gold-light); }
+        .hd-prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+        .hd-prob { position: relative; aspect-ratio: 4 / 3; border-radius: 18px; overflow: hidden; background: #ddd; text-decoration: none; isolation: isolate; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+        .hd-prob-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 18px; color: #fff; display: flex; flex-direction: column; gap: 4px; }
+        .hd-prob-t { color: #fff; font-size: clamp(16px, 1.5vw, 20px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; text-shadow: 0 2px 10px rgba(0,0,0,.4); }
+        .hd-prob-s { font-size: 12.5px; font-weight: 600; color: #E8C76A; display: inline-flex; align-items: center; gap: 4px; }
+        .hd-conf { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+        .hd-conf-item { display: flex; gap: 12px; align-items: center; padding: 14px 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+        .hd-conf-ico { width: 40px; height: 40px; border-radius: 12px; background: rgba(184,145,42,0.12); color: var(--gold-dark); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .hd-cta { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 32px; flex-wrap: wrap; }
+        @media (max-width: 900px) {
+          .hd-grid { grid-template-columns: 1fr; grid-template-rows: none; }
+          .hd-tile { height: 250px; }
+          .hd-tile-grande { grid-row: auto; height: 320px; }
+          .hd-conf { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+          .hd-prob-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+          .hd-prob { aspect-ratio: 1 / 1; }
+          .hd-prob-body { padding: 12px; }
+          .hd-prob-t { font-size: 14.5px; }
+          .hd-prob-s { font-size: 11.5px; }
+          .hd-body { padding: 16px; }
+          .hd-desc { display: none; }
+          .hd-conf { grid-template-columns: 1fr; }
+        }
+      `}</style>
+    </>
+  )
+}

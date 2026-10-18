@@ -1,7 +1,7 @@
 import { getImagesConfig } from '@/lib/getImagesConfig'
-import HomeClient from './HomeClient'
+import HomeDashboard from './HomeDashboard'
 
 export default async function Page() {
   const cfg = await getImagesConfig()
-  return <HomeClient cfg={cfg} />
+  return <HomeDashboard cfg={cfg} />
 }
