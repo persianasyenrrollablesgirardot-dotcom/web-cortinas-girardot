@@ -1,10 +1,24 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import FondoIA from '@/components/FondoIA'
+
+const mapa: Record<string, string> = {
+  'persianas-y-cortinas': '/hero_banner.png',
+  'motorizacion-y-domotica-de-persianas': '/home/persianas-motor.jpg',
+  'accesorios-de-persianas-y-cortinas': '/home/persianas-verticales.jpg',
+  'pergolas-metalicas': '/pergolas-metalicas/adosada-policarbonato.jpg',
+  'estructuras-metalicas': '/estructuras/escaleras-metalicas.jpg',
+  'toldos-y-pergolas-de-lona': '/toldos/toldo-brazos.jpg',
+  'peliculas-solares': '/home/peliculas.jpg',
+  'lienzos': '/home/decoracion.jpg',
+  'papel-de-colgadura': '/home/decoracion.jpg',
+}
 
 const grupos = [
   {
-    titulo: 'Sistemas de Control Solar',
-    desc: 'Enrollables, persianas y franjas para regular la luz con precisión.',
+    slug: 'persianas-y-cortinas',
+    titulo: 'Persianas y cortinas',
+    desc: 'Lo que fabricamos e instalamos todos los días: enrollables, franjas, verticales, panel, cortina y persianas estampadas.',
     productos: [
       {
         href: '/productos/enrollables',
@@ -33,12 +47,6 @@ const grupos = [
         tag: 'Clásico',
         features: ['Módulos plegables', 'Cabezal metálico opcional', 'Top Down (apertura inversa)', 'Cobro mínimo 1.0 m²'],
       },
-    ],
-  },
-  {
-    titulo: 'Sistemas de Franjas Verticales',
-    desc: 'Diseño contemporáneo con lamas verticales para ambientes sofisticados.',
-    productos: [
       {
         href: '/productos/hanas',
         num: '04',
@@ -66,12 +74,6 @@ const grupos = [
         tag: 'Hasta 6.0 m',
         features: ['Lamas 9 cm de ancho', 'Riel aluminio blanco', 'Ancho máx. 6.0 m · Alto máx. 3.20 m', 'Combinada irregular disponible'],
       },
-    ],
-  },
-  {
-    titulo: 'Panel & Cortina',
-    desc: 'Para ventanales amplios y decoración de interiores de alta gama.',
-    productos: [
       {
         href: '/productos/panel',
         num: '07',
@@ -91,117 +93,8 @@ const grupos = [
         features: ['100% Poliéster', 'Alto mínimo 2.20 m', 'Lanzamiento 2026', 'Instalación profesional'],
       },
       {
-        href: '/productos/riel-panel',
-        num: '09',
-        title: 'Riel Armado Panel ML',
-        sub: '4 · 5 · 6 · 7 vías · Aluminio · Por metro lineal',
-        desc: 'Riel de aluminio para Panel Japonés suministrado armado y listo para instalar. Disponible en 4, 5, 6 y 7 vías. Incluye patines, topes y cenefa opcional. Vendido por metro lineal.',
-        tag: 'Por ML',
-        features: ['4 · 5 · 6 · 7 vías', 'Aluminio extruido blanco', 'Patines y topes incluidos', 'Para instaladores y diseñadores'],
-      },
-      {
-        href: '/productos/riel-cortina',
-        num: '10',
-        title: 'Riel Armado Cortina ML',
-        sub: 'Super Riel · Pesado · Luxury · Flexiriel',
-        desc: 'Sistema de riel para cortinas tradicionales vendido por metro lineal. Cuatro tipos según el peso de la cortina y nivel de acabado. Disponible sencillo o doble.',
-        tag: 'Por ML',
-        features: ['Super Riel · Tráfico Pesado', 'Luxury · Flexiriel', 'Sencillo o doble', 'Curvas 90° disponibles'],
-      },
-    ],
-  },
-  {
-    titulo: 'Pérgolas metálicas, estructuras & exteriores',
-    desc: 'Fabricación propia en acero para el clima cálido —pérgolas, su ferretería y estructuras— más las cubiertas de lona de Safra.',
-    productos: [
-      {
-        href: '/productos/pergolas-metalicas',
-        num: '13',
-        title: 'Pérgolas y estructuras metálicas',
-        sub: 'Clima cálido · Fabricación propia · Girardot',
-        desc: 'Catorce sistemas en acero estructural ordenados por el problema que resuelven: terraza, jardín y piscina, vehículos, fachada y piso. Policarbonato bronce u opal, teja o lamas. Anclaje según el piso y prueba de agua antes de entregar.',
-        tag: 'Nuevo · propio',
-        features: ['Adosada · autoportante · gazebo', 'Carport · cubierta de parqueadero', 'Quiebrasol · celosía · deck', 'Catálogo de 108 accesorios'],
-        featured: true,
-      },
-      {
-        href: '/productos/pergolas-metalicas/accesorios',
-        num: '13a',
-        title: 'Accesorios y ferretería para pérgolas metálicas',
-        sub: '108 referencias · 12 grupos · cada una con foto',
-        desc: 'Todo lo que lleva una pérgola metálica, del chazo a la tapa del perfil: perfilería estructural (tubo cuadrado y rectangular, IPE, canal, ángulo), anclajes químicos y expansivos, pernos y tornillería inoxidable, herrajes, policarbonato y teja, canal y bajante, sellado, acabado, eléctrico y confort. Con el kit de referencia para una pérgola de 3 × 4 m.',
-        tag: 'Con foto · sin precios',
-        features: ['Perfilería: tubo A500, IPE, canal, ángulo', 'Anclaje químico y expansivo', 'Tornillería y pernos inoxidables', 'Kit 3 × 4 m y 9 reglas de fijación'],
-      },
-      {
-        href: '/estructuras',
-        num: '13b',
-        title: 'Estructuras metálicas',
-        sub: 'Escaleras · mezzanines · cubiertas · ampliaciones',
-        desc: 'Ocho tipos de obra en acero con diseño firmado por ingeniero: escaleras, mezzanines y altillos, domos y claraboyas, cubiertas comerciales, ampliación de segundo piso, locales y fachadas, pasarelas y naves. Memoria de cálculo, planos de taller y montaje propio.',
-        tag: 'Con diseño firmado',
-        features: ['Memoria de cálculo NSR-10', 'Fabricación en taller, montaje en obra', 'Soldadores calificados', 'Documentos de entrega'],
-      },
-      {
-        href: '/productos/pergolas',
-        num: '13c',
-        title: 'Pérgola de lona (Palillería)',
-        sub: 'Paredón · Lobby · Doble Lobby',
-        desc: 'Cubierta de lona acrílica retráctil con estructura de aluminio. Tres tipos según la instalación: entre dos muros (Paredón), semi-adosada (Lobby) o autoportante (Doble Lobby). Proyección hasta 7 m.',
-        tag: 'Exteriores',
-        features: ['Lona acrílica UV · resistente lluvia', 'Motor Safra 50/12 disponible', 'Herraje blanco (negro +15%)', 'Proyección hasta 7 m'],
-      },
-      {
-        href: '/productos/toldo-romano',
-        num: '13d',
-        title: 'Toldo Romano Corredizo',
-        sub: 'Manual · Motorizado · Solar Screen',
-        desc: 'Sistema de plegado romano para uso exterior. Tela Solar Screen que reduce la radiación solar directa. Tres niveles de acabado (Premium, Plus, Básico) con estructura de aluminio anodizado. Manual o motorizado.',
-        tag: 'Exterior',
-        features: ['Tela Solar Screen exterior', 'Premium · Plus · Básico', 'Manual o motorizado', 'Garantía hasta 5 años'],
-      },
-      {
-        href: '/productos/accesorios-pergolas',
-        num: '13e',
-        title: 'Accesorios pérgola de lona',
-        sub: 'Tubos · Guías · Bridas · Poleas · Kits',
-        desc: 'Referencias de insumos y accesorios para instalación de pérgolas palillería: tubos estructurales 80×80 y 80×40, guías, palillos dobles, soportes de pared, poleas, bridas con rodamiento y kits de unión.',
-        tag: '25 referencias',
-        features: ['Tubos y guías aluminio', 'Bridas 90mm / 60mm / 30mm', 'Poleas dobles blanco y negro', 'Kit Unión Derecha 80×80'],
-      },
-      {
-        href: '/productos/accesorios-toldos',
-        num: '13f',
-        title: 'Accesorios Toldos',
-        sub: 'Brazos · Motores · Estructuras · Telas',
-        desc: 'Insumos completos para toldos Octopus y Vértice: brazos de lujo en 6 longitudes, casquillos, empalmes, motores 50/100NW, controles remotos, perfiles frontales P-02, tejadillos y telas Acrysun/SUNPRO.',
-        tag: '+60 referencias',
-        features: ['Brazos Octopus 1.5–4.0m', 'Brazos Vértice 1.5–3.5m', 'Motores 50NW y 100NW', 'Telas Acrysun · SUNPRO · Clear Cristal'],
-      },
-    ],
-  },
-  {
-    titulo: 'Accesorios & Insumos',
-    desc: 'Referencias técnicas de accesorios para todos los sistemas de persianas y cortinas.',
-    productos: [
-      {
-        href: '/productos/accesorios-pel',
-        num: '15',
-        title: 'Accesorios Persianas — Lista 220',
-        sub: '11 líneas · 259 referencias',
-        desc: 'Catálogo completo de accesorios e insumos: tubos, cenefas, controles, soportes, rieles, rodachinas, bastones y más para enrollables, panel japonés, romana, vertical, Hanna, Flexiriel y Riel Luxury.',
-        tag: '259 referencias',
-        features: ['Enrollable · Panel Japonés · Romana', 'Rieles · Macromadera · Vertical', 'Hanna · Flexiriel · Riel Luxury', 'Sheer Elegance'],
-      },
-    ],
-  },
-  {
-    titulo: 'Impresión Digital',
-    desc: 'Diseños personalizados sobre cualquier persiana enrollable.',
-    productos: [
-      {
         href: '/productos/estampados',
-        num: '14',
+        num: '09',
         title: 'Persianas Estampadas',
         sub: 'Impresión digital · Catálogo Safra 2023',
         desc: 'Más de 400 diseños en 7 categorías: Deportes, Flor, Infantil, Música, Teens, Paisaje y Animales. Impresión HD sobre tela Blackout, Screen o Traslúcida. También con imagen propia.',
@@ -211,12 +104,13 @@ const grupos = [
     ],
   },
   {
-    titulo: 'Smart Home & Complementos',
-    desc: 'Tecnología y acabados para completar cada instalación.',
+    slug: 'motorizacion-y-domotica-de-persianas',
+    titulo: 'Motorización y domótica de persianas',
+    desc: 'Motores Wi-Fi, app, voz y rieles motorizados para persianas, cortinas y panel.',
     productos: [
       {
         href: '/productos/motorizacion',
-        num: '09',
+        num: '10',
         title: 'Motorización & Domótica',
         sub: 'Wi-Fi · App · Voz',
         desc: 'Motores silenciosos con Wi-Fi integrado. Compatible con todos los sistemas del catálogo. Control por app móvil, voz (Alexa, Google, Siri) o sensores automáticos.',
@@ -226,34 +120,167 @@ const grupos = [
       },
       {
         href: '/productos/riel-motor',
-        num: '10',
+        num: '11',
         title: 'Riel Motor Cortina y Panel ML',
         sub: 'Motor tubular · RF · Monocanal / Multicanal',
         desc: 'Sistema de riel motorizado para cortinas y Panel Japonés vendido por metro lineal. Incluye motor Safra 50NW/100NW, control y todos los componentes. Compatible con domótica.',
         tag: 'Motorizado · Por ML',
         features: ['Motor Safra 50NW / 100NW', 'Control monocanal o multicanal', 'Cortina y Panel Japonés', 'Compatible domótica'],
       },
+    ],
+  },
+  {
+    slug: 'accesorios-de-persianas-y-cortinas',
+    titulo: 'Accesorios de persianas y cortinas',
+    desc: 'Insumos, rieles armados y repuestos de todos los sistemas de persianas.',
+    productos: [
+      {
+        href: '/productos/accesorios-pel',
+        num: '12',
+        title: 'Accesorios Persianas — Lista 220',
+        sub: '11 líneas · 259 referencias',
+        desc: 'Catálogo completo de accesorios e insumos: tubos, cenefas, controles, soportes, rieles, rodachinas, bastones y más para enrollables, panel japonés, romana, vertical, Hanna, Flexiriel y Riel Luxury.',
+        tag: '259 referencias',
+        features: ['Enrollable · Panel Japonés · Romana', 'Rieles · Macromadera · Vertical', 'Hanna · Flexiriel · Riel Luxury', 'Sheer Elegance'],
+      },
+      {
+        href: '/productos/riel-panel',
+        num: '13',
+        title: 'Riel Armado Panel ML',
+        sub: '4 · 5 · 6 · 7 vías · Aluminio · Por metro lineal',
+        desc: 'Riel de aluminio para Panel Japonés suministrado armado y listo para instalar. Disponible en 4, 5, 6 y 7 vías. Incluye patines, topes y cenefa opcional. Vendido por metro lineal.',
+        tag: 'Por ML',
+        features: ['4 · 5 · 6 · 7 vías', 'Aluminio extruido blanco', 'Patines y topes incluidos', 'Para instaladores y diseñadores'],
+      },
+      {
+        href: '/productos/riel-cortina',
+        num: '14',
+        title: 'Riel Armado Cortina ML',
+        sub: 'Super Riel · Pesado · Luxury · Flexiriel',
+        desc: 'Sistema de riel para cortinas tradicionales vendido por metro lineal. Cuatro tipos según el peso de la cortina y nivel de acabado. Disponible sencillo o doble.',
+        tag: 'Por ML',
+        features: ['Super Riel · Tráfico Pesado', 'Luxury · Flexiriel', 'Sencillo o doble', 'Curvas 90° disponibles'],
+      },
+    ],
+  },
+  {
+    slug: 'pergolas-metalicas',
+    titulo: 'Pérgolas metálicas',
+    desc: 'Fabricación propia en acero para el clima de Girardot, con su ferretería completa.',
+    productos: [
+      {
+        href: '/productos/pergolas-metalicas',
+        num: '15',
+        title: 'Pérgolas metálicas',
+        sub: 'Clima cálido · Fabricación propia · Girardot',
+        desc: 'Catorce sistemas en acero estructural ordenados por el problema que resuelven: terraza, jardín y piscina, vehículos, fachada y piso. Policarbonato bronce u opal, teja o lamas. Anclaje según el piso y prueba de agua antes de entregar.',
+        tag: 'Nuevo · propio',
+        features: ['Adosada · autoportante · gazebo', 'Carport · cubierta de parqueadero', 'Quiebrasol · celosía · deck', 'Catálogo de 108 accesorios'],
+        featured: true,
+      },
+      {
+        href: '/productos/pergolas-metalicas/accesorios',
+        num: '16',
+        title: 'Accesorios y ferretería para pérgolas metálicas',
+        sub: '108 referencias · 12 grupos · cada una con foto',
+        desc: 'Todo lo que lleva una pérgola metálica, del chazo a la tapa del perfil: perfilería estructural (tubo cuadrado y rectangular, IPE, canal, ángulo), anclajes químicos y expansivos, pernos y tornillería inoxidable, herrajes, policarbonato y teja, canal y bajante, sellado, acabado, eléctrico y confort. Con el kit de referencia para una pérgola de 3 × 4 m.',
+        tag: 'Con foto · sin precios',
+        features: ['Perfilería: tubo A500, IPE, canal, ángulo', 'Anclaje químico y expansivo', 'Tornillería y pernos inoxidables', 'Kit 3 × 4 m y 9 reglas de fijación'],
+      },
+    ],
+  },
+  {
+    slug: 'estructuras-metalicas',
+    titulo: 'Estructuras metálicas',
+    desc: 'Escaleras, mezzanines, cubiertas y ampliaciones con diseño firmado.',
+    productos: [
+      {
+        href: '/estructuras',
+        num: '17',
+        title: 'Estructuras metálicas',
+        sub: 'Escaleras · mezzanines · cubiertas · ampliaciones',
+        desc: 'Ocho tipos de obra en acero con diseño firmado por ingeniero: escaleras, mezzanines y altillos, domos y claraboyas, cubiertas comerciales, ampliación de segundo piso, locales y fachadas, pasarelas y naves. Memoria de cálculo, planos de taller y montaje propio.',
+        tag: 'Con diseño firmado',
+        features: ['Memoria de cálculo NSR-10', 'Fabricación en taller, montaje en obra', 'Soldadores calificados', 'Documentos de entrega'],
+      },
+    ],
+  },
+  {
+    slug: 'toldos-y-pergolas-de-lona',
+    titulo: 'Toldos y pérgolas de lona',
+    desc: 'Sombra retráctil: brazos extensibles, toldo romano corredizo, pérgola de lona (palillería) y sus accesorios.',
+    productos: [
+      {
+        href: '/productos/toldos-brazos',
+        num: '18',
+        title: 'Toldos de brazos extensibles',
+        sub: 'VÉRTICE · OCTOPUS · AQUA RAIN · MYKONOS',
+        desc: 'Toldo de pared con brazos articulados que se recoge cuando no hace falta. Vértice hasta 5 m de ancho y 3,5 m de proyección; Octopus hasta 14 m y 4 m; Aqua Rain para lluvia con proyección fija; Mykonos vertical con guaya. Lona acrílica Acrysun, manual o motorizado.',
+        tag: 'Garantía lona 5 años',
+        features: ['Proyección 1,5 a 4,0 m', 'Lona Acrysun · multilona Brincaflex', 'Motor 50/100 NW con control', 'Inclinación 30–60°'],
+      },
+      {
+        href: '/productos/toldo-romano',
+        num: '19',
+        title: 'Toldo Romano Corredizo',
+        sub: 'Manual · Motorizado · Solar Screen',
+        desc: 'Sistema de plegado romano para uso exterior. Tela Solar Screen que reduce la radiación solar directa. Tres niveles de acabado (Premium, Plus, Básico) con estructura de aluminio anodizado. Manual o motorizado.',
+        tag: 'Exterior',
+        features: ['Tela Solar Screen exterior', 'Premium · Plus · Básico', 'Manual o motorizado', 'Garantía hasta 5 años'],
+      },
+      {
+        href: '/productos/pergolas',
+        num: '20',
+        title: 'Pérgola de lona (Palillería)',
+        sub: 'Paredón · Lobby · Doble Lobby',
+        desc: 'Cubierta de lona acrílica retráctil con estructura de aluminio. Tres tipos según la instalación: entre dos muros (Paredón), semi-adosada (Lobby) o autoportante (Doble Lobby). Proyección hasta 7 m.',
+        tag: 'Exteriores',
+        features: ['Lona acrílica UV · resistente lluvia', 'Motor Safra 50/12 disponible', 'Herraje blanco (negro +15%)', 'Proyección hasta 7 m'],
+      },
+      {
+        href: '/productos/accesorios-toldos',
+        num: '21',
+        title: 'Accesorios Toldos',
+        sub: 'Brazos · Motores · Estructuras · Telas',
+        desc: 'Insumos completos para toldos Octopus y Vértice: brazos de lujo en 6 longitudes, casquillos, empalmes, motores 50/100NW, controles remotos, perfiles frontales P-02, tejadillos y telas Acrysun/SUNPRO.',
+        tag: '+60 referencias',
+        features: ['Brazos Octopus 1.5–4.0m', 'Brazos Vértice 1.5–3.5m', 'Motores 50NW y 100NW', 'Telas Acrysun · SUNPRO · Clear Cristal'],
+      },
+      {
+        href: '/productos/accesorios-pergolas',
+        num: '22',
+        title: 'Accesorios pérgola de lona',
+        sub: 'Tubos · Guías · Bridas · Poleas · Kits',
+        desc: 'Referencias de insumos y accesorios para instalación de pérgolas palillería: tubos estructurales 80×80 y 80×40, guías, palillos dobles, soportes de pared, poleas, bridas con rodamiento y kits de unión.',
+        tag: '25 referencias',
+        features: ['Tubos y guías aluminio', 'Bridas 90mm / 60mm / 30mm', 'Poleas dobles blanco y negro', 'Kit Unión Derecha 80×80'],
+      },
+    ],
+  },
+  {
+    slug: 'peliculas-solares',
+    titulo: 'Películas solares',
+    desc: 'Control solar y seguridad directamente en el vidrio.',
+    productos: [
       {
         href: '/productos/peliculas',
-        num: '11',
+        num: '23',
         title: 'Películas Protección Solar',
         sub: 'Seguridad · UV · Control solar',
         desc: 'Películas de protección solar y seguridad para vidrios. Venta por m² o por rollo (rollos de 1.52 m × 46 m² y 1.82 m × 55 m²).',
         tag: 'Para vidrios',
         features: ['Control solar UV', 'Seguridad en vidrios', 'Rollos 1.52 m y 1.82 m', '3% descuento por rollo'],
       },
-      {
-        href: '/productos/papel',
-        num: '12',
-        title: 'Papel de Colgadura',
-        sub: 'Colección Safra Living',
-        desc: 'Diseños y texturas que inspiran desde lo convencional hasta lo más arriesgado, sin perder calidez y elegancia. Ver fichas técnicas por referencia en catálogo.',
-        tag: 'Decoración',
-        features: ['Colección Safra Living', 'Amplia gama de diseños', 'Texturas variadas', 'Por rollo según referencia'],
-      },
+    ],
+  },
+  {
+    slug: 'lienzos',
+    titulo: 'Lienzos',
+    desc: 'Arte digital en lienzo para completar el espacio.',
+    productos: [
       {
         href: '/productos/lienzo',
-        num: '13',
+        num: '24',
         title: 'Línea Lienzo',
         sub: 'Arte digital · Impresión de alta resolución',
         desc: 'Arte e inspiración en lienzos, estampados con tecnología digital. Espacios de última tendencia. Disponible en 4 formatos: 50×50, 60×90, 80×120 y 100×150 cm.',
@@ -262,45 +289,65 @@ const grupos = [
       },
     ],
   },
+  {
+    slug: 'papel-de-colgadura',
+    titulo: 'Papel de colgadura',
+    desc: 'Colecciones Safra Living para paredes.',
+    productos: [
+      {
+        href: '/productos/papel',
+        num: '25',
+        title: 'Papel de Colgadura',
+        sub: 'Colección Safra Living',
+        desc: 'Diseños y texturas que inspiran desde lo convencional hasta lo más arriesgado, sin perder calidez y elegancia. Ver fichas técnicas por referencia en catálogo.',
+        tag: 'Decoración',
+        features: ['Colección Safra Living', 'Amplia gama de diseños', 'Texturas variadas', 'Por rollo según referencia'],
+      },
+    ],
+  },
 ]
 
 export default async function ProductosPage() {
   return (
-    <div className="page-top">
-      <div className="container-site">
-
-        {/* Header */}
-        <div style={{ marginBottom: '48px', maxWidth: '640px' }}>
-          <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Catálogo 2026</span>
-          <h1 style={{ fontSize: 'clamp(32px, 4.5vw, 52px)', fontWeight: 300, lineHeight: 1.08, marginBottom: '14px' }}>
-            Todos nuestros <span className="text-gold-gradient">productos</span>
-          </h1>
-          <p style={{ fontSize: '15px', color: 'var(--text-2)', lineHeight: 1.7 }}>
-            15 líneas de sistemas de control solar, cortinas, pérgolas, estampados y acabados del catálogo Safra 2026. Instalación profesional en toda la zona.
-          </p>
-        </div>
-
-        {/* Banner catálogo */}
-        <div style={{ position: 'relative', marginBottom: '48px', borderRadius: '16px', overflow: 'hidden', height: '160px', border: '1px solid rgba(201,169,110,0.2)', background: 'linear-gradient(135deg, #0D1525 0%, #080E1A 60%, #0A1220 100%)' }}>
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(201,169,110,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.04) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-          <div style={{ position: 'absolute', right: '-40px', top: '-20px', width: '300px', opacity: 0.10 }}>
-            <svg viewBox="0 0 340 200" fill="none"><rect x="20" y="10" width="300" height="175" rx="3" stroke="rgba(201,169,110,1)" strokeWidth="1.5"/>{Array.from({length:10},(_,i)=><rect key={i} x="22" y={18+i*14} width="296" height={i%2===0?8:4} rx="1" fill={`rgba(201,169,110,${i%2===0?0.3:0.1})`}/>)}</svg>
-          </div>
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 48px' }}>
-            <p style={{ fontSize: '12px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '8px', fontWeight: 600 }}>Catálogo oficial 2026 · SAFRA</p>
-            <p style={{ fontSize: 'clamp(18px, 2.2vw, 26px)', fontWeight: 300, color: '#EEF2FF', lineHeight: 1.2 }}>
-              14 líneas de producto — <strong style={{ color: 'var(--gold-light)' }}>sistemas certificados</strong> para cada espacio
+    <div>
+      {/* Cabecera oscura con el fondo vivo y el mapa de líneas */}
+      <section className="page-top hero-ia" style={{ paddingBottom: '36px' }}>
+        <FondoIA densidad={40} />
+        <div className="container-site" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ maxWidth: '680px', marginBottom: '28px' }}>
+            <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Catálogo 2026</span>
+            <h1 style={{ fontSize: 'clamp(32px, 4.5vw, 52px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: '12px' }}>
+              Todos nuestros <span className="text-gold-gradient">productos</span>
+            </h1>
+            <p style={{ fontSize: '16px', lineHeight: 1.65 }}>
+              Nueve líneas, cada una con sus accesorios. Toca una para ir directo a ella.
             </p>
           </div>
+          <div className="mapa-grid">
+            {grupos.map((g) => (
+              <a key={g.slug} href={`#${g.slug}`} className="mapa-tile">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={mapa[g.slug] || '/hero_banner.png'} alt="" loading="lazy" />
+                <span className="mapa-shade" />
+                <span className="mapa-body">
+                  <b>{g.titulo}</b>
+                  <small>{g.productos.length} {g.productos.length === 1 ? 'página' : 'páginas'}</small>
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
+      </section>
+
+      <div className="container-site" style={{ paddingTop: '48px', paddingBottom: '72px' }}>
 
         {/* Grupos de productos */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
           {grupos.map((grupo) => (
-            <div key={grupo.titulo}>
+            <div key={grupo.titulo} id={grupo.slug} style={{ scrollMarginTop: '100px' }}>
               {/* Encabezado de grupo */}
               <div style={{ marginBottom: '16px', paddingBottom: '14px', borderBottom: '1px solid var(--border)' }}>
-                <h2 style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '3px' }}>{grupo.titulo}</h2>
+                <h2 style={{ fontSize: 'clamp(20px, 2.4vw, 28px)', fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--text)', marginBottom: '3px' }}>{grupo.titulo}</h2>
                 <p style={{ fontSize: '15px', color: 'var(--text-3)' }}>{grupo.desc}</p>
               </div>
 
@@ -356,6 +403,19 @@ export default async function ProductosPage() {
         </div>
 
       </div>
+      <style>{`
+        .mapa-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .mapa-tile { position: relative; display: block; height: 150px; border-radius: 16px; overflow: hidden; text-decoration: none; background: #1a1612; border: 1px solid rgba(232,199,106,0.18); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; isolation: isolate; }
+        .mapa-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.75; transition: transform .5s ease, opacity .3s ease; }
+        .mapa-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,6,0.9) 10%, rgba(10,8,6,0.2) 70%); }
+        .mapa-body { position: absolute; left: 14px; right: 14px; bottom: 12px; color: #fff; display: flex; flex-direction: column; gap: 2px; }
+        .mapa-body b { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; }
+        .mapa-body small { font-size: 11px; color: #E8C76A; letter-spacing: .08em; text-transform: uppercase; }
+        .mapa-tile:hover { transform: translateY(-2px); border-color: rgba(232,199,106,0.6); box-shadow: 0 0 28px rgba(232,199,106,0.18); }
+        .mapa-tile:hover img { transform: scale(1.05); opacity: 0.9; }
+        @media (max-width: 900px) { .mapa-grid { grid-template-columns: repeat(2, 1fr); } .mapa-tile { height: 120px; } }
+        @media (max-width: 480px) { .mapa-grid { grid-template-columns: 1fr 1fr; gap: 8px; } .mapa-tile { height: 104px; } .mapa-body b { font-size: 14px; } }
+      `}</style>
     </div>
   )
 }

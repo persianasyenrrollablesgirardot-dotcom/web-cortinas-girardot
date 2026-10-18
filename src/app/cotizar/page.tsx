@@ -57,6 +57,10 @@ const sistemasGrupos = [
     items: ['Motorización (motor Wi-Fi)', 'Películas de Protección Solar', 'Películas de Seguridad'],
   },
   {
+    grupo: 'Toldos y pérgolas de lona',
+    items: ['Toldo de brazos extensibles', 'Toldo romano corredizo', 'Pérgola de lona (Palillería)'],
+  },
+  {
     grupo: 'Otros',
     items: ['Varios sistemas — necesito asesoría', 'No sé — necesito orientación'],
   },

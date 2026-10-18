@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'enrollables', 'sheer-elegance', 'romana', 'hanas', 'vintage',
     'verticales', 'panel', 'cortina', 'motorizacion', 'peliculas',
     'papel', 'lienzo', 'estampados', 'pergolas', 'toldo-romano',
-    'accesorios-pergolas', 'accesorios-toldos', 'accesorios-pel',
+    'accesorios-pergolas', 'accesorios-toldos', 'accesorios-pel', 'toldos-brazos',
   ]
 
   return [

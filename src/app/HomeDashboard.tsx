@@ -32,6 +32,7 @@ const lineas: Linea[] = [
       { label: 'Enrollables', href: '/productos/enrollables' },
       { label: 'Sheer Elegance', href: '/productos/sheer-elegance' },
       { label: 'Motorización', href: '/productos/motorizacion' },
+      { label: 'Estampadas', href: '/productos/estampados' },
     ],
   },
   {
@@ -51,14 +52,14 @@ const lineas: Linea[] = [
   {
     slug: 'toldos',
     kicker: 'Sombra retráctil · lona',
-    titulo: 'Toldos y pérgolas de lona',
-    desc: 'Toldo romano corredizo, pérgola de lona Acrysun y sus accesorios.',
-    href: '/productos/toldo-romano',
+    titulo: 'Toldos',
+    desc: 'Brazos extensibles, toldo romano corredizo y pérgola de lona Acrysun.',
+    href: '/productos/toldos-brazos',
     img: '/galeria/toldo-romano/toldo-romano-01.jpeg',
     temas: [
+      { label: 'Brazos extensibles', href: '/productos/toldos-brazos' },
       { label: 'Toldo romano', href: '/productos/toldo-romano' },
       { label: 'Pérgola de lona', href: '/productos/pergolas' },
-      { label: 'Accesorios', href: '/productos/accesorios-toldos' },
     ],
   },
 ]
@@ -103,15 +104,14 @@ const lineasMenores: Linea[] = [
   },
   {
     slug: 'decoracion',
-    kicker: 'Complementos',
-    titulo: 'Decoración',
-    desc: 'Papel de colgadura, lienzo y persianas estampadas.',
-    href: '/productos',
+    kicker: 'Paredes',
+    titulo: 'Papel de colgadura y lienzos',
+    desc: 'Colecciones Safra Living y arte digital en lienzo.',
+    href: '/productos/papel',
     img: '/home/decoracion.jpg',
     temas: [
-      { label: 'Papel', href: '/productos/papel' },
-      { label: 'Lienzo', href: '/productos/lienzo' },
-      { label: 'Estampados', href: '/productos/estampados' },
+      { label: 'Papel de colgadura', href: '/productos/papel' },
+      { label: 'Lienzos', href: '/productos/lienzo' },
     ],
   },
 ]

@@ -4,13 +4,13 @@ const cols = [
   {
     title: 'Productos',
     links: [
-      ['Enrollables',    '/productos/enrollables'],
-      ['Sheer Elegance', '/productos/sheer-elegance'],
-      ['Verticales',     '/productos/verticales'],
-      ['Motorización',   '/productos/motorizacion'],
-      ['Pérgolas metálicas', '/exteriores'],
-      ['Accesorios pérgolas metálicas', '/productos/pergolas-metalicas/accesorios'],
+      ['Persianas y cortinas', '/persianas'],
+      ['Motorización', '/productos/motorizacion'],
+      ['Pérgolas metálicas', '/productos/pergolas-metalicas'],
       ['Estructuras metálicas', '/estructuras'],
+      ['Toldos', '/productos/toldos-brazos'],
+      ['Películas solares', '/productos/peliculas'],
+      ['Lienzos y papel', '/productos/lienzo'],
     ],
   },
   {

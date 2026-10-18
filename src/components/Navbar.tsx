@@ -7,63 +7,74 @@ import { Menu, X, ChevronDown } from 'lucide-react'
 
 const submenuGrupos = [
   {
-    titulo: 'Sistemas enrollables',
+    titulo: 'Persianas y cortinas',
     items: [
-      { href: '/productos/enrollables',    label: 'Persiana Enrollable',  sub: 'Blackout · Screen · Premium' },
-      { href: '/productos/sheer-elegance', label: 'Sheer Elegance',       sub: 'Triple acción · Franjas' },
+      { href: '/productos/enrollables',    label: 'Persiana Enrollable',  sub: 'Blackout · Screen · Traslúcida · Premium' },
+      { href: '/productos/sheer-elegance', label: 'Sheer Elegance',       sub: 'Franjas opacas y traslúcidas' },
       { href: '/productos/romana',         label: 'Romana',               sub: 'Tradicional · Top Down' },
-    ],
-  },
-  {
-    titulo: 'Franjas y verticales',
-    items: [
-      { href: '/productos/hanas',          label: 'Sistema Hanas',        sub: 'Curvas en S · Fantasía/Royal' },
-      { href: '/productos/vintage',        label: 'Sistema Vintage',      sub: 'Lamas plegables' },
-      { href: '/productos/verticales',     label: 'Persiana Vertical',    sub: 'Hasta 6.0 m · Riel aluminio' },
-    ],
-  },
-  {
-    titulo: 'Panel y cortina',
-    items: [
-      { href: '/productos/panel',          label: 'Panel & Panel Dúo',    sub: 'Riel 4/5/6 vías' },
+      { href: '/productos/hanas',          label: 'Hanas',                sub: 'Curvas en S' },
+      { href: '/productos/vintage',        label: 'Vintage',              sub: 'Lamas plegables' },
+      { href: '/productos/verticales',     label: 'Persiana Vertical',    sub: 'Hasta 6,0 m' },
+      { href: '/productos/panel',          label: 'Panel & Panel Dúo',    sub: 'Puertas y ventanales' },
       { href: '/productos/cortina',        label: 'Colección Cortina',    sub: 'Luxury · Brisá · LaMar' },
-      { href: '/productos/riel-panel',     label: 'Riel Armado Panel ML', sub: '4 · 5 · 6 · 7 vías · Por ML' },
-      { href: '/productos/riel-cortina',   label: 'Riel Armado Cortina ML', sub: 'Super · Pesado · Luxury · Flexi' },
+      { href: '/productos/estampados',     label: 'Persianas Estampadas', sub: '+400 diseños · tu imagen' },
     ],
   },
   {
-    titulo: 'Smart & complementos',
+    titulo: 'Motorización y domótica',
     items: [
-      { href: '/productos/motorizacion',   label: 'Motorización',         sub: 'Wi-Fi · App Tuya · Voz' },
-      { href: '/productos/riel-motor',     label: 'Riel Motor Cortina/Panel', sub: 'Motor Safra · RF · Por ML' },
-      { href: '/productos/peliculas',      label: 'Películas Solares',    sub: 'UV · Seguridad · HAVERKAMP' },
-      { href: '/productos/papel',          label: 'Papel de Colgadura',   sub: 'Living I · II · Tendencias' },
+      { href: '/productos/motorizacion',   label: 'Motorización de persianas y cortinas', sub: 'Wi-Fi · App · Alexa · Google' },
+      { href: '/productos/riel-motor',     label: 'Riel motorizado cortina y panel', sub: 'Motor Safra · RF · por ML' },
+    ],
+  },
+  {
+    titulo: 'Accesorios de persianas',
+    items: [
+      { href: '/productos/accesorios-pel', label: 'Accesorios e insumos (Lista 220)', sub: '259 referencias · 11 líneas' },
+      { href: '/productos/riel-panel',     label: 'Riel armado Panel',    sub: '4 · 5 · 6 · 7 vías · por ML' },
+      { href: '/productos/riel-cortina',   label: 'Riel armado Cortina',  sub: 'Super · Pesado · Luxury · Flexi' },
+    ],
+  },
+  {
+    titulo: 'Pérgolas metálicas',
+    items: [
+      { href: '/productos/pergolas-metalicas',   label: 'Pérgolas metálicas',   sub: '14 sistemas · fabricación propia' },
+      { href: '/productos/pergolas-metalicas/accesorios', label: 'Accesorios de pérgolas metálicas', sub: '108 referencias con foto' },
+      { href: '/exteriores',                     label: 'Por problema · clima cálido', sub: 'Terraza, carro, fachada, piso' },
+    ],
+  },
+  {
+    titulo: 'Estructuras metálicas',
+    items: [
+      { href: '/estructuras',              label: 'Estructuras metálicas', sub: 'Escaleras · mezzanines · cubiertas' },
+    ],
+  },
+  {
+    titulo: 'Toldos',
+    items: [
+      { href: '/productos/toldos-brazos',        label: 'Toldos de brazos extensibles', sub: 'Vértice · Octopus · Aqua Rain · Mykonos' },
+      { href: '/productos/toldo-romano',         label: 'Toldo Romano corredizo', sub: 'Solar Screen · 3 acabados' },
+      { href: '/productos/pergolas',             label: 'Pérgola de lona (Palillería)', sub: 'Paredón · Lobby · Doble Lobby' },
+      { href: '/productos/accesorios-toldos',    label: 'Accesorios de toldos',  sub: 'Brazos · Motores · Lonas' },
+      { href: '/productos/accesorios-pergolas',  label: 'Accesorios pérgola de lona',  sub: 'Tubos · Bridas · Poleas' },
+    ],
+  },
+  {
+    titulo: 'Películas solares',
+    items: [
+      { href: '/productos/peliculas',      label: 'Películas solares HAVERKAMP', sub: 'Calor · UV · Seguridad' },
+    ],
+  },
+  {
+    titulo: 'Lienzos',
+    items: [
       { href: '/productos/lienzo',         label: 'Línea Lienzo',         sub: 'Arte digital · 4 formatos' },
     ],
   },
   {
-    titulo: 'Pérgolas & exteriores',
+    titulo: 'Papel de colgadura',
     items: [
-      { href: '/exteriores',                     label: 'Pérgolas metálicas · Girardot', sub: 'Sombra, techo y frescura · Clima cálido' },
-      { href: '/productos/pergolas-metalicas',   label: 'Pérgolas metálicas',   sub: '14 sistemas · fabricación propia' },
-      { href: '/productos/pergolas-metalicas/accesorios', label: 'Accesorios pérgolas metálicas', sub: '108 referencias con foto · tornillería, anclajes, perfilería' },
-      { href: '/estructuras',                    label: 'Estructuras metálicas', sub: 'Escaleras · mezzanines · cubiertas · con diseño firmado' },
-      { href: '/productos/pergolas',             label: 'Pérgola de lona (Palillería)', sub: 'Paredón · Lobby · Doble Lobby' },
-      { href: '/productos/toldo-romano',         label: 'Toldo Romano',         sub: 'Corredizo · 3 acabados · Solar Screen' },
-      { href: '/productos/accesorios-pergolas',  label: 'Accesorios pérgola de lona',  sub: 'Tubos · Bridas · Poleas (Safra)' },
-      { href: '/productos/accesorios-toldos',    label: 'Accesorios Toldos',    sub: 'Brazos · Motores · Telas' },
-    ],
-  },
-  {
-    titulo: 'Impresión digital',
-    items: [
-      { href: '/productos/estampados',     label: 'Persianas Estampadas', sub: '+400 diseños · 7 categorías' },
-    ],
-  },
-  {
-    titulo: 'Accesorios Persianas',
-    items: [
-      { href: '/productos/accesorios-pel', label: 'Accesorios Persianas', sub: '259 ref · 11 líneas' },
+      { href: '/productos/papel',          label: 'Papel de Colgadura',   sub: 'Living I · II · Tendencias' },
     ],
   },
 ]
@@ -71,7 +82,7 @@ const submenuGrupos = [
 const links = [
   { href: '/',          label: 'Inicio' },
   { href: '/productos', label: 'Productos', hasSub: true },
-  { href: '/exteriores', label: 'Pérgolas' },
+  { href: '/productos/pergolas-metalicas', label: 'Pérgolas' },
   { href: '/estructuras', label: 'Estructuras' },
   { href: '/proyectos', label: 'Proyectos' },
   { href: '/nosotros',  label: 'Nosotros' },
