@@ -25,7 +25,7 @@ export type Sistema = {
   pendienteDecision?: string
 }
 
-export const PENDIENTE = 'por definir'
+export const PENDIENTE = 'Consultar'
 
 export const familias: Familia[] = [
   { slug: 'terraza', problema: 'Sol de mediodía y aguacero de la tarde', titulo: 'Terraza y entradas', desc: 'Usar la terraza a las dos de la tarde y que el aguacero de las cuatro no entre al comedor.' },
@@ -106,8 +106,7 @@ export const sistemas: Sistema[] = [
       { label: 'Garantía', value: PENDIENTE, pendiente: true },
       { label: 'Plazo', value: PENDIENTE, pendiente: true },
     ],
-    notas: ['Sistema importado: no se fabrica en taller local, se instala', 'Decisión pendiente de si entra en la línea'],
-    pendienteDecision: 'Jhon decide si esta línea entra',
+    notas: ['Sistema importado: no se fabrica en taller local, se instala'],
   },
   {
     slug: 'marquesina-acceso',

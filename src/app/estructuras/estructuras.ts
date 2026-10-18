@@ -14,7 +14,7 @@ export type Estructura = {
   destacado?: boolean
 }
 
-export const PENDIENTE = 'por definir'
+export const PENDIENTE = 'Consultar'
 
 export const estructuras: Estructura[] = [
   {

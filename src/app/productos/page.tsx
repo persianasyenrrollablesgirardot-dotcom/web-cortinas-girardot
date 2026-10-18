@@ -112,12 +112,22 @@ const grupos = [
   },
   {
     titulo: 'Pérgolas & Exteriores',
-    desc: 'Cubiertas retráctiles de lona acrílica para terrazas, patios y jardines.',
+    desc: 'Sombra y techo para el clima cálido: estructuras metálicas propias y cubiertas de lona de Safra.',
     productos: [
       {
-        href: '/productos/pergolas',
+        href: '/productos/pergolas-metalicas',
         num: '13',
-        title: 'Pérgolas Palillería',
+        title: 'Pérgolas y estructuras metálicas',
+        sub: 'Exteriores · Clima cálido · Fabricación propia',
+        desc: 'Catorce sistemas en acero estructural ordenados por el problema que resuelven: terraza, jardín y piscina, vehículos, fachada y piso. Policarbonato bronce u opal, teja o lamas. Anclaje según el piso y prueba de agua antes de entregar.',
+        tag: 'Nuevo · propio',
+        features: ['Adosada · autoportante · gazebo', 'Carport · cubierta de parqueadero', 'Quiebrasol · celosía · deck', 'Catálogo de 108 accesorios'],
+        featured: true,
+      },
+      {
+        href: '/productos/pergolas',
+        num: '13a',
+        title: 'Pérgola de lona (Palillería)',
         sub: 'Paredón · Lobby · Doble Lobby',
         desc: 'Cubierta de lona acrílica retráctil con estructura de aluminio. Tres tipos según la instalación: entre dos muros (Paredón), semi-adosada (Lobby) o autoportante (Doble Lobby). Proyección hasta 7 m.',
         tag: 'Exteriores',

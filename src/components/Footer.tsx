@@ -8,6 +8,8 @@ const cols = [
       ['Sheer Elegance', '/productos/sheer-elegance'],
       ['Verticales',     '/productos/verticales'],
       ['Motorización',   '/productos/motorizacion'],
+      ['Exteriores · Clima cálido', '/exteriores'],
+      ['Estructuras metálicas', '/estructuras'],
     ],
   },
   {

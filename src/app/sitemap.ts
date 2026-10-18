@@ -13,6 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: BASE,              lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
     { url: `${BASE}/productos`, lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${BASE}/exteriores`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/estructuras`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/productos/pergolas-metalicas`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/productos/pergolas-metalicas/accesorios`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/cotizar`,   lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/contacto`,  lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/proyectos`, lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.7 },

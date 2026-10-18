@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import fs from 'node:fs'
 import path from 'node:path'
-import { ArrowRight, Star, Ban, Flag, ImageIcon } from 'lucide-react'
+import { ArrowRight, Star, Ban, ImageIcon } from 'lucide-react'
 import { grupos, reglas, kit3x4 } from './accesorios'
 
 export const metadata: Metadata = {
@@ -21,12 +21,6 @@ export default function AccesoriosPergolasMetalicasPage() {
   return (
     <div className="page-top">
       <div className="container-site">
-
-        {/* Aviso de borrador */}
-        <div style={{ marginBottom: '20px', padding: '10px 16px', borderRadius: '12px', background: 'rgba(220,38,38,0.06)', border: '1px dashed rgba(220,38,38,0.35)', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', padding: '2px 10px', borderRadius: '999px', background: 'rgba(220,38,38,0.08)', border: '1px solid rgba(220,38,38,0.3)', color: '#B91C1C', fontSize: '12px', fontWeight: 600 }}><Flag size={11} /> Borrador en rama aislada</span>
-          <span style={{ fontSize: '13px', color: 'var(--text-2)' }}>Imágenes: renders de catálogo generados por IA, a reemplazar por fotos reales. Cantidades calculadas para una pérgola de 3 × 4 m con policarbonato alveolar 8 mm.</span>
-        </div>
 
         {/* Breadcrumb */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '28px', fontSize: '13px', color: 'var(--text-3)', flexWrap: 'wrap' }}>

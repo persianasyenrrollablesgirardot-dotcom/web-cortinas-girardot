@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import fs from 'node:fs'
 import path from 'node:path'
-import { ArrowLeft, ArrowRight, ArrowDown, Flag, ImageIcon } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowDown, ImageIcon } from 'lucide-react'
 import { sistemas, familias, PENDIENTE } from './sistemas'
 
 export const metadata: Metadata = {
@@ -24,14 +24,14 @@ const faq = [
   { q: '¿Necesito permiso del conjunto?', a: 'Casi siempre sí, para cualquier estructura fija en terraza o zona común. Lo pedimos antes de fabricar, no después.' },
   { q: '¿Se puede anclar en una terraza impermeabilizada?', a: 'Sí. Preferimos muros y vigas; sobre la placa usamos anclaje químico, sello elastomérico bajo la platina y reponemos la impermeabilización alrededor de cada pie.' },
   { q: '¿Aguanta granizo y aguaceros?', a: 'Con policarbonato de 6–8 mm sobre correas a la distancia del fabricante, pendiente de 5° o más y canal amplia, sí. La prueba de agua se hace delante de ti.' },
-  { q: '¿Cuánto tarda?', a: `Fabricación e instalación: ${PENDIENTE} ⚑. Depende del tamaño y del acabado (la electrostática suma días de horno).` },
+  { q: '¿Cuánto tarda?', a: `Lo definimos en la visita según el tamaño y el acabado: la pintura electrostática suma días de horno. En la cotización queda la fecha por escrito.` },
   { q: '¿Qué mantenimiento necesita?', a: 'Lavar techo y canal dos veces al año con agua y jabón neutro. Revisar la pintura una vez al año en uniones y pies de columna.' },
 ]
 
 function Pendiente({ children }: { children: React.ReactNode }) {
   return (
-    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', padding: '2px 10px', borderRadius: '999px', background: 'rgba(220,38,38,0.08)', border: '1px solid rgba(220,38,38,0.3)', color: '#B91C1C', fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap' }}>
-      <Flag size={11} /> {children}
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', padding: '2px 10px', borderRadius: '999px', background: 'rgba(184,145,42,0.08)', border: '1px solid rgba(184,145,42,0.3)', color: 'var(--gold-dark)', fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap' }}>
+      {children}
     </span>
   )
 }
@@ -60,12 +60,6 @@ export default function PergolasMetalicasPage() {
   return (
     <div className="page-top">
       <div className="container-site">
-
-        {/* Aviso de borrador — se retira antes de publicar */}
-        <div style={{ marginBottom: '20px', padding: '10px 16px', borderRadius: '12px', background: 'rgba(220,38,38,0.06)', border: '1px dashed rgba(220,38,38,0.35)', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-          <Pendiente>Borrador en rama aislada</Pendiente>
-          <span style={{ fontSize: '13px', color: 'var(--text-2)' }}>Imágenes: renders provisionales generados por IA, a reemplazar por fotos de obra. Datos con ⚑ (garantía, plazo, precio) pendientes de confirmar.</span>
-        </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '28px', fontSize: '13px', color: 'var(--text-3)', flexWrap: 'wrap' }}>
           <Link href="/exteriores" style={{ color: 'var(--text-3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><ArrowLeft size={13} /> Exteriores · Clima cálido</Link>
@@ -114,7 +108,7 @@ export default function PergolasMetalicasPage() {
                       <div className="img-zoom-wrap" style={{ position: 'relative', aspectRatio: wide ? '16/7' : '4/3', background: 'linear-gradient(135deg,#0D1525,#1A2A4A)' }}>
                         <Imagen src={s.img} alt={s.imgAlt} eager={fi === 0} pos="center 40%" />
                         <span className="tag" style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(255,255,255,0.92)', color: 'var(--gold-dark)', fontWeight: 600, fontSize: '12px' }}>{s.tag}</span>
-                        <span style={{ position: 'absolute', bottom: '12px', right: '12px', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', background: 'rgba(0,0,0,0.35)', padding: '3px 8px', borderRadius: '6px' }}>Render provisional</span>
+                        <span style={{ position: 'absolute', bottom: '12px', right: '12px', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', background: 'rgba(0,0,0,0.35)', padding: '3px 8px', borderRadius: '6px' }}>Imagen de referencia</span>
                       </div>
                       <div style={{ padding: '18px 22px 20px', display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
                         <p style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '0.06em' }}>{s.sub}</p>
@@ -148,7 +142,6 @@ export default function PergolasMetalicasPage() {
                   <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-3)', letterSpacing: '0.1em' }}>SISTEMA {String(numero.get(s.slug)).padStart(2, '0')}</span>
                   <span className="tag" style={{ fontSize: '12px' }}>{s.tag}</span>
                   <span style={{ fontSize: '12px', color: 'var(--text-3)' }}>· {familias.find((f) => f.slug === s.familia)?.problema}</span>
-                  {s.pendienteDecision && <Pendiente>{s.pendienteDecision}</Pendiente>}
                 </div>
                 <h3 style={{ fontSize: 'clamp(20px, 2.4vw, 26px)', fontWeight: 600, color: 'var(--text)', lineHeight: 1.15, marginBottom: '4px' }}>{s.nombre}</h3>
                 <p style={{ fontSize: '13px', color: 'var(--gold)', letterSpacing: '0.06em', marginBottom: '18px' }}>{s.sub}</p>
@@ -173,7 +166,6 @@ export default function PergolasMetalicasPage() {
                   <Link href={`/cotizar?sistema=${encodeURIComponent(s.nombre)}`} className="btn-primary" style={{ fontSize: '14px', padding: '10px 20px' }}>
                     Cotizar este sistema <ArrowRight size={14} />
                   </Link>
-                  <span style={{ fontSize: '13px', color: 'var(--text-3)' }}>Desde <Pendiente>{PENDIENTE}</Pendiente></span>
                   <a href="#top" style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--text-3)', textDecoration: 'none' }}>↑ volver a los sistemas</a>
                 </div>
               </div>

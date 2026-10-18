@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import fs from 'node:fs'
 import path from 'node:path'
-import { ArrowRight, ArrowDown, Flag, ImageIcon, FileCheck2, HardHat, Ruler } from 'lucide-react'
+import { ArrowRight, ArrowDown, ImageIcon, FileCheck2, HardHat, Ruler } from 'lucide-react'
 import { estructuras, proceso, entregables, PENDIENTE } from './estructuras'
 
 export const metadata: Metadata = {
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 function Pendiente({ children }: { children: React.ReactNode }) {
   return (
-    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', padding: '2px 10px', borderRadius: '999px', background: 'rgba(220,38,38,0.08)', border: '1px solid rgba(220,38,38,0.3)', color: '#B91C1C', fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap' }}>
-      <Flag size={11} /> {children}
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', padding: '2px 10px', borderRadius: '999px', background: 'rgba(184,145,42,0.08)', border: '1px solid rgba(184,145,42,0.3)', color: 'var(--gold-dark)', fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap' }}>
+      {children}
     </span>
   )
 }
@@ -43,12 +43,6 @@ export default function EstructurasPage() {
   return (
     <div className="page-top">
       <div className="container-site">
-
-        {/* Aviso de borrador */}
-        <div style={{ marginBottom: '20px', padding: '10px 16px', borderRadius: '12px', background: 'rgba(220,38,38,0.06)', border: '1px dashed rgba(220,38,38,0.35)', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-          <Pendiente>Borrador en rama aislada</Pendiente>
-          <span style={{ fontSize: '13px', color: 'var(--text-2)' }}>Renders provisionales. Pendientes: nombre y matrícula del ingeniero responsable de la línea, garantía, plazo y precio por kilo.</span>
-        </div>
 
         {/* Hero */}
         <div className="hero-section" style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', marginBottom: '40px', minHeight: '360px', border: '1px solid rgba(201,169,110,0.18)', background: '#0B1526' }}>
@@ -96,7 +90,7 @@ export default function EstructurasPage() {
                 <div className="img-zoom-wrap" style={{ position: 'relative', aspectRatio: wide ? '16/7' : '4/3', background: 'linear-gradient(135deg,#0D1525,#1A2A4A)' }}>
                   <Imagen src={e.img} alt={e.imgAlt} eager={i < 2} />
                   <span className="tag" style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(255,255,255,0.92)', color: 'var(--gold-dark)', fontWeight: 600, fontSize: '12px' }}>{e.tag}</span>
-                  <span style={{ position: 'absolute', bottom: '12px', right: '12px', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', background: 'rgba(0,0,0,0.35)', padding: '3px 8px', borderRadius: '6px' }}>Render provisional</span>
+                  <span style={{ position: 'absolute', bottom: '12px', right: '12px', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', background: 'rgba(0,0,0,0.35)', padding: '3px 8px', borderRadius: '6px' }}>Imagen de referencia</span>
                 </div>
                 <div style={{ padding: '18px 22px 20px', display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
                   <p style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '0.06em' }}>{e.sub}</p>
@@ -148,7 +142,6 @@ export default function EstructurasPage() {
                   <Link href={`/cotizar?sistema=${encodeURIComponent(e.nombre)}`} className="btn-primary" style={{ fontSize: '14px', padding: '10px 20px' }}>
                     Pedir visita técnica <ArrowRight size={14} />
                   </Link>
-                  <span style={{ fontSize: '13px', color: 'var(--text-3)' }}>Precio por kg montado <Pendiente>{PENDIENTE}</Pendiente></span>
                   <a href="#sistemas" style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--text-3)', textDecoration: 'none' }}>↑ volver</a>
                 </div>
               </div>
