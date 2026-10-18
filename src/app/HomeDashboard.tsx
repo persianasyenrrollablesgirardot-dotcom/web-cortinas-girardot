@@ -44,6 +44,7 @@ const lineas: Linea[] = [
       { label: 'Terraza', href: '/productos/pergolas-metalicas#adosada-policarbonato' },
       { label: 'Carport', href: '/productos/pergolas-metalicas#carport-diseno' },
       { label: 'Celosías', href: '/productos/pergolas-metalicas#celosia-lamas-fijas' },
+      { label: 'Accesorios', href: '/productos/pergolas-metalicas/accesorios' },
     ],
   },
   {

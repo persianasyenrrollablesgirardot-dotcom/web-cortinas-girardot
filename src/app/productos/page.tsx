@@ -111,8 +111,8 @@ const grupos = [
     ],
   },
   {
-    titulo: 'Pérgolas & Exteriores',
-    desc: 'Sombra y techo para el clima cálido: estructuras metálicas propias y cubiertas de lona de Safra.',
+    titulo: 'Pérgolas metálicas, estructuras & exteriores',
+    desc: 'Fabricación propia en acero para el clima cálido —pérgolas, su ferretería y estructuras— más las cubiertas de lona de Safra.',
     productos: [
       {
         href: '/productos/pergolas-metalicas',
@@ -125,8 +125,26 @@ const grupos = [
         featured: true,
       },
       {
-        href: '/productos/pergolas',
+        href: '/productos/pergolas-metalicas/accesorios',
         num: '13a',
+        title: 'Accesorios y ferretería para pérgolas metálicas',
+        sub: '108 referencias · 12 grupos · cada una con foto',
+        desc: 'Todo lo que lleva una pérgola metálica, del chazo a la tapa del perfil: perfilería estructural (tubo cuadrado y rectangular, IPE, canal, ángulo), anclajes químicos y expansivos, pernos y tornillería inoxidable, herrajes, policarbonato y teja, canal y bajante, sellado, acabado, eléctrico y confort. Con el kit de referencia para una pérgola de 3 × 4 m.',
+        tag: 'Con foto · sin precios',
+        features: ['Perfilería: tubo A500, IPE, canal, ángulo', 'Anclaje químico y expansivo', 'Tornillería y pernos inoxidables', 'Kit 3 × 4 m y 9 reglas de fijación'],
+      },
+      {
+        href: '/estructuras',
+        num: '13b',
+        title: 'Estructuras metálicas',
+        sub: 'Escaleras · mezzanines · cubiertas · ampliaciones',
+        desc: 'Ocho tipos de obra en acero con diseño firmado por ingeniero: escaleras, mezzanines y altillos, domos y claraboyas, cubiertas comerciales, ampliación de segundo piso, locales y fachadas, pasarelas y naves. Memoria de cálculo, planos de taller y montaje propio.',
+        tag: 'Con diseño firmado',
+        features: ['Memoria de cálculo NSR-10', 'Fabricación en taller, montaje en obra', 'Soldadores calificados', 'Documentos de entrega'],
+      },
+      {
+        href: '/productos/pergolas',
+        num: '13c',
         title: 'Pérgola de lona (Palillería)',
         sub: 'Paredón · Lobby · Doble Lobby',
         desc: 'Cubierta de lona acrílica retráctil con estructura de aluminio. Tres tipos según la instalación: entre dos muros (Paredón), semi-adosada (Lobby) o autoportante (Doble Lobby). Proyección hasta 7 m.',
@@ -135,7 +153,7 @@ const grupos = [
       },
       {
         href: '/productos/toldo-romano',
-        num: '13b',
+        num: '13d',
         title: 'Toldo Romano Corredizo',
         sub: 'Manual · Motorizado · Solar Screen',
         desc: 'Sistema de plegado romano para uso exterior. Tela Solar Screen que reduce la radiación solar directa. Tres niveles de acabado (Premium, Plus, Básico) con estructura de aluminio anodizado. Manual o motorizado.',
@@ -144,8 +162,8 @@ const grupos = [
       },
       {
         href: '/productos/accesorios-pergolas',
-        num: '13c',
-        title: 'Accesorios Pérgolas',
+        num: '13e',
+        title: 'Accesorios pérgola de lona',
         sub: 'Tubos · Guías · Bridas · Poleas · Kits',
         desc: 'Referencias de insumos y accesorios para instalación de pérgolas palillería: tubos estructurales 80×80 y 80×40, guías, palillos dobles, soportes de pared, poleas, bridas con rodamiento y kits de unión.',
         tag: '25 referencias',
@@ -153,7 +171,7 @@ const grupos = [
       },
       {
         href: '/productos/accesorios-toldos',
-        num: '13d',
+        num: '13f',
         title: 'Accesorios Toldos',
         sub: 'Brazos · Motores · Estructuras · Telas',
         desc: 'Insumos completos para toldos Octopus y Vértice: brazos de lujo en 6 longitudes, casquillos, empalmes, motores 50/100NW, controles remotos, perfiles frontales P-02, tejadillos y telas Acrysun/SUNPRO.',

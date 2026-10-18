@@ -9,6 +9,7 @@ const cols = [
       ['Verticales',     '/productos/verticales'],
       ['Motorización',   '/productos/motorizacion'],
       ['Pérgolas metálicas', '/exteriores'],
+      ['Accesorios pérgolas metálicas', '/productos/pergolas-metalicas/accesorios'],
       ['Estructuras metálicas', '/estructuras'],
     ],
   },
