@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import fs from 'node:fs'
-import path from 'node:path'
 import { ArrowRight, Sun, CloudRain, Car, Building2, Footprints, Thermometer, Wind, Droplets, ShieldCheck } from 'lucide-react'
 import { sistemas, familias, type FamiliaSlug } from '../productos/pergolas-metalicas/sistemas'
 
@@ -29,10 +27,6 @@ const safra = [
   { href: '/productos/motorizacion', t: 'Motorización y domótica',         d: 'Lonas, toldos y bioclimática con control desde el celular.', tag: 'Safra' },
 ]
 
-function tieneImagen(img: string) {
-  return fs.existsSync(path.join(process.cwd(), 'public', img))
-}
-
 export default function ExterioresPage() {
   const portada = sistemas.find((s) => s.slug === 'adosada-policarbonato')!
   return (
@@ -41,7 +35,7 @@ export default function ExterioresPage() {
 
         {/* Hero */}
         <div className="hero-section ext-hero" style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', marginBottom: '40px', minHeight: '380px', border: '1px solid rgba(201,169,110,0.18)', background: '#0B1526' }}>
-          {tieneImagen(portada.img) && <img src={portada.img} alt={portada.imgAlt} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 35%' }} />}
+          <img src={portada.img} alt={portada.imgAlt} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 35%' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(8,14,26,0.92) 0%, rgba(8,14,26,0.6) 55%, rgba(8,14,26,0.15) 100%)' }} />
           <div style={{ position: 'relative', padding: 'clamp(28px, 5vw, 56px)', maxWidth: '640px' }}>
             <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Exteriores · Clima cálido</span>
@@ -94,7 +88,7 @@ export default function ExterioresPage() {
                 <div className="ext-fam-grid">
                   {lista.map((s) => (
                     <Link key={s.slug} href={`/productos/pergolas-metalicas#${s.slug}`} style={{ textDecoration: 'none', display: 'block', position: 'relative', aspectRatio: '4/3', background: 'linear-gradient(135deg,#0D1525,#1A2A4A)', overflow: 'hidden' }} className="img-zoom-wrap">
-                      {tieneImagen(s.img) && <img className="img-zoom" src={s.img} alt={s.imgAlt} loading="lazy" />}
+                      <img className="img-zoom" src={s.img} alt={s.imgAlt} loading="lazy" />
                       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(8,14,26,0) 40%, rgba(8,14,26,0.85) 100%)' }} />
                       <div style={{ position: 'absolute', left: '12px', right: '12px', bottom: '10px' }}>
                         <p style={{ fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#E8C98A', marginBottom: '2px' }}>{s.tag}</p>

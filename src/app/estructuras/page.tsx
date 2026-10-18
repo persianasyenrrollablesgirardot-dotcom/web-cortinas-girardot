@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import fs from 'node:fs'
-import path from 'node:path'
-import { ArrowRight, ArrowDown, ImageIcon, FileCheck2, HardHat, Ruler } from 'lucide-react'
+import { ArrowRight, ArrowDown, FileCheck2, HardHat, Ruler } from 'lucide-react'
 import { estructuras, proceso, entregables, PENDIENTE } from './estructuras'
 
 export const metadata: Metadata = {
@@ -23,18 +21,7 @@ function Kicker({ children }: { children: React.ReactNode }) {
   return <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '16px' }}>{children}</p>
 }
 
-function tieneImagen(img: string) {
-  return fs.existsSync(path.join(process.cwd(), 'public', img))
-}
-
 function Imagen({ src, alt, eager }: { src: string; alt: string; eager?: boolean }) {
-  if (!tieneImagen(src)) {
-    return (
-      <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-        <ImageIcon size={22} /> render en proceso
-      </div>
-    )
-  }
   return <img className="img-zoom" src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} />
 }
 
@@ -46,7 +33,7 @@ export default function EstructurasPage() {
 
         {/* Hero */}
         <div className="hero-section" style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', marginBottom: '40px', minHeight: '360px', border: '1px solid rgba(201,169,110,0.18)', background: '#0B1526' }}>
-          {tieneImagen(portada.img) && <img src={portada.img} alt={portada.imgAlt} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }} />}
+          <img src={portada.img} alt={portada.imgAlt} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(8,14,26,0.92) 0%, rgba(8,14,26,0.6) 55%, rgba(8,14,26,0.15) 100%)' }} />
           <div style={{ position: 'relative', padding: 'clamp(28px, 5vw, 56px)', maxWidth: '660px' }}>
             <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Estructuras metálicas · Construcción</span>

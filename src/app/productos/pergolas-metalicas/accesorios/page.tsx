@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import fs from 'node:fs'
-import path from 'node:path'
-import { ArrowRight, Star, Ban, ImageIcon } from 'lucide-react'
+import { ArrowRight, Star, Ban } from 'lucide-react'
 import { grupos, reglas, kit3x4 } from './accesorios'
 
 export const metadata: Metadata = {
@@ -12,10 +10,6 @@ export const metadata: Metadata = {
 }
 
 const totalItems = grupos.reduce((a, g) => a + g.items.length, 0)
-
-function tieneImagen(img: string) {
-  return fs.existsSync(path.join(process.cwd(), 'public', img))
-}
 
 export default function AccesoriosPergolasMetalicasPage() {
   return (
@@ -74,13 +68,10 @@ export default function AccesoriosPergolasMetalicasPage() {
 
               <div className="acc-grid">
                 {g.items.map((it) => {
-                  const hay = tieneImagen(it.img)
                   return (
                     <article key={it.nombre} className="card-glass acc-card" style={{ borderColor: it.evitar ? 'rgba(220,38,38,0.35)' : it.clave ? 'rgba(201,169,110,0.35)' : undefined }}>
                       <div className="acc-img img-zoom-wrap">
-                        {hay
-                          ? <img className="img-zoom" src={it.img} alt={it.nombre} loading="lazy" />
-                          : <div className="acc-img-ph"><ImageIcon size={22} color="var(--text-3)" /><span>imagen en proceso</span></div>}
+                        <img className="img-zoom" src={it.img} alt={it.nombre} loading="lazy" />
                         {it.clave && <span className="acc-badge acc-badge--clave"><Star size={11} fill="currentColor" /> imprescindible</span>}
                         {it.evitar && <span className="acc-badge acc-badge--evitar"><Ban size={11} /> no usar</span>}
                       </div>

@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import fs from 'node:fs'
-import path from 'node:path'
-import { ArrowLeft, ArrowRight, ArrowDown, ImageIcon } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowDown } from 'lucide-react'
 import { sistemas, familias, PENDIENTE } from './sistemas'
 
 export const metadata: Metadata = {
@@ -40,18 +38,7 @@ function Kicker({ children }: { children: React.ReactNode }) {
   return <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '16px' }}>{children}</p>
 }
 
-function tieneImagen(img: string) {
-  return fs.existsSync(path.join(process.cwd(), 'public', img))
-}
-
 function Imagen({ src, alt, eager, pos }: { src: string; alt: string; eager?: boolean; pos?: string }) {
-  if (!tieneImagen(src)) {
-    return (
-      <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-        <ImageIcon size={22} /> render en proceso
-      </div>
-    )
-  }
   return <img className="img-zoom" src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} style={{ objectPosition: pos ?? 'center' }} />
 }
 
