@@ -52,9 +52,14 @@ export default function Footer() {
                 Girardot · Colombia
               </div>
             </div>
-            <p style={{ fontSize: '15px', color: 'var(--text-3)', lineHeight: 1.65, maxWidth: '200px', marginBottom: '18px' }}>
+            <p style={{ fontSize: '15px', color: 'var(--text-3)', lineHeight: 1.65, maxWidth: '200px', marginBottom: '14px' }}>
               Sistemas de control solar premium para espacios que merecen lo mejor.
             </p>
+            <Link href="/galeria-del-dia" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none', marginBottom: '14px' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/safri-ia.png" alt="Safri IA" width={34} height={34} />
+              <span style={{ fontSize: '12px', color: 'var(--text-3)', lineHeight: 1.3 }}><b style={{ color: 'var(--gold)' }}>Safri IA</b><br />IA propia · contenido diario</span>
+            </Link>
             <a
               href="https://wa.me/573202381865?text=Hola%2C%20me%20interesa%20cotizar"
               target="_blank" rel="noopener noreferrer"

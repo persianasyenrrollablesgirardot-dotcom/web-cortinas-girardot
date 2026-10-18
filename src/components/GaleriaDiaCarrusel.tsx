@@ -34,7 +34,7 @@ export default function GaleriaDiaCarrusel({ dias, intervaloMs = 4500 }: { dias:
       <div className="container-site">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
           <div>
-            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '4px' }}>Galería del día</p>
+            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '4px' }}>Galería del día · creada por Safri IA</p>
             <h2 style={{ fontSize: 'clamp(22px, 2.8vw, 32px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text)' }}>Una idea nueva cada día</h2>
           </div>
           <Link href="/galeria-del-dia" style={{ fontSize: '14px', fontWeight: 600, color: 'var(--gold-dark)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>

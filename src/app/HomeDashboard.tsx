@@ -167,7 +167,7 @@ export default function HomeDashboard({ cfg, dias = [] }: { cfg: ImagesConfig; d
           <p style={{ fontSize: 'clamp(16px, 1.4vw, 19px)', color: 'var(--text-2)', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 24px' }}>
             Persianas, cortinas, pérgolas y estructuras metálicas. Fabricamos e instalamos para el clima cálido. Elige por dónde empezar.
           </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '22px' }}>
             <Link href="/cotizar" className="btn-primary" style={{ padding: '14px 26px', borderRadius: '14px' }}>
               Cotizar <ArrowRight size={16} />
             </Link>
@@ -175,6 +175,11 @@ export default function HomeDashboard({ cfg, dias = [] }: { cfg: ImagesConfig; d
               <MessageCircle size={16} /> WhatsApp
             </a>
           </div>
+          {/* Sello Safri IA */}
+          <Link href="/galeria-del-dia" className="hd-sello" aria-label="Safri IA, la IA propia de Fábrica de Cortinas Girardot">
+            <Image src="/safri-ia.png" alt="Safri IA" width={44} height={44} />
+            <span><b>Safri IA</b> · nuestra inteligencia artificial propia · persianas inteligentes, empresa inteligente</span>
+          </Link>
         </div>
       </section>
 
@@ -236,6 +241,8 @@ export default function HomeDashboard({ cfg, dias = [] }: { cfg: ImagesConfig; d
       </section>
 
       <style>{`
+        .hd-sello { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 10px; border-radius: 100px; background: #14110e; color: #F3EFE6; text-decoration: none; font-size: 13px; border: 1px solid rgba(232,199,106,0.45); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+        .hd-sello b { color: #E8C76A; }
         .hd-grid { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 290px 290px; gap: 16px; }
         .hd-tile { position: relative; border-radius: 22px; overflow: hidden; background: #ddd; box-shadow: 0 10px 30px rgba(0,0,0,0.08); isolation: isolate; }
         .hd-tile-grande { grid-row: 1 / 3; }
