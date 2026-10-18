@@ -330,9 +330,22 @@ textarea.input { resize: vertical; }
   [style*="grid-template-columns"]:not([style*="repeat("]):not(.mv-keep):not(.tabla-fila) {
     grid-template-columns: 1fr !important;
   }
-  [style*="grid-template-columns:repeat("]:not(.mv-keep),
-  [style*="grid-template-columns: repeat("]:not(.mv-keep) {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 120px), 1fr)) !important;
+  /* repeat(N, 1fr): tarjetas con texto (2 y 3 columnas) se apilan; muestras pequeñas (4 a 7) quedan en 2–3 */
+  [style*="grid-template-columns:repeat(2, 1fr)"], [style*="grid-template-columns: repeat(2, 1fr)"],
+  [style*="grid-template-columns:repeat(3, 1fr)"], [style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="grid-template-columns:repeat(4, 1fr)"], [style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  [style*="grid-template-columns:repeat(5, 1fr)"], [style*="grid-template-columns: repeat(5, 1fr)"],
+  [style*="grid-template-columns:repeat(6, 1fr)"], [style*="grid-template-columns: repeat(6, 1fr)"],
+  [style*="grid-template-columns:repeat(7, 1fr)"], [style*="grid-template-columns: repeat(7, 1fr)"] {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  /* repeat(auto-fill/auto-fit, minmax(...)) ya es fluido: se respeta, con tope de 2 por fila si pide más de 170 px */
+  [style*="minmax(190px"], [style*="minmax(200px"], [style*="minmax(220px"], [style*="minmax(240px"], [style*="minmax(260px"], [style*="minmax(280px"] {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)) !important;
   }
   /* gaps de escritorio (40–56 px) apilados dejan huecos enormes */
   [style*="gap:56px"], [style*="gap: 56px"], [style*="gap:48px"], [style*="gap: 48px"],
