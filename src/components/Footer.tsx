@@ -16,6 +16,7 @@ const cols = [
     title: 'Empresa',
     links: [
       ['Nosotros',  '/nosotros'],
+      ['Galería del día', '/galeria-del-dia'],
       ['Proyectos', '/proyectos'],
       ['Blog',      '/blog'],
       ['Contacto',  '/contacto'],
