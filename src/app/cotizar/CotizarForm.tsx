@@ -86,7 +86,7 @@ Quedo atento a su respuesta.`
 
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+      <div className="cot-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
         <div>
           <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>Nombre completo *</label>
           <input type="text" name="nombre" required value={formData.nombre} onChange={handleChange} placeholder="Tu nombre" className="input" />
@@ -114,7 +114,7 @@ Quedo atento a su respuesta.`
         </select>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+      <div className="cot-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
         <div>
           <label style={{ display: 'block', fontSize: '16px', color: 'var(--text-3)', marginBottom: '7px' }}>¿Cuántas ventanas?</label>
           <input type="number" name="ventanas" min={1} value={formData.ventanas} onChange={handleChange} placeholder="Ej: 3" className="input" />

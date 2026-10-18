@@ -91,10 +91,10 @@ export default async function CotizarPage({ searchParams }: { searchParams: Prom
         </div>
 
         {/* 2 columnas: beneficios + formulario */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.8fr', gap: '32px', alignItems: 'start' }}>
+        <div className="cot-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.8fr', gap: '32px', alignItems: 'start' }}>
 
           {/* Beneficios */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <div className="cot-beneficios" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {beneficios.map(({ Icon, t, d }) => (
               <div key={t} className="surface" style={{ padding: '18px 20px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
                 <Icon size={17} color="var(--gold)" style={{ flexShrink: 0, marginTop: '1px' }} />
@@ -114,13 +114,28 @@ export default async function CotizarPage({ searchParams }: { searchParams: Prom
           </div>
 
           {/* Formulario */}
-          <div className="card-glass" style={{ padding: '36px' }}>
+          <div className="card-glass cot-form" style={{ padding: '36px' }}>
             <CotizarForm sistemasGrupos={sistemasGrupos} sistemaInicial={sistemaInicial} />
           </div>
 
         </div>
 
       </div>
+
+      {/* Móvil: una sola columna, el formulario primero y los campos en una columna */}
+      <style>{`
+        @media (max-width: 900px) {
+          .cot-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+          .cot-form { order: -1; padding: 22px 18px !important; }
+          .cot-form .input { font-size: 16px; } /* evita el zoom automático de iOS al enfocar */
+          .cot-beneficios { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px; }
+          .cot-beneficios > div:last-child { grid-column: 1 / -1; }
+        }
+        @media (max-width: 520px) {
+          .cot-2col { grid-template-columns: 1fr !important; }
+          .cot-beneficios { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </div>
   )
 }
