@@ -4,6 +4,7 @@ import { ArrowRight, Shield, Award, MapPin, Wrench, MessageCircle } from 'lucide
 import type { ImagesConfig } from '@/lib/getImagesConfig'
 import type { DiaGaleria } from '@/lib/galeriaDia'
 import GaleriaDiaCarrusel from '@/components/GaleriaDiaCarrusel'
+import FondoIA from '@/components/FondoIA'
 
 /* ─── DATOS ─────────────────────────────────────────── */
 
@@ -159,6 +160,7 @@ export default function HomeDashboard({ cfg, dias = [] }: { cfg: ImagesConfig; d
     <>
       {/* ══════════ BIENVENIDA ══════════ */}
       <section className="page-top hero-ia" style={{ paddingBottom: '34px' }}>
+        <FondoIA />
         <div className="container-site" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <span className="badge" style={{ marginBottom: '18px' }}>Girardot · Alto Magdalena</span>
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 60px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', maxWidth: '860px', margin: '0 auto 14px' }}>
