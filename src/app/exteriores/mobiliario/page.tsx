@@ -16,6 +16,7 @@ type Categoria = {
   titulo: string
   resumen: string
   piezas: string
+  objetos: string
   competencia: string
   entrada: string
   img: string
@@ -30,9 +31,10 @@ const categorias: Categoria[] = [
     titulo: 'Mimbre natural',
     resumen:
       'Caña redonda tejida a mano, tono miel, textura irregular que se nota artesanal. Es poroso: con sol directo se seca y se agrieta, así que va bajo techo.',
-    piezas: 'Salas · comedores · poltronas · mecedoras · taburetes · paneles y espejos tejidos',
+    piezas: 'Salas · comedores · poltronas · mecedoras · taburetes',
+    objetos: 'Jarrones, canastos, bandejas y lámparas de un solo proveedor en Ibagué (Mis Canastas); espejos (Monstera, Cúcuta)',
     competencia: '4 competidores ya instalados en Girardot (Rattan Home, Colombia Muebles, Tejidos & Fibras, Elite)',
-    entrada: 'La tradición del mimbre en Colombia nació en Ibagué — vale la pena buscar proveedor de fibra cerca',
+    entrada: 'La tradición del mimbre en Colombia nació en Ibagué, no en la costa — ahí mismo hay asociación de artesanos (ASOMIMTOL)',
     img: '/mobiliario-exterior/mimbre-natural.jpg',
     imgAlt: 'Sala en mimbre natural tejido a mano en terraza techada, imagen de concepto',
   },
@@ -44,6 +46,7 @@ const categorias: Categoria[] = [
     resumen:
       'Tira plana de polietileno (HDPE) en tejido de cesta uniforme, tonos grafito o taupe. Impermeable y resistente a UV — es el material correcto para lo que recibe sol y lluvia directa.',
     piezas: 'Salas · comedores · sillas · taburetes de bar · daybeds · columpios · asoleadoras',
+    objetos: 'Macetas colgantes (marca Nativa, vía Homecenter) y papeleras de exterior (Plastihogar) — proveedor distinto al del mueble',
     competencia: 'Los mismos 4 de Girardot, más Industrias Trophy (Bogotá) y Jomave (Barranquilla) como proveedores de fibra',
     entrada: 'Diferenciar con cojines en tela técnica anti-UV, el mismo tipo que ya se maneja en control solar',
     img: '/mobiliario-exterior/ratan-sintetico.jpg',
@@ -57,6 +60,7 @@ const categorias: Categoria[] = [
     resumen:
       'Cordón DELGADO (4-6 mm, no cuerda gruesa de muelle) tejido en rejilla apretada sobre estructura de aluminio delgada, casi siempre en grafito. El efecto es ligero y sofisticado, no rústico.',
     piezas: 'Sillas de comedor · sofás · mecedoras · camastros · columpios',
+    objetos: 'Espejos, lámparas y biombos en este material: nadie los fabrica todavía en Colombia — espacio libre, hay que preguntar directo si lo hacen a pedido',
     competencia: 'Sin competencia en la zona — todo el que fabrica esto está en Medellín',
     entrada: 'Nicho de diseño; cotizar directo con 2-3 talleres de Medellín antes de comprometer inventario',
     img: '/mobiliario-exterior/cordon-nautico.jpg',
@@ -70,6 +74,7 @@ const categorias: Categoria[] = [
     resumen:
       'Camastros reclinables. Van en ratán sintético o aluminio, nunca en mimbre natural: viven a la intemperie junto a la piscina. Melgar ya se promociona como "la ciudad de las piscinas".',
     piezas: 'Camastros reclinables · con o sin ruedas · daybeds con parasol · mesas auxiliares a juego',
+    objetos: 'Comparte proveedores de accesorios con ratán sintético (macetas, papeleras) — ver esa línea',
     competencia: 'Sin fabricante identificado en Tolima; toda la oferta está en Bogotá, Yumbo o Medellín',
     entrada: 'El más rápido de probar: Rimax ya tiene modelo de distribución establecido',
     img: '/mobiliario-exterior/asoleadoras.jpg',
@@ -83,6 +88,7 @@ const categorias: Categoria[] = [
     resumen:
       'Tablón de un solo tronco (campano, caracolí, teca para exterior) sobre base de hierro o acero — en Colombia se le llama "estilo industrial", y es, según un fabricante de Bogotá, "el estilo ganador, el más elegido".',
     piezas: 'Comedores · bancas a juego · mesas de centro y auxiliares · consolas · barras',
+    objetos: 'Espejos en el mismo tablón con base metálica (línea ISLA, MARTE, PARKER de Macizo Colombia) — el hallazgo más fuerte de todo el objeto decorativo',
     competencia: 'Sin mayorista en el país — todo se fabrica sobre pedido',
     entrada: 'Asociarse con un carpintero/aserradero local y un herrero, no buscar un proveedor que no existe',
     img: '/mobiliario-exterior/mesas-tronco.jpg',
@@ -136,6 +142,7 @@ export default function MobiliarioExteriorPage() {
                 <p style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6, margin: 0 }}>{c.resumen}</p>
                 <div style={{ marginTop: '6px', paddingTop: '12px', borderTop: '1px solid var(--line-soft)', display: 'grid', gap: '6px' }}>
                   <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--gold)' }}>Piezas: </strong>{c.piezas}</p>
+                  <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Objetos: </strong>{c.objetos}</p>
                   <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Competencia: </strong>{c.competencia}</p>
                   <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Entrada: </strong>{c.entrada}</p>
                 </div>
