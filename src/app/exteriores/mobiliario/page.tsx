@@ -16,9 +16,9 @@ type Categoria = {
   titulo: string
   resumen: string
   piezas: string
-  objetos: string
-  competencia: string
-  entrada: string
+  material: string
+  resistencia: string
+  mantenimiento: string
   img: string
   imgAlt: string
 }
@@ -32,9 +32,9 @@ const categorias: Categoria[] = [
     resumen:
       'Caña redonda tejida a mano, tono miel, textura irregular que se nota artesanal. Es poroso: con sol directo se seca y se agrieta, así que va bajo techo.',
     piezas: 'Salas · comedores · poltronas · mecedoras · taburetes',
-    objetos: 'Jarrones, canastos, bandejas y lámparas de un solo proveedor en Ibagué (Mis Canastas); espejos (Monstera, Cúcuta)',
-    competencia: '4 competidores ya instalados en Girardot (Rattan Home, Colombia Muebles, Tejidos & Fibras, Elite)',
-    entrada: 'La tradición del mimbre en Colombia nació en Ibagué, no en la costa — ahí mismo hay asociación de artesanos (ASOMIMTOL)',
+    material: 'Fibra vegetal (mimbre/bejuco) o ratán natural: núcleo redondo o cinta plana de 2-10 mm, caña gruesa ≥18 mm para la estructura de piezas grandes',
+    resistencia: 'Solo interior o terraza techada: el sol directo reseca y agrieta la fibra. Rango ideal 10-27°C y humedad 20-60% — no apto para exposición directa',
+    mantenimiento: 'Jabón suave y agua pocas veces al año; aceite de linaza hervido 1-2 veces al año; nunca productos con silicona ni pulidores agresivos',
     img: '/mobiliario-exterior/mimbre-natural.jpg',
     imgAlt: 'Sala en mimbre natural tejido a mano en terraza techada, imagen de concepto',
   },
@@ -46,9 +46,9 @@ const categorias: Categoria[] = [
     resumen:
       'Tira plana de polietileno (HDPE) en tejido de cesta uniforme, tonos grafito o taupe. Impermeable y resistente a UV — es el material correcto para lo que recibe sol y lluvia directa.',
     piezas: 'Salas · comedores · sillas · taburetes de bar · daybeds · columpios · asoleadoras',
-    objetos: 'Macetas colgantes (marca Nativa, vía Homecenter) y papeleras de exterior (Plastihogar) — proveedor distinto al del mueble',
-    competencia: 'Los mismos 4 de Girardot, más Industrias Trophy (Bogotá) y Jomave (Barranquilla) como proveedores de fibra',
-    entrada: 'Diferenciar con cojines en tela técnica anti-UV, el mismo tipo que ya se maneja en control solar',
+    material: 'HDPE en tira plana ("flat wicker") de 6-10 mm de ancho × 1,2-1,4 mm de espesor, estabilizador UV mezclado en la resina; estructura en aluminio 6063-T5, pintura electrostática en polvo',
+    resistencia: 'Apto para lluvia directa, no solo salpique; estable entre -50°C y 80°C. Vida útil comercial de 5 a 15 años según calidad del HDPE y del estabilizador UV',
+    mantenimiento: 'Agua y jabón neutro diluido, cepillo suave, enjuague y secado completo. Nunca cloro, solventes ni limpiadores ácidos o abrasivos — amarillean y agrietan el recubrimiento',
     img: '/mobiliario-exterior/ratan-sintetico.jpg',
     imgAlt: 'Sala de exterior en ratán sintético gris sobre aluminio, imagen de concepto',
   },
@@ -60,9 +60,9 @@ const categorias: Categoria[] = [
     resumen:
       'Cordón DELGADO (4-6 mm, no cuerda gruesa de muelle) tejido en rejilla apretada sobre estructura de aluminio delgada, casi siempre en grafito. El efecto es ligero y sofisticado, no rústico.',
     piezas: 'Sillas de comedor · sofás · mecedoras · camastros · columpios',
-    objetos: 'Espejos, lámparas y biombos en este material: nadie los fabrica todavía en Colombia — espacio libre, hay que preguntar directo si lo hacen a pedido',
-    competencia: 'Sin competencia en la zona — todo el que fabrica esto está en Medellín',
-    entrada: 'Nicho de diseño; cotizar directo con 2-3 talleres de Medellín antes de comprometer inventario',
+    material: 'Cordón de poliéster o polipropileno trenzado, tejido en rejilla apretada sobre marco de aluminio extruido con pintura en polvo; 4-6 mm de diámetro es el rango comercial habitual',
+    resistencia: 'Marcas de referencia (Dedon, Ethimo, Kettal) documentan resistencia a UV, agua salada, cloro y temperatura extrema — Dedon simula en laboratorio 10 años de exposición continua',
+    mantenimiento: 'Lavar con hidrolavadora y secar por completo antes de cubrir — la humedad atrapada en el tejido genera moho',
     img: '/mobiliario-exterior/cordon-nautico.jpg',
     imgAlt: 'Sillas tejidas en cordón náutico delgado sobre aluminio negro, imagen de concepto',
   },
@@ -74,9 +74,9 @@ const categorias: Categoria[] = [
     resumen:
       'Camastros reclinables. Van en ratán sintético o aluminio, nunca en mimbre natural: viven a la intemperie junto a la piscina. Melgar ya se promociona como "la ciudad de las piscinas".',
     piezas: 'Camastros reclinables · con o sin ruedas · daybeds con parasol · mesas auxiliares a juego',
-    objetos: 'Comparte proveedores de accesorios con ratán sintético (macetas, papeleras) — ver esa línea',
-    competencia: 'Sin fabricante identificado en Tolima; toda la oferta está en Bogotá, Yumbo o Medellín',
-    entrada: 'El más rápido de probar: Rimax ya tiene modelo de distribución establecido',
+    material: 'Marco de aluminio (no se oxida, resiste cloro y salinidad) con tejido de ratán sintético (PE); 1 a 5 posiciones de reclinado según modelo, 150-200 cm de largo típico',
+    resistencia: 'El aluminio y el ratán sintético no se ven afectados por el cloro de piscina. Capacidad de 136-150 kg según modelo. Vida útil: 5-10 años con mantenimiento, 3-5 sin él',
+    mantenimiento: 'Cepillar y lavar con agua y jabón neutro, enjuagar con manguera; guardar bajo techo en temporada de lluvia. Cojín en espuma de secado rápido con funda tipo Sunbrella, resistente a cloro y moho',
     img: '/mobiliario-exterior/asoleadoras.jpg',
     imgAlt: 'Camastros en ratán sintético grafito junto a piscina, imagen de concepto',
   },
@@ -88,9 +88,9 @@ const categorias: Categoria[] = [
     resumen:
       'Tablón de un solo tronco (campano, caracolí, teca para exterior) sobre base de hierro o acero — en Colombia se le llama "estilo industrial", y es, según un fabricante de Bogotá, "el estilo ganador, el más elegido".',
     piezas: 'Comedores · bancas a juego · mesas de centro y auxiliares · consolas · barras',
-    objetos: 'Espejos en el mismo tablón con base metálica (línea ISLA, MARTE, PARKER de Macizo Colombia) — el hallazgo más fuerte de todo el objeto decorativo',
-    competencia: 'Sin mayorista en el país — todo se fabrica sobre pedido',
-    entrada: 'Asociarse con un carpintero/aserradero local y un herrero, no buscar un proveedor que no existe',
+    material: 'Tablón de un solo tronco (campano/samán o algarrobo son los más resistentes a termitas y hongos sin tratar; caracolí necesita tratamiento preservante) sobre base soldada de hierro o acero',
+    resistencia: 'Campano y algarrobo: durables en exterior (más de 15 años el algarrobo). Caracolí y eucalipto: poco durables sin tratar, solo interior/terraza techada. La base metálica en pintura electrostática o galvanizado + pintura dura más que el hierro negro simple',
+    mantenimiento: 'Aceite de teca cada 4-6 meses o barniz marino revisado cada 1-2 años; paño húmedo con jabón neutro y secado inmediato — evitar sol directo prolongado y agua estancada',
     img: '/mobiliario-exterior/mesas-tronco.jpg',
     imgAlt: 'Mesa de comedor en tablón de tronco macizo sobre base metálica negra, imagen de concepto',
   },
@@ -142,9 +142,9 @@ export default function MobiliarioExteriorPage() {
                 <p style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6, margin: 0 }}>{c.resumen}</p>
                 <div style={{ marginTop: '6px', paddingTop: '12px', borderTop: '1px solid var(--line-soft)', display: 'grid', gap: '6px' }}>
                   <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--gold)' }}>Piezas: </strong>{c.piezas}</p>
-                  <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Objetos: </strong>{c.objetos}</p>
-                  <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Competencia: </strong>{c.competencia}</p>
-                  <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Entrada: </strong>{c.entrada}</p>
+                  <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Material: </strong>{c.material}</p>
+                  <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Resistencia: </strong>{c.resistencia}</p>
+                  <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Mantenimiento: </strong>{c.mantenimiento}</p>
                 </div>
               </div>
             </div>
@@ -157,8 +157,8 @@ export default function MobiliarioExteriorPage() {
             <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Palette size={14} /> El ángulo que nadie más usa en Girardot
             </p>
-            <p style={{ fontSize: '15px', fontWeight: 500, color: 'var(--text)', marginBottom: '4px' }}>Los 4 competidores de mimbre están en el tejido y la estructura, no en la tela de los cojines.</p>
-            <p style={{ fontSize: '15px', color: 'var(--text-3)' }}>El negocio ya maneja telas técnicas anti-UV para control solar — el mismo tipo de tela que llevan los cojines de exterior de calidad (Sunbrella y equivalentes). Es una ventaja que ningún fabricante de ratán de la zona parece estar usando.</p>
+            <p style={{ fontSize: '15px', fontWeight: 500, color: 'var(--text)', marginBottom: '4px' }}>La diferencia no está solo en el tejido o la estructura: está en la tela de los cojines.</p>
+            <p style={{ fontSize: '15px', color: 'var(--text-3)' }}>El negocio ya maneja telas técnicas anti-UV para control solar — el mismo tipo de tela que llevan los cojines de exterior de calidad (Sunbrella y equivalentes), resistente a sol y lluvia sin decolorarse.</p>
           </div>
         </div>
 
