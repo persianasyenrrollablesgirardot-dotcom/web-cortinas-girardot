@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { ArrowRight, Armchair, Sofa, Sun, Table2, Palette, ShieldCheck, Info } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Mobiliario de exterior para Girardot: mimbre, cordón náutico, asoleadoras y mesas de tronco | Fábrica de Cortinas Girardot',
+  title: 'Mobiliario de exterior para Girardot: mimbre, ratán sintético, cordón náutico, asoleadoras y madera maciza | Fábrica de Cortinas Girardot',
   description:
-    'Propuesta de línea nueva: salas y comedores en mimbre/ratán, muebles de cordón náutico, asoleadoras de piscina y mesas de tronco con base metálica, para Girardot, Melgar y el Alto Magdalena.',
+    'Propuesta de línea nueva: salas y comedores en mimbre natural y ratán sintético, muebles de cordón náutico, asoleadoras de piscina y mesas de madera maciza con base metálica, para Girardot, Melgar y el Alto Magdalena.',
   robots: { index: false, follow: false },
 }
 
@@ -15,6 +15,7 @@ type Categoria = {
   tag: string
   titulo: string
   resumen: string
+  piezas: string
   competencia: string
   entrada: string
   img: string
@@ -23,16 +24,30 @@ type Categoria = {
 
 const categorias: Categoria[] = [
   {
-    slug: 'mimbre-ratan',
+    slug: 'mimbre',
     Icon: Armchair,
-    tag: 'Salas y comedores',
-    titulo: 'Mimbre y ratán',
+    tag: 'Interior y terraza techada',
+    titulo: 'Mimbre natural',
     resumen:
-      'Ratán sintético (HDPE) sobre estructura de aluminio: resiste sol y humedad sin pudrirse, a diferencia del mimbre natural. Ya hay 4 talleres vendiendo esto en Girardot.',
+      'Caña redonda tejida a mano, tono miel, textura irregular que se nota artesanal. Es poroso: con sol directo se seca y se agrieta, así que va bajo techo.',
+    piezas: 'Salas · comedores · poltronas · mecedoras · taburetes · paneles y espejos tejidos',
     competencia: '4 competidores ya instalados en Girardot (Rattan Home, Colombia Muebles, Tejidos & Fibras, Elite)',
+    entrada: 'La tradición del mimbre en Colombia nació en Ibagué — vale la pena buscar proveedor de fibra cerca',
+    img: '/mobiliario-exterior/mimbre-natural.jpg',
+    imgAlt: 'Sala en mimbre natural tejido a mano en terraza techada, imagen de concepto',
+  },
+  {
+    slug: 'ratan-sintetico',
+    Icon: Sofa,
+    tag: 'Exterior a la intemperie',
+    titulo: 'Ratán sintético',
+    resumen:
+      'Tira plana de polietileno (HDPE) en tejido de cesta uniforme, tonos grafito o taupe. Impermeable y resistente a UV — es el material correcto para lo que recibe sol y lluvia directa.',
+    piezas: 'Salas · comedores · sillas · taburetes de bar · daybeds · columpios · asoleadoras',
+    competencia: 'Los mismos 4 de Girardot, más Industrias Trophy (Bogotá) y Jomave (Barranquilla) como proveedores de fibra',
     entrada: 'Diferenciar con cojines en tela técnica anti-UV, el mismo tipo que ya se maneja en control solar',
-    img: '/mobiliario-exterior/mimbre-ratan.jpg',
-    imgAlt: 'Sala de exterior en ratán sintético sobre aluminio, estilo concepto',
+    img: '/mobiliario-exterior/ratan-sintetico.jpg',
+    imgAlt: 'Sala de exterior en ratán sintético gris sobre aluminio, imagen de concepto',
   },
   {
     slug: 'cordon-nautico',
@@ -40,11 +55,12 @@ const categorias: Categoria[] = [
     tag: 'Terrazas y hospedaje boutique',
     titulo: 'Cordón náutico',
     resumen:
-      'Cuerda marina trenzada (poliéster o polipropileno, teñida en masa) tejida sobre aluminio. Estilo de los años 50-60, con fuerte tracción en hoteles y Airbnbs de diseño.',
+      'Cordón DELGADO (4-6 mm, no cuerda gruesa de muelle) tejido en rejilla apretada sobre estructura de aluminio delgada, casi siempre en grafito. El efecto es ligero y sofisticado, no rústico.',
+    piezas: 'Sillas de comedor · sofás · mecedoras · camastros · columpios',
     competencia: 'Sin competencia en la zona — todo el que fabrica esto está en Medellín',
     entrada: 'Nicho de diseño; cotizar directo con 2-3 talleres de Medellín antes de comprometer inventario',
     img: '/mobiliario-exterior/cordon-nautico.jpg',
-    imgAlt: 'Silla y sofá tejidos en cordón náutico sobre aluminio, estilo concepto',
+    imgAlt: 'Sillas tejidas en cordón náutico delgado sobre aluminio negro, imagen de concepto',
   },
   {
     slug: 'asoleadoras',
@@ -52,23 +68,25 @@ const categorias: Categoria[] = [
     tag: 'Piscina y jardín',
     titulo: 'Asoleadoras',
     resumen:
-      'Camastros reclinables en aluminio, resina tejida o PVC. Melgar ya se promociona como "la ciudad de las piscinas" — el producto más directo para el perfil de cliente de la zona.',
+      'Camastros reclinables. Van en ratán sintético o aluminio, nunca en mimbre natural: viven a la intemperie junto a la piscina. Melgar ya se promociona como "la ciudad de las piscinas".',
+    piezas: 'Camastros reclinables · con o sin ruedas · daybeds con parasol · mesas auxiliares a juego',
     competencia: 'Sin fabricante identificado en Tolima; toda la oferta está en Bogotá, Yumbo o Medellín',
     entrada: 'El más rápido de probar: Rimax ya tiene modelo de distribución establecido',
     img: '/mobiliario-exterior/asoleadoras.jpg',
-    imgAlt: 'Camastros/asoleadoras junto a piscina, estilo concepto',
+    imgAlt: 'Camastros en ratán sintético grafito junto a piscina, imagen de concepto',
   },
   {
     slug: 'mesas-tronco',
     Icon: Table2,
-    tag: 'Comedores',
-    titulo: 'Mesas de tronco con base metálica',
+    tag: 'Comedores y complementos',
+    titulo: 'Madera maciza con base metálica',
     resumen:
       'Tablón de un solo tronco (campano, caracolí, teca para exterior) sobre base de hierro o acero — en Colombia se le llama "estilo industrial", y es, según un fabricante de Bogotá, "el estilo ganador, el más elegido".',
+    piezas: 'Comedores · bancas a juego · mesas de centro y auxiliares · consolas · barras',
     competencia: 'Sin mayorista en el país — todo se fabrica sobre pedido',
     entrada: 'Asociarse con un carpintero/aserradero local y un herrero, no buscar un proveedor que no existe',
     img: '/mobiliario-exterior/mesas-tronco.jpg',
-    imgAlt: 'Mesa de comedor en tablón de tronco macizo sobre base metálica negra, estilo concepto',
+    imgAlt: 'Mesa de comedor en tablón de tronco macizo sobre base metálica negra, imagen de concepto',
   },
 ]
 
@@ -93,14 +111,14 @@ export default function MobiliarioExteriorPage() {
               Ya diste la sombra.<br /><span className="text-gold-gradient" style={{ fontWeight: 500 }}>¿Dónde se sienta tu cliente?</span>
             </h1>
             <p style={{ fontSize: '16px', color: 'rgba(238,242,255,0.7)', lineHeight: 1.65, marginBottom: '22px' }}>
-              La pérgola resuelve el sol y la lluvia. Esta es la pieza que falta: mobiliario de exterior para la misma terraza, la misma piscina, la misma finca — mimbre, cordón náutico, asoleadoras y mesas de tronco con base metálica.
+              La pérgola resuelve el sol y la lluvia. Esta es la pieza que falta: mobiliario para la misma terraza, la misma piscina, la misma finca — mimbre natural, ratán sintético, cordón náutico, asoleadoras y madera maciza con base metálica.
             </p>
           </div>
         </div>
 
         {/* Las 4 categorías */}
         <div style={{ marginBottom: '16px' }}>
-          <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '8px' }}>Cuatro líneas, investigadas por separado</p>
+          <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '8px' }}>Cinco líneas, investigadas por separado</p>
           <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, lineHeight: 1.1 }}>Qué hay de cada una <span className="text-gold-gradient">en el mercado colombiano</span></h2>
         </div>
 
@@ -117,6 +135,7 @@ export default function MobiliarioExteriorPage() {
                 <h3 style={{ fontSize: '19px', fontWeight: 600, color: 'var(--text)', lineHeight: 1.2, margin: 0 }}>{c.titulo}</h3>
                 <p style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6, margin: 0 }}>{c.resumen}</p>
                 <div style={{ marginTop: '6px', paddingTop: '12px', borderTop: '1px solid var(--line-soft)', display: 'grid', gap: '6px' }}>
+                  <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--gold)' }}>Piezas: </strong>{c.piezas}</p>
                   <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Competencia: </strong>{c.competencia}</p>
                   <p style={{ fontSize: '13px', color: 'var(--text-3)', margin: 0 }}><strong style={{ color: 'var(--text-2)' }}>Entrada: </strong>{c.entrada}</p>
                 </div>
