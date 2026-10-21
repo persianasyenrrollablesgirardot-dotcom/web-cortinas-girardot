@@ -282,7 +282,9 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div style={{
         overflow: 'hidden',
-        maxHeight: open ? '100vh' : '0',
+        // El panel arranca en top:84px, así que 100vh se sale 84px por debajo de la pantalla
+        // y las últimas opciones quedaban fuera de alcance al hacer scroll.
+        maxHeight: open ? 'calc(100vh - 84px)' : '0',
         transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         background: 'var(--surface)',
         borderTop: open ? '1px solid rgba(0,0,0,0.07)' : 'none',
@@ -325,7 +327,10 @@ export default function Navbar() {
               
               {link.hasSub && (
                 <div style={{ 
-                  maxHeight: mobileSubOpen === link.label ? '2000px' : '0', 
+                  // 6000px, no 2000: con 10 grupos el submenú mide ~2030px y el límite viejo
+                  // lo cortaba justo en «Mobiliario de exterior», escondiendo también
+                  // películas, lienzos y papel de colgadura.
+                  maxHeight: mobileSubOpen === link.label ? '6000px' : '0',
                   overflow: 'hidden', 
                   transition: 'max-height 0.5s ease-in-out',
                   background: 'rgba(0,0,0,0.02)',
