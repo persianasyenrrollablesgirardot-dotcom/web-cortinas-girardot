@@ -5,8 +5,7 @@ import { ArrowRight, Armchair, Sofa, Sun, Table2, Palette, ShieldCheck, Info } f
 export const metadata: Metadata = {
   title: 'Mobiliario de exterior para Girardot: mimbre, ratán sintético, cordón náutico, asoleadoras y madera maciza | Fábrica de Cortinas Girardot',
   description:
-    'Propuesta de línea nueva: salas y comedores en mimbre natural y ratán sintético, muebles de cordón náutico, asoleadoras de piscina y mesas de madera maciza con base metálica, para Girardot, Melgar y el Alto Magdalena.',
-  robots: { index: false, follow: false },
+    'Salas y comedores en mimbre natural y ratán sintético, muebles de cordón náutico, asoleadoras de piscina y mesas de madera maciza con base metálica, para Girardot, Melgar y el Alto Magdalena.',
 }
 
 type Categoria = {
@@ -181,24 +180,16 @@ export default function MobiliarioExteriorPage() {
           ))}
         </div>
 
-        {/* Decisiones pendientes */}
-        <div className="surface" style={{ padding: '24px 26px', marginBottom: '40px' }}>
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '10px' }}>Antes de publicar esto</p>
-          <ol style={{ margin: 0, paddingLeft: '20px', display: 'grid', gap: '8px' }}>
-            {[
-              'Por dónde empezar: asoleadoras es la entrada más rápida y barata para probar demanda.',
-              'Fabricar, asociarse con terceros, o revender terminado — varía por categoría.',
-              'Si se usa el ángulo de telas propias como diferenciador frente al mimbre ya instalado en Girardot.',
-              'Si esto entra al menú «Exteriores» como fila nueva, junto a pérgolas y toldos.',
-            ].map((d) => (
-              <li key={d} style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6 }}>{d}</li>
-            ))}
-          </ol>
+        <div className="surface" style={{ padding: '26px 28px', marginBottom: '40px', textAlign: 'center' }}>
+          <h3 style={{ fontSize: '20px', fontWeight: 600, color: 'var(--text)', marginBottom: '8px' }}>¿Cuál le sirve a su espacio?</h3>
+          <p style={{ fontSize: '14px', color: 'var(--text-3)', lineHeight: 1.6, marginBottom: '18px' }}>
+            El material correcto depende de si la zona recibe sol y lluvia directa o está bajo techo. Lo vemos en sitio y le decimos cuál aguanta.
+          </p>
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/cotizar" className="btn-primary" style={{ fontSize: '15px', padding: '11px 22px' }}>Pedir visita <ArrowRight size={14} /></Link>
+            <a href="https://wa.me/573202381865" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ fontSize: '15px', padding: '11px 22px' }}>WhatsApp</a>
+          </div>
         </div>
-
-        <p style={{ fontSize: '13px', color: 'var(--text-3)', textAlign: 'center' }}>
-          Investigación completa en <code>empresa-kb/conocimiento/investigacion/mobiliario-exterior-portafolio-2026.md</code>
-        </p>
 
       </div>
 

@@ -25,6 +25,7 @@ const safra = [
   { href: '/productos/toldo-romano', t: 'Toldo romano corredizo',          d: 'Tela Solar Screen de exterior, manual o motorizado.', tag: 'Safra' },
   { href: '/productos/enrollables',  t: 'Cortina screen de exterior',      d: 'Cierra el lado de la pérgola contra sol y miradas sin perder la brisa.', tag: 'Safra' },
   { href: '/productos/motorizacion', t: 'Motorización y domótica',         d: 'Lonas, toldos y bioclimática con control desde el celular.', tag: 'Safra' },
+  { href: '/exteriores/mobiliario',  t: 'Mobiliario de exterior',          d: 'Mimbre, ratán sintético, cordón náutico, asoleadoras y mesas de madera maciza.', tag: 'Línea nueva' },
 ]
 
 export default function ExterioresPage() {
