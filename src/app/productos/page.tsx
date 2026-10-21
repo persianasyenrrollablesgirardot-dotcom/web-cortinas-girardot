@@ -12,6 +12,7 @@ const mapa: Record<string, string> = {
   'peliculas-solares': '/home/peliculas.jpg',
   'lienzos': '/home/decoracion.jpg',
   'papel-de-colgadura': '/home/decoracion.jpg',
+  'mobiliario-exterior': '/mobiliario-exterior/ratan-sintetico.jpg',
 }
 
 const grupos = [

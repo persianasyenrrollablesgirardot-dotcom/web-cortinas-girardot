@@ -77,6 +77,12 @@ const submenuGrupos = [
       { href: '/productos/papel',          label: 'Papel de colgadura Safra Living', sub: 'Living I · II · Tendencias' },
     ],
   },
+  {
+    titulo: 'Mobiliario de exterior · Terraza y piscina',
+    items: [
+      { href: '/exteriores/mobiliario',    label: 'Muebles de exterior', sub: 'Mimbre · ratán sintético · cordón náutico · asoleadoras · madera maciza' },
+    ],
+  },
 ]
 
 const links = [
