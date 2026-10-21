@@ -117,8 +117,8 @@ export default function HomeClient({ cfg }: { cfg: ImagesConfig }) {
     { title: 'Papel Colgadura',sub: 'Safra Living',             href: '/productos/papel',       tag: 'Decoración',         img: p['papel']          || null },
     { title: 'Lienzo',         sub: 'Arte digital',             href: '/productos/lienzo',      tag: '4 formatos',         img: p['lienzo']         || '/safra/lienzo/lienzo-trigo.jpg' },
     { title: 'Pérgolas',       sub: 'Lona AcrySun · Exterior',  href: '/productos/pergolas',    tag: 'Exteriores',         img: p['pergolas']       || '/safra/pergolas/pergola-palomino.jpg' },
-    { title: 'Estampados',     sub: '+400 diseños · 7 temas',   href: '/productos/estampados',  tag: 'Personalizado',      img: p['estampados']     || '/safra/estampados/estampado-flower.jpg' },
     { title: 'Muebles de exterior', sub: 'Mimbre · ratán · asoleadoras', href: '/exteriores/mobiliario', tag: 'Línea nueva',   img: p['mobiliario']     || '/mobiliario-exterior/ratan-sintetico.jpg' },
+    { title: 'Estampados',     sub: '+400 diseños · 7 temas',   href: '/productos/estampados',  tag: 'Personalizado',      img: p['estampados']     || '/safra/estampados/estampado-flower.jpg' },
   ]
 
   const heroSrc = cfg.hero_banner || '/hero_banner.png'

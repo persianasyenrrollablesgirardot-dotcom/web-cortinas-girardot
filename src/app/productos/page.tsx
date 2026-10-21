@@ -259,6 +259,22 @@ const grupos = [
     ],
   },
   {
+    slug: 'mobiliario-exterior',
+    titulo: 'Mobiliario de exterior · Terraza y piscina',
+    desc: 'Muebles para la zona húmeda y la terraza, en el material que aguanta cada sitio.',
+    productos: [
+      {
+        href: '/exteriores/mobiliario',
+        num: '26',
+        title: 'Mobiliario de exterior',
+        sub: 'Mimbre · Ratán sintético · Cordón náutico · Asoleadoras · Madera maciza',
+        desc: 'Salas, comedores, poltronas, daybeds, asoleadoras de piscina y mesas de tronco. El mimbre natural va bajo techo; el ratán sintético y la madera maciza aguantan sol y lluvia directa.',
+        tag: 'Línea nueva',
+        features: ['Mimbre natural bajo techo', 'Ratán sintético HDPE con filtro UV', 'Cordón náutico en rejilla', 'Mesas de madera maciza con base metálica'],
+      },
+    ],
+  },
+  {
     slug: 'peliculas-solares',
     titulo: 'Películas solares · Vidrio inteligente',
     desc: 'Control solar y seguridad directamente en el vidrio.',
@@ -303,22 +319,6 @@ const grupos = [
         desc: 'Diseños y texturas que inspiran desde lo convencional hasta lo más arriesgado, sin perder calidez y elegancia. Ver fichas técnicas por referencia en catálogo.',
         tag: 'Decoración',
         features: ['Colección Safra Living', 'Amplia gama de diseños', 'Texturas variadas', 'Por rollo según referencia'],
-      },
-    ],
-  },
-  {
-    slug: 'mobiliario-exterior',
-    titulo: 'Mobiliario de exterior · Terraza y piscina',
-    desc: 'Muebles para la zona húmeda y la terraza, en el material que aguanta cada sitio.',
-    productos: [
-      {
-        href: '/exteriores/mobiliario',
-        num: '26',
-        title: 'Mobiliario de exterior',
-        sub: 'Mimbre · Ratán sintético · Cordón náutico · Asoleadoras · Madera maciza',
-        desc: 'Salas, comedores, poltronas, daybeds, asoleadoras de piscina y mesas de tronco. El mimbre natural va bajo techo; el ratán sintético y la madera maciza aguantan sol y lluvia directa.',
-        tag: 'Línea nueva',
-        features: ['Mimbre natural bajo techo', 'Ratán sintético HDPE con filtro UV', 'Cordón náutico en rejilla', 'Mesas de madera maciza con base metálica'],
       },
     ],
   },

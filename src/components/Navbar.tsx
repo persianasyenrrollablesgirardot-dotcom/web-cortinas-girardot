@@ -60,6 +60,12 @@ const submenuGrupos = [
     ],
   },
   {
+    titulo: 'Mobiliario de exterior · Terraza y piscina',
+    items: [
+      { href: '/exteriores/mobiliario',    label: 'Muebles de exterior', sub: 'Mimbre · ratán sintético · cordón náutico · asoleadoras · madera maciza' },
+    ],
+  },
+  {
     titulo: 'Películas solares · Vidrio inteligente',
     items: [
       { href: '/productos/peliculas',      label: 'Película solar y de seguridad', sub: 'HAVERKAMP · calor, UV, seguridad' },
@@ -75,12 +81,6 @@ const submenuGrupos = [
     titulo: 'Papel de colgadura · Paredes con textura',
     items: [
       { href: '/productos/papel',          label: 'Papel de colgadura Safra Living', sub: 'Living I · II · Tendencias' },
-    ],
-  },
-  {
-    titulo: 'Mobiliario de exterior · Terraza y piscina',
-    items: [
-      { href: '/exteriores/mobiliario',    label: 'Muebles de exterior', sub: 'Mimbre · ratán sintético · cordón náutico · asoleadoras · madera maciza' },
     ],
   },
 ]
