@@ -66,6 +66,19 @@ const lineas: Linea[] = [
 
 const lineasMenores: Linea[] = [
   {
+    slug: 'mobiliario-exterior',
+    kicker: 'Línea nueva · terraza y piscina',
+    titulo: 'Muebles de exterior',
+    desc: 'Mimbre natural, ratán sintético, cordón náutico, asoleadoras y mesas de madera maciza.',
+    href: '/exteriores/mobiliario',
+    img: '/mobiliario-exterior/ratan-sintetico.jpg',
+    temas: [
+      { label: 'Ratán sintético', href: '/exteriores/mobiliario#ratan-sintetico' },
+      { label: 'Asoleadoras', href: '/exteriores/mobiliario#asoleadoras' },
+      { label: 'Mesas de tronco', href: '/exteriores/mobiliario#mesas-tronco' },
+    ],
+  },
+  {
     slug: 'estructuras',
     kicker: 'Acero con cálculo · diseño firmado',
     titulo: 'Estructuras metálicas',

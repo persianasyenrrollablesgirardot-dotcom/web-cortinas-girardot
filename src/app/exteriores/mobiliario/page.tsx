@@ -121,7 +121,7 @@ export default function MobiliarioExteriorPage() {
 
         <div className="mob-grid" style={{ marginBottom: '64px' }}>
           {categorias.map((c) => (
-            <div key={c.slug} className="card-glass" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+            <div key={c.slug} id={c.slug} className="card-glass" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', scrollMarginTop: '96px' }}>
               <div style={{ position: 'relative', aspectRatio: '16/10', background: 'linear-gradient(135deg,#0D1525,#1A2A4A)' }}>
                 <img src={c.img} alt={c.imgAlt} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <span style={{ position: 'absolute', top: '10px', left: '10px', fontSize: '9px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(238,242,255,0.8)', background: 'rgba(8,14,26,0.6)', padding: '3px 8px', borderRadius: '999px' }}>Concepto</span>
