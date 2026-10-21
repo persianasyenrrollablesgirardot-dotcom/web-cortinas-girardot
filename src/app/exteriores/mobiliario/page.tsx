@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Armchair, Sofa, Sun, Table2, Palette, ShieldCheck, Info } from 'lucide-react'
+import { ArrowRight, Armchair, Sofa, Sun, Table2, Palette, ShieldCheck } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Mobiliario de exterior para Girardot: mimbre, ratán sintético, cordón náutico, asoleadoras y madera maciza | Fábrica de Cortinas Girardot',
@@ -100,18 +100,10 @@ export default function MobiliarioExteriorPage() {
     <div className="page-top">
       <div className="container-site">
 
-        {/* Aviso de borrador — se quita cuando se apruebe */}
-        <div className="surface" style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '14px 18px', marginBottom: '28px', borderColor: 'rgba(234,179,8,0.35)', background: 'rgba(234,179,8,0.06)' }}>
-          <Info size={18} color="#eab308" style={{ flexShrink: 0, marginTop: '2px' }} />
-          <p style={{ fontSize: '13px', color: 'var(--text-3)', lineHeight: 1.6, margin: 0 }}>
-            <strong style={{ color: '#eab308' }}>Borrador sin publicar.</strong> Página aislada, sin enlazar en el menú ni indexada — es para revisar la idea. Imágenes de concepto, no son fotos de inventario propio (línea nueva, aún sin producto real que fotografiar). Sin precios: se cotiza por WhatsApp cuando Jhon los fije.
-          </p>
-        </div>
-
         {/* Hero */}
         <div className="hero-section ext-hero" style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', marginBottom: '40px', minHeight: '320px', border: '1px solid rgba(201,169,110,0.18)', background: 'linear-gradient(135deg, #0B1526 0%, #16243F 100%)' }}>
           <div style={{ position: 'relative', padding: 'clamp(28px, 5vw, 56px)', maxWidth: '680px' }}>
-            <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Propuesta · Línea nueva</span>
+            <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Línea nueva</span>
             <h1 style={{ fontSize: 'clamp(28px, 4.2vw, 48px)', fontWeight: 300, lineHeight: 1.08, color: '#EEF2FF', marginBottom: '14px' }}>
               Ya diste la sombra.<br /><span className="text-gold-gradient" style={{ fontWeight: 500 }}>¿Dónde se sienta tu cliente?</span>
             </h1>
