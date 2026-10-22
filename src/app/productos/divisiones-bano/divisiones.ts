@@ -165,7 +165,7 @@ export const divisiones: Division[] = [
 
 export const proceso = [
   { n: '01', t: 'Visita y medición', d: 'Se mide el vano exacto, el nivel de piso y el plomo de los muros. El vidrio no se corta ni se perfora después de templado: el margen de error en esta medida es cero.' },
-  { n: '02', t: 'Elección de sistema y vidrio', d: 'Fijo, corredizo, abatible, plegable, esquinero, frameless o enmarcado; espesor y acabado (transparente, esmerilado, satinado) según el sistema y la norma NTC 1578.' },
+  { n: '02', t: 'Elección de sistema y vidrio', d: 'Fijo, corredizo, abatible, plegable, esquinero o frameless; espesor y acabado (transparente, esmerilado, satinado) según el sistema y la norma NTC 1578.' },
   { n: '03', t: 'Fabricación del vidrio templado', d: 'Corte, pulido de bordes y perforaciones para herraje (si aplica) antes del templado en horno certificado. Plazo propio del proveedor de vidrio.' },
   { n: '04', t: 'Preparación del sitio', d: 'Impermeabilización y enchape terminados antes de instalar: sin baldosa lista no se monta ningún sistema.' },
   { n: '05', t: 'Instalación y sellado', d: 'Anclaje de perfiles o herrajes, nivelación, montaje del vidrio y sellado con silicona neutra antihongos. 24 horas de curado antes de usar la ducha.' },
