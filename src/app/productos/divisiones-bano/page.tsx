@@ -6,7 +6,7 @@ import { divisiones, proceso, entregables, PENDIENTE } from './divisiones'
 export const metadata: Metadata = {
   title: 'Divisiones de baño en vidrio templado en Girardot: fija, corredera, abatible, plegable, frameless | Fábrica de Cortinas Girardot',
   description:
-    'Divisiones de baño solo en vidrio templado de seguridad NTC 1578: fija walk-in, corredera, abatible, plegable, esquinera, frameless sin marco, enmarcada y para tina. Herrajes en acero inoxidable, sellado antihongos. Girardot, Melgar y la región.',
+    'Divisiones de baño solo en vidrio templado de seguridad NTC 1578, sin marcos de aluminio: fija walk-in, corredera, abatible, plegable, esquinera y frameless, más mampara para tina. Herrajes en acero inoxidable, sellado antihongos. Girardot, Melgar y la región.',
 }
 
 function Pendiente({ children }: { children: React.ReactNode }) {
@@ -41,10 +41,10 @@ export default function DivisionesBanoPage() {
               Vidrio con norma,<br /><span className="text-gold-gradient" style={{ fontWeight: 500 }}>sellado que no gotea</span>
             </h1>
             <p style={{ fontSize: '16px', color: 'rgba(238,242,255,0.7)', lineHeight: 1.65, marginBottom: '22px' }}>
-              Fija walk-in, corredera, abatible, plegable, esquinera, frameless sin marco, enmarcada y mampara para tina. Todo en vidrio templado de seguridad NTC 1578, con herrajes en acero inoxidable y sellado antihongos. Nada en acrílico ni en película: solo vidrio templado.
+              Fija walk-in, corredera, abatible, plegable, esquinera y frameless, más mampara para tina. Todo en vidrio templado de seguridad NTC 1578, con herrajes en acero inoxidable y sellado antihongos. Sin marco de aluminio perimetral: no fabricamos ese sistema.
             </p>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <a href="#sistemas" className="btn-primary" style={{ fontSize: '15px', padding: '12px 24px' }}>Ver los 8 sistemas <ArrowRight size={14} /></a>
+              <a href="#sistemas" className="btn-primary" style={{ fontSize: '15px', padding: '12px 24px' }}>Ver los 7 sistemas <ArrowRight size={14} /></a>
               <Link href="/cotizar" className="btn-secondary" style={{ fontSize: '15px', padding: '12px 24px' }}>Pedir visita y medición</Link>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function DivisionesBanoPage() {
 
         {/* Galería */}
         <div id="sistemas" style={{ scrollMarginTop: '110px' }}>
-          <Kicker>Ocho sistemas</Kicker>
+          <Kicker>Siete sistemas</Kicker>
         </div>
         <div className="pg-sistemas" style={{ marginBottom: '72px' }}>
           {divisiones.map((d, i) => {

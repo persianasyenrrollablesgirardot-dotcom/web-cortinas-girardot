@@ -52,7 +52,7 @@ const submenuGrupos = [
   {
     titulo: 'Divisiones de baño · Solo vidrio templado',
     items: [
-      { href: '/productos/divisiones-bano', label: 'Divisiones de baño en vidrio templado', sub: '8 sistemas · NTC 1578 · fija a frameless' },
+      { href: '/productos/divisiones-bano', label: 'Divisiones de baño en vidrio templado', sub: '7 sistemas · NTC 1578 · sin marco perimetral' },
     ],
   },
   {

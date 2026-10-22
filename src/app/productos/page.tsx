@@ -210,16 +210,16 @@ const grupos = [
   {
     slug: 'divisiones-de-bano',
     titulo: 'Divisiones de baño · Solo vidrio templado',
-    desc: 'Fija, corredera, abatible, plegable, esquinera, frameless, enmarcada y para tina, todo en vidrio templado de seguridad NTC 1578.',
+    desc: 'Fija, corredera, abatible, plegable, esquinera, frameless y para tina, todo en vidrio templado de seguridad NTC 1578, sin marco de aluminio perimetral.',
     productos: [
       {
         href: '/productos/divisiones-bano',
         num: '27',
         title: 'Divisiones de baño en vidrio templado',
-        sub: '8 sistemas · NTC 1578 · herrajes inoxidables',
-        desc: 'Fija walk-in, corredera, abatible, plegable, esquinera, frameless sin marco, enmarcada y mampara para tina. Vidrio templado de seguridad certificado, herrajes en acero inoxidable 304/316 y sellado con silicona neutra antihongos.',
+        sub: '7 sistemas · NTC 1578 · herrajes inoxidables',
+        desc: 'Fija walk-in, corredera, abatible, plegable, esquinera, frameless sin marco y mampara para tina. Vidrio templado de seguridad certificado, herrajes en acero inoxidable 304/316 y sellado con silicona neutra antihongos. No fabricamos el sistema con marco de aluminio en los cuatro lados.',
         tag: 'Línea nueva',
-        features: ['Vidrio templado NTC 1578', 'De 4 mm enmarcado a 10 mm frameless', 'Herrajes acero inoxidable 304/316', 'Sellado antihongos + prueba de agua'],
+        features: ['Vidrio templado NTC 1578', 'De 6 mm a 10 mm según el sistema', 'Herrajes acero inoxidable 304/316', 'Sellado antihongos + prueba de agua'],
         featured: true,
       },
     ],
