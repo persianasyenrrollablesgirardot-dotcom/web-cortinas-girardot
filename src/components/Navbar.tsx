@@ -192,6 +192,8 @@ export default function Navbar() {
                     display: 'grid',
                     gridTemplateColumns: 'repeat(4, 1fr)', /* 4 columnas en lugar de 7 */
                     gap: '20px 16px', /* Mayor gap vertical entre filas */
+                    maxHeight: 'calc(100vh - 110px)', /* con 11 grupos el panel ya no cabe en ventanas bajas */
+                    overflowY: 'auto',
                   }}>
                     {submenuGrupos.map((grupo) => (
                       <div key={grupo.titulo}>
