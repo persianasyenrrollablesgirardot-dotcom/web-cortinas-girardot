@@ -79,6 +79,19 @@ const lineasMenores: Linea[] = [
     ],
   },
   {
+    slug: 'divisiones-bano',
+    kicker: 'Línea nueva · solo vidrio templado',
+    titulo: 'Divisiones de baño',
+    desc: 'Fija, corredera, abatible, plegable, esquinera y frameless. Vidrio templado de seguridad NTC 1578, herrajes en acero inoxidable.',
+    href: '/productos/divisiones-bano',
+    img: '/divisiones-bano/frameless.jpg',
+    temas: [
+      { label: 'Corredera', href: '/productos/divisiones-bano#corredera' },
+      { label: 'Abatible', href: '/productos/divisiones-bano#abatible' },
+      { label: 'Frameless', href: '/productos/divisiones-bano#frameless' },
+    ],
+  },
+  {
     slug: 'estructuras',
     kicker: 'Acero con cálculo · diseño firmado',
     titulo: 'Estructuras metálicas',

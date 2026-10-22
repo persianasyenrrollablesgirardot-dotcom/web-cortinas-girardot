@@ -50,6 +50,12 @@ const submenuGrupos = [
     ],
   },
   {
+    titulo: 'Divisiones de baño · Solo vidrio templado',
+    items: [
+      { href: '/productos/divisiones-bano', label: 'Divisiones de baño en vidrio templado', sub: '8 sistemas · NTC 1578 · fija a frameless' },
+    ],
+  },
+  {
     titulo: 'Toldos · Sombra retráctil',
     items: [
       { href: '/productos/toldos-brazos',        label: 'Toldo de brazos extensibles', sub: 'Vértice · Octopus · Aqua Rain · Mykonos' },
@@ -218,7 +224,7 @@ export default function Navbar() {
 
                     {/* Footer del mega-menu */}
                     <div style={{ gridColumn: '1 / -1', marginTop: '8px', paddingTop: '12px', borderTop: '1px solid rgba(0,0,0,0.07)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <p style={{ fontSize: '12px', color: 'var(--text-3)' }}>15 líneas de producto · Catálogo 2026</p>
+                      <p style={{ fontSize: '12px', color: 'var(--text-3)' }}>16 líneas de producto · Catálogo 2026</p>
                       <Link href="/productos" onClick={() => setSubOpen(false)} style={{ fontSize: '12px', fontWeight: 600, color: 'var(--gold)', textDecoration: 'none' }}>
                         Ver catálogo completo →
                       </Link>

@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'verticales', 'panel', 'cortina', 'motorizacion', 'peliculas',
     'papel', 'lienzo', 'estampados', 'pergolas', 'toldo-romano',
     'accesorios-pergolas', 'accesorios-toldos', 'accesorios-pel', 'toldos-brazos',
+    'divisiones-bano',
   ]
 
   return [
