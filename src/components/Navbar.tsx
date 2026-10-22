@@ -189,43 +189,46 @@ export default function Navbar() {
                     backdropFilter: 'blur(20px)',
                     boxShadow: '0 16px 48px rgba(0,0,0,0.13)',
                     padding: '24px',
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)', /* 4 columnas en lugar de 7 */
-                    gap: '20px 16px', /* Mayor gap vertical entre filas */
                     maxHeight: 'calc(100vh - 110px)', /* con 11 grupos el panel ya no cabe en ventanas bajas */
                     overflowY: 'auto',
                   }}>
-                    {submenuGrupos.map((grupo) => (
-                      <div key={grupo.titulo}>
-                        <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '8px', padding: '0 10px' }}>
-                          {grupo.titulo}
-                        </p>
-                        {grupo.items.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={() => setSubOpen(false)}
-                            style={{
-                              display: 'block', padding: '9px 10px', borderRadius: '10px',
-                              textDecoration: 'none',
-                              background: pathname === item.href ? 'rgba(184,145,42,0.08)' : 'transparent',
-                              transition: 'background 0.15s',
-                            }}
-                            className="mega-item"
-                          >
-                            <p style={{ fontSize: '13px', fontWeight: 600, color: pathname === item.href ? 'var(--gold-dark)' : 'var(--text)', lineHeight: 1.2, marginBottom: '2px' }}>
-                              {item.label}
-                            </p>
-                            <p style={{ fontSize: '11px', color: 'var(--text-3)', lineHeight: 1.3 }}>
-                              {item.sub}
-                            </p>
-                          </Link>
-                        ))}
-                      </div>
-                    ))}
+                    {/* Mosaico de columnas: un grid de filas iguales dejaba huecos enormes
+                        porque "Persianas y cortinas" (9 enlaces) estiraba toda la fila
+                        debajo de grupos de 2-4 enlaces. Columnas CSS acomodan cada grupo
+                        según su propio alto, sin huecos. */}
+                    <div style={{ columnCount: 4, columnGap: '16px' }}>
+                      {submenuGrupos.map((grupo) => (
+                        <div key={grupo.titulo} style={{ breakInside: 'avoid', marginBottom: '20px' }}>
+                          <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '8px', padding: '0 10px' }}>
+                            {grupo.titulo}
+                          </p>
+                          {grupo.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              onClick={() => setSubOpen(false)}
+                              style={{
+                                display: 'block', padding: '9px 10px', borderRadius: '10px',
+                                textDecoration: 'none',
+                                background: pathname === item.href ? 'rgba(184,145,42,0.08)' : 'transparent',
+                                transition: 'background 0.15s',
+                              }}
+                              className="mega-item"
+                            >
+                              <p style={{ fontSize: '13px', fontWeight: 600, color: pathname === item.href ? 'var(--gold-dark)' : 'var(--text)', lineHeight: 1.2, marginBottom: '2px' }}>
+                                {item.label}
+                              </p>
+                              <p style={{ fontSize: '11px', color: 'var(--text-3)', lineHeight: 1.3 }}>
+                                {item.sub}
+                              </p>
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
 
                     {/* Footer del mega-menu */}
-                    <div style={{ gridColumn: '1 / -1', marginTop: '8px', paddingTop: '12px', borderTop: '1px solid rgba(0,0,0,0.07)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ marginTop: '8px', paddingTop: '12px', borderTop: '1px solid rgba(0,0,0,0.07)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <p style={{ fontSize: '12px', color: 'var(--text-3)' }}>16 líneas de producto · Catálogo 2026</p>
                       <Link href="/productos" onClick={() => setSubOpen(false)} style={{ fontSize: '12px', fontWeight: 600, color: 'var(--gold)', textDecoration: 'none' }}>
                         Ver catálogo completo →
